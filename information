@@ -1,0 +1,103 @@
+            'database' => 'aidbtafq_acc_ms_db',
+            'username' => 'aidbtafq_acc_ms_db_admin',
+            'password' => '^*HDK&98**((((',
+
+
+
+            <select class="form-control" name="account_id" required>
+                <?php
+                $account = DB::table('account')->where('id', $project[0]->account_id)
+                    ->select('account_name')->first();
+                ?>
+                <option value="{{$project[0]->account_id}}">{{$account->account_name}}</option>
+                @foreach($accounts as $account)
+                <option value="{{$account->id}}">{{$account->account_name}}</option>
+                @endforeach
+            </select>
+
+
+
+
+
+            <select class="form-control" name="project_id" required>
+                <?php
+                $project  = DB::table('project')->where('id', $salarytable[0]->project_id)->select('project_name')->first();
+                ?>
+                <option value="{{$salarytable[0]->project_id}}">{{ $project->project_name}}</option>
+                <option value="">Select Project</option>
+                @foreach($projects as $project)
+                <option value="{{$project->id}}">{{$project->project_name}}</option>
+                @endforeach
+            </select>
+
+
+            <select name="employee_id" id="employee_id" class="form-control" required>
+                <?php
+
+                $employee  = DB::table('employee')->where('id', $salaryadvance[0]->employee_id)->select('employee_name')->first();
+                ?>
+                <option value='{{$salaryadvance[0]->employee_id}}'>{{$employee->employee_name}}</option>
+                <option value="">Select Employee</option>
+                @foreach($employees as $employee)
+                <option value="{{$employee->id}}">{{$employee->employee_name}}</option>
+                @endforeach
+            </select>
+
+
+            >addColumn('employee', function ($advance) {
+                $employee  = DB::table('employee')->where('id', $advance->employee_id)->select('employee_name')->first();
+                    return $employee->employee_name;
+            })
+
+
+
+    $('#payment_mode').on('change', function() {
+        var paymentMode = this.value;
+        var loan_amount = $("#loan_amount").val();
+        var projectId = $("#project_id").val();
+
+        if (loan_amount > 0) {
+            if (paymentMode == "Petty Cash") {
+                $('#cheque-number-div').hide();
+                $('#cheque-number-div').attr('required', false);
+                $.ajax({
+                    url: "{{url('api/petty-cash-balance')}}/" + projectId + "/" + loan_amount,
+                    type: "get",
+                    data: {
+                        _token: '{{csrf_token()}}'
+                    },
+                    dataType: 'json',
+                    success: function(result) {
+                        if (result.balance == "NO") {
+                            alert("Insufficient petty cash balance");
+                            $('#payment_mode').val('');
+                        }
+                    }
+                });
+            } else {
+                $('#cheque-number-div').show();
+                $('#cheque-number-div').attr('required', true);
+                $.ajax({
+                    url: "{{url('api/account-balance')}}/" + projectId + "/" + loan_amount,
+                    type: "get",
+                    data: {
+                        _token: '{{csrf_token()}}'
+                    },
+                    dataType: 'json',
+                    success: function(result) {
+                        if (result.balance == "NO") {
+                            alert("Insufficient account cash balance");
+                            $('#payment_mode').val('');
+                        }
+                    }
+                });
+            }
+        } else {
+            alert("Amoun must be greate than zero");
+        }
+    });
+
+
+
+            var today = new Date().toISOString().split('T')[0];
+        $('#received_date').val(today);
