@@ -29,7 +29,7 @@
                                             <div class="form-group col-md-12">
                                                 <label for="title">Name</label>
                                                 <input type="text" class="form-control" required 
-                                                       name="project_title" id="name" 
+                                                       name="name" id="name" 
                                                        value="{{ old('name', $project->name) }}" 
                                                        placeholder="Project Name">
                                             </div>
@@ -38,7 +38,7 @@
                                         <div class="row">
                                             <div class="form-group col-md-12">
                                                 <label for="content">Description</label>
-                                                <div id="quill-editor" class="mb-3" style="height: 300px;"></div>
+                                                <div id="quill-editor" class="mb-3" style="height: 200px;"></div>
                                                 <textarea rows="3" class="mb-3 d-none" name="project_description"  id="quill-editor-area">{{ $project->project_description }}</textarea>
                                             </div>
                                         </div>
@@ -46,9 +46,10 @@
                                         
 
                                         <div class="row">
-                                            <div class="form-group col-md-4">
-                                                <label for="status">Project Type </label>
+                                           <div class="form-group col-md-4">
+                                                <label for="status">Project Type</label>
                                                 <select class="form-control" name="project_type">
+                                                    <option value="">-- Select Project Type --</option>
                                                     <option value="Interior" {{ old('project_type', $project->project_type) == 'Interior' ? 'selected' : '' }}>Interior</option>
                                                     <option value="Exterior" {{ old('project_type', $project->project_type) == 'Exterior' ? 'selected' : '' }}>Exterior</option>
                                                     <option value="Consultancy" {{ old('project_type', $project->project_type) == 'Consultancy' ? 'selected' : '' }}>Consultancy</option>
@@ -56,18 +57,29 @@
                                             </div>
 
                                             <div class="form-group col-md-4">
-                                                <label for="status">Project Category </label>
-                                                <select class="form-control" name="project_category ">
+                                                <label for="status">Project Category</label>
+                                                <select class="form-control" name="project_category">
+                                                    <option value="">-- Select Category --</option>
                                                     <option value="Residence" {{ old('project_category', $project->project_category) == 'Residence' ? 'selected' : '' }}>Residence</option>
                                                     <option value="Office" {{ old('project_category', $project->project_category) == 'Office' ? 'selected' : '' }}>Office</option>
                                                 </select>
                                             </div>
+
                                             <div class="form-group col-md-4">
-                                                <label for="status">Product Status</label>
-                                                <select class="form-control" name="status">
-                                                    <option value="ACTIVE" {{ old('status', $project->status) == 'ACTIVE' ? 'selected' : '' }}>Active</option>
-                                                    <option value="Published" {{ old('status', $project->status) == 'Published' ? 'selected' : '' }}>Published</option>
-                                                    <option value="INACTIVE" {{ old('status', $project->status) == 'INACTIVE' ? 'selected' : '' }}>Inactive</option>
+                                                <label for="status">Project Visibility</label>
+                                                <select class="form-control" name="project_visibility">
+                                                    <option value="">-- Select Visibility --</option>
+                                                    <option value="Published" {{ old('project_visibility', $project->project_visibility) == 'Published' ? 'selected' : '' }}>Published</option>
+                                                    <option value="Hidden" {{ old('project_visibility', $project->project_visibility) == 'Hidden' ? 'selected' : '' }}>Hidden</option>
+                                                </select>
+                                            </div>
+
+                                            <div class="form-group col-md-4">
+                                                <label for="status">Project Status</label>
+                                                <select class="form-control" name="project_status">
+                                                    <option value="">-- Select Status --</option>
+                                                    <option value="Completed" {{ old('project_status', $project->project_status) == 'Completed' ? 'selected' : '' }}>Completed</option>
+                                                    <option value="Running" {{ old('project_status', $project->project_status) == 'Running' ? 'selected' : '' }}>Running</option>
                                                 </select>
                                             </div>
 

@@ -87,10 +87,15 @@ class BusinessProjectController extends Controller
             $photoPath = $photoUrl;
         }
 
+
+
         $project = BusinessProject::create([
-            'project_title'       => $request->project_title,
-            'slug'                => generateSlug($request->project_title),
+            'name'                  => $request->name,
+            'slug'                => generateSlug($request->name),
             'project_description' => $request->project_description,
+            'project_type'        => $request->project_type,
+            'project_category'    => $request->project_category,
+            'project_visibility' => $request->project_visibility,
             'status'              => $request->status,
             'project_photo'         => $photoPath,
             'created_by'          => $userId,
@@ -159,15 +164,15 @@ class BusinessProjectController extends Controller
 
         // Update the project
         $updated = $project->update([
-            'name'                => $request->name,
+            'name'                  => $request->name,
             'slug'                => generateSlug($request->name),
             'project_description' => $request->project_description,
-            'status'              => $request->status,
-            'project_category'    => $request->project_category,
             'project_type'        => $request->project_type,
-            'status'              => $request->status,
+            'project_category'    => $request->project_category,
+            'project_visibility' => $request->project_visibility,
+            'project_status'              => $request->project_status,
             'project_photo'         => $photoPath,
-            'updated_by'          => $userId,
+            'created_by'          => $userId,
         ]);
 
         if ($updated) {

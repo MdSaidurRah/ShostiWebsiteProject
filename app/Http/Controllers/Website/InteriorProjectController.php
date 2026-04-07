@@ -31,7 +31,7 @@ class InteriorProjectController extends Controller
             ->select('id')
             ->first();
 
-        $projects  = DB::table('projects')
+        $projects  = DB::table('business_projects')
             ->where('category_id', $category->id)
             ->select('*')
             ->get();

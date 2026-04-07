@@ -16,6 +16,7 @@ class BusinessPackage extends Model
     'duration',
     'price',
     'size',
+    'package_type',
     'cover_photo',
     'reference_link',
     'status',

@@ -20,7 +20,7 @@ use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Crypt;
 
-class VisitorMessageController extends Controller
+class ConsultationFlowController extends Controller
 {
     public $accessLogger;
     public $crudObject;
@@ -52,25 +52,7 @@ class VisitorMessageController extends Controller
 
     }
 
-    public function visitorMessage()
-    {
-
-        return view('report.visitor-message.index');
-    }
-
-
-
-    public function show($id)
-    {
-        $keyId = Crypt::decryptString($id);
-        $message = VisitorContactUsMessage::findOrFail($keyId);
-
-        return view('report.visitor-message.show')->with('message', $message);
-
-
-    }
-
-
+   
 
     /** ✅ Get all pages (for DataTables or listing) */
     public function getAllItems(Request $request)

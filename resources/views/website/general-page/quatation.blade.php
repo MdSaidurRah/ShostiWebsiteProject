@@ -12,11 +12,13 @@
         <!-- Pricing Packages -->
         <div class="row g-4">
             <div class="col-12">
-                <h3 class="qp-section-title mb-3 text-center">Pricing Packages</h3>
+                <h3 class="qp-section-title mb-3 text-center">Pricing Packages </h3>
                 <p class="text-muted text-center mb-4">
                     Choose a finish level. We’ll customize based on your scope and measurements.
                 </p>
             </div>
+
+
 
             @foreach($packages as $item)
 
@@ -25,34 +27,26 @@
                     <div class="pkg-card h-100">
                         <div class="pkg-top">
                             <span class="pkg-badge">{{$item->package_type}}</span>
-                            <h4 class="pkg-title mt-2 mb-1">{{$item->package_title}}</h4>
+                            <h4 class="pkg-title mt-2 mb-1">{{$item->title}}</h4>
                             <div >
                                 <table class="table">
                                     <tr>
                                         <td>
-                                            <span class="pkg-from">{{$item->development_duration}}</span>
+                                            <span class="pkg-from">{{$item->duration}}</span>
                                         </td>
                                         <td>
-                                             Price : {{$item->package_price}}
+                                             Price : {{$item->price}}
                                         </td>
                                     </tr>
                                 </table>
-                                
-                              
                             </div>
-                           
                             <div>
-                                  <span class="pkg-amount">Size : {{$item->package_size}}</span>
+                                  <span class="pkg-amount">Size : {{$item->size}}</span>
                             </div>
                             <p class="pkg-sub text-muted mb-0">
-                                {{$item->package_description}}
-                            </p> 
-                            
-                           
+                                {!! $item->description !!}
+                            </p>                            
                         </div>
-                      
-
-                      
 
                         <a href="{{ url('/contact-us') }}" class="btn btn-outline-dark rounded-pill px-4 w-100">
                             Get Quote

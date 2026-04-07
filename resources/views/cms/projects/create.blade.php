@@ -60,12 +60,12 @@
                                                 </select>
                                             </div>
 
+                                     
                                             <div class="form-group col-md-4">
-                                                <label for="status">Product Status</label>
-                                                <select class="form-control" name="status">
-                                                    <option value="ACTIVE" >Active</option>
+                                                <label for="status">Project Visibility</label>
+                                                <select class="form-control" name="project_visibility">
                                                     <option value="Published" >Published</option>
-                                                    <option value="INACTIVE" >Inactive</option>
+                                                    <option value="Hidden" >Hidden</option>
                                                 </select>
                                             </div>
 

@@ -37,7 +37,7 @@ $officialLogo =  DB::table('system_information')
     <tr>
         <td width="80%">
             <h1>{{$organization->information_value}}</h1>
-            <a href="https://aidbd.org/">{{$website->information_value}}</a>
+            <a href="https://shostiarcstudio.com">{{$website->information_value}}</a>
             <p>Contact No: {{$contactNo->information_value}}</p>
             <p>Email :  {{$email->information_value}}</p>
         </td>

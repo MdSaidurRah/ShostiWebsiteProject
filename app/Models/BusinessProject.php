@@ -6,9 +6,9 @@ class BusinessProject extends Model {
     protected $table = 'business_projects';
     public $timestamps=false;
     protected $fillable = [
-      'project_title', 'slug', 'project_description',
+      'name', 'slug', 'project_description','project_visibility',
        'project_photo', 'reference_link','created_by',
-       'project_type','project_category'
+       'project_type','project_category','project_status'
     ];
     
 }

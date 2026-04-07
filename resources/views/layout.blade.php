@@ -184,7 +184,7 @@
                         </a>
                         <div class="collapse" id="report">
                             <ul class="nav flex-column sub-menu">
-                                <li class="nav-item"> <a class="nav-link" href="{{url('/visitor-query')}}">Visitor Query</a></li>
+                                <li class="nav-item"> <a class="nav-link" href="{{url('/consultation-query')}}">Consultation Query</a></li>
                             </ul>
                         </div>
                     </li>
@@ -232,7 +232,7 @@
                 <footer class="footer">
                     <div class="footer-inner-wraper">
                         <div class="d-sm-flex justify-content-center justify-content-sm-between">
-                            <span class="text-muted d-block text-center text-sm-left d-sm-inline-block">Copyright © aidbd.org 2025</span>
+                            <span class="text-muted d-block text-center text-sm-left d-sm-inline-block">Copyright © 2023 Shosti Arc Studio. All rights reserved.</span>
 
                         </div>
                     </div>

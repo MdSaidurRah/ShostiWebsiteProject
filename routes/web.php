@@ -17,6 +17,7 @@ use App\Http\Controllers\CMS\SiteBannerController;
 use App\Http\Controllers\CMS\SiteGallaryController;
 use App\Http\Controllers\CMS\PromotionalVideoController;
 use App\Http\Controllers\Report\VisitorMessageController;
+use App\Http\Controllers\Report\ConsultationFlowControllerConsultationFlowController;
 use App\Http\Controllers\UserController\SystemInformationController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Artisan;
@@ -118,10 +119,11 @@ Route::middleware(['checkauthencation'])->group(function(){
     Route::get('/visitor-message/show/{id}', [VisitorMessageController::class, 'show'])->name('visitor-message.show');
     Route::get('/get-all/visitor-message', [VisitorMessageController::class, 'getAllItems'])->name('get-all-visitor-message');    
     
-    // visitor-query
-    Route::get('/visitor-query', [VisitorMessageController::class, 'visitorMessage'])->name('visitor-message.index');
-    Route::get('/visitor-message/show/{id}', [VisitorMessageController::class, 'show'])->name('visitor-message.show');
-    Route::get('/get-all/visitor-message', [VisitorMessageController::class, 'getAllItems'])->name('get-all-visitor-message'); 
+    // consultation query
+    Route::get('/consultation-query', [ConsultationFlowController::class, 'consultationQuery'])->name('consultation-query.index');
+    Route::get('/consultation-query/show/{id}', [ConsultationFlowController::class, 'consultationQueryShow'])->name('consultation-query.show');
+    Route::get('/get-all/consultation-query', [ConsultationFlowController::class, 'getAllItems'])->name('get-all-consultation-query'); 
+
     
     
   

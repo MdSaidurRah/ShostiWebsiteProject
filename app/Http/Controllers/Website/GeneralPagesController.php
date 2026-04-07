@@ -48,8 +48,8 @@ class GeneralPagesController extends Controller
     public function quotation()
     {
 
-        $packages  = DB::table('packages')->where('package_status','ACTIVE')->get();
-
+        $packages  = DB::table('business_packages')->where('status','Published')->get();
+       
         $pageTitle ="Quotation";
         return view('website.general-page.quatation')
             ->with('packages',$packages)

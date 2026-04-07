@@ -14,7 +14,7 @@ class ExteriorProjectController extends Controller
     {
         $pageTitle ="Exterior Projects";
 
-        $exteriorProjects =  DB::table('projects')
+        $exteriorProjects =  DB::table('business_projects')
             ->where('project_type','Exterior')
             ->where('project_status','ACTIVE')
             ->select('*')
