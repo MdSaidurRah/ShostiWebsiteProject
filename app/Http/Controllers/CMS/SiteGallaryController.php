@@ -126,9 +126,6 @@ class SiteGallaryController extends Controller
 
     public function update(Request $request)
     {
-
-
-
       $userId = Session::get('userId');
 
         // Find the banner to update
@@ -178,8 +175,8 @@ class SiteGallaryController extends Controller
         if ($updated) {
             $this->accessLogger->logEntry($userId, 'Banner Update.', 'Banner', $gallery->id, '');
             flash()->addSuccess('Banner update operation has been successful.');
-            return Redirect::back();
-        } else {
+            return redirect()->route('project.index');
+        }else{
             flash()->addError('Sorry, Banner update operation has been failed.');
             return Redirect::back();
         }

@@ -21,29 +21,45 @@
         <!-- Tabs -->
         <div class="d-flex justify-content-center mb-4">
             <ul class="nav pf-tabs" id="portfolioTabs" role="tablist">
+             
                 <li class="nav-item" role="presentation">
-                    <button class="nav-link active" id="tab-all" data-bs-toggle="tab" data-bs-target="#pane-all" type="button" role="tab" aria-controls="pane-all" aria-selected="true">
-                        All
+                    <button class="nav-link active" id="tab-res" data-bs-toggle="tab" data-bs-target="#pane-completed" type="button" role="tab" aria-controls="pane-completed" aria-selected="false">
+                        Completed
                     </button>
                 </li>
                 <li class="nav-item" role="presentation">
-                    <button class="nav-link" id="tab-res" data-bs-toggle="tab" data-bs-target="#pane-res" type="button" role="tab" aria-controls="pane-res" aria-selected="false">
-                        Residential
+                    <button class="nav-link" id="tab-com" data-bs-toggle="tab" data-bs-target="#pane-running" type="button" role="tab" aria-controls="pane-running" aria-selected="false">
+                        Running
                     </button>
                 </li>
                 <li class="nav-item" role="presentation">
-                    <button class="nav-link" id="tab-com" data-bs-toggle="tab" data-bs-target="#pane-com" type="button" role="tab" aria-controls="pane-com" aria-selected="false">
-                        Commercial
-                    </button>
-                </li>
-                <li class="nav-item" role="presentation">
-                    <button class="nav-link" id="tab-office" data-bs-toggle="tab" data-bs-target="#pane-office" type="button" role="tab" aria-controls="pane-office" aria-selected="false">
-                        Office
+                    <button class="nav-link" id="tab-office" data-bs-toggle="tab" data-bs-target="#pane-interior" type="button" role="tab" aria-controls="pane-interior" aria-selected="false">
+                        Interior
                     </button>
                 </li>
                 <li class="nav-item" role="presentation">
                     <button class="nav-link" id="tab-ext" data-bs-toggle="tab" data-bs-target="#pane-ext" type="button" role="tab" aria-controls="pane-ext" aria-selected="false">
                         Exterior
+                    </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="tab-ext" data-bs-toggle="tab" data-bs-target="#pane-consultancy" type="button" role="tab" aria-controls="pane-consultancy" aria-selected="false">
+                        Consultancy
+                    </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="tab-ext" data-bs-toggle="tab" data-bs-target="#pane-kitchen" type="button" role="tab" aria-controls="pane-kitchen" aria-selected="false">
+                        Kitchen
+                    </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="tab-ext" data-bs-toggle="tab" data-bs-target="#pane-office" type="button" role="tab" aria-controls="pane-office" aria-selected="false">
+                        Office
+                    </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="tab-ext" data-bs-toggle="tab" data-bs-target="#pane-residence" type="button" role="tab" aria-controls="pane-residence" aria-selected="false">
+                        Residence
                     </button>
                 </li>
             </ul>
@@ -52,29 +68,201 @@
         <!-- Tab Panes -->
         <div class="tab-content" id="portfolioTabsContent">
 
-            <!-- ALL -->
-            <div class="tab-pane fade show active" id="pane-all" role="tabpanel" aria-labelledby="tab-all">
+           
+
+            <!-- Completed -->
+            <div class="tab-pane fade show active" id="pane-completed" role="tabpanel" aria-labelledby="tab-res">
                 <div class="row g-4">
                     @php
-                        // Replace these with DB-driven items later
-                        $allProjects = [
-                            ['img' => 'website/assets/img/projects/about-us.jpg', 'title' => 'Modern Living Room', 'cat' => 'Residential'],
-                            ['img' => 'website/assets/img/service/interior-service.jpg', 'title' => 'Luxury Bedroom', 'cat' => 'Residential'],
-                            ['img' => 'website/assets/img/service/exterior-service.jpg', 'title' => 'Facade Design', 'cat' => 'Exterior'],
-                            ['img' => 'website/assets/img/service/consultancy-service.jpg', 'title' => 'Corporate Office', 'cat' => 'Office'],
-
-                        ];
+                        $completed = DB::table('business_projects')
+                            ->where('project_visibility', 'Published')
+                            ->where('project_status', 'completed')
+                            ->get();
                     @endphp
-
-                    @foreach($allProjects as $p)
+                    @foreach($completed as $p)
                         <div class="col-12 col-sm-6 col-lg-4 col-xl-3 mb-4">
                             <a href="#" class="pf-card">
                                 <div class="pf-img">
-                                    <img src="{{ static_asset($p['img']) }}" alt="{{ $p['title'] }}">
+                                    <img src="{{ url($p->project_photo) }}" alt="{{ $p->name }}">
                                 </div>
                                 <div class="pf-meta">
-                                    <div class="pf-cat">{{ $p['cat'] }}</div>
-                                    <h5 class="pf-title">{{ $p['title'] }}</h5>
+                                    <div class="pf-cat">{{ $p->project_category }}</div>
+                                    <h5 class="pf-title">{{ $p->name }}</h5>
+                                </div>
+                            </a>
+                        </div>
+                    @endforeach
+                </div>
+            </div>            
+            
+            <!-- Running -->
+            <div class="tab-pane fade" id="pane-running" role="tabpanel" aria-labelledby="tab-res">
+                <div class="row g-4">
+                    @php
+                        $running = DB::table('business_projects')
+                            ->where('project_visibility', 'Published')
+                            ->where('project_status', 'Running')
+                            ->get();
+                    @endphp     
+                    @foreach($running as $p)
+                        <div class="col-12 col-sm-6 col-lg-4 col-xl-3 mb-4">
+                            <a href="#" class="pf-card">
+                                <div class="pf-img">
+                                    <img src="{{ url($p->project_photo) }}" alt="{{ $p->name }}">
+                                </div>
+                                <div class="pf-meta">
+                                    <div class="pf-cat">{{ $p->project_category }}</div>
+                                    <h5 class="pf-title">{{ $p->name }}</h5>
+                                </div>
+                            </a>
+                        </div>
+                    @endforeach
+                </div>
+            </div>            
+            
+            <!-- Interior -->
+            <div class="tab-pane fade" id="pane-interior" role="tabpanel" aria-labelledby="tab-res">
+                <div class="row g-4">
+                    @php
+                        $interior = DB::table('business_projects')
+                            ->where('project_visibility', 'Published')
+                            ->where('project_status', 'Running')
+                            ->get();
+                    @endphp     
+                    @foreach($interior as $p)
+                        <div class="col-12 col-sm-6 col-lg-4 col-xl-3 mb-4">
+                            <a href="#" class="pf-card">
+                                <div class="pf-img">
+                                    <img src="{{ url($p->project_photo) }}" alt="{{ $p->name }}">
+                                </div>
+                                <div class="pf-meta">
+                                    <div class="pf-cat">{{ $p->project_category }}</div>
+                                    <h5 class="pf-title">{{ $p->name }}</h5>
+                                </div>
+                            </a>
+                        </div>
+                    @endforeach
+                </div>
+            </div>            
+            
+            <!-- Exterior -->
+            <div class="tab-pane fade" id="pane-exterior" role="tabpanel" aria-labelledby="tab-res">
+                <div class="row g-4">
+                    @php
+                        $exterior = DB::table('business_projects')
+                            ->where('project_visibility', 'Published')
+                            ->where('project_status', 'Running')
+                            ->get();
+                    @endphp     
+                    @foreach($exterior as $p)
+                        <div class="col-12 col-sm-6 col-lg-4 col-xl-3 mb-4">
+                            <a href="#" class="pf-card">
+                                <div class="pf-img">
+                                    <img src="{{ url($p->project_photo) }}" alt="{{ $p->name }}">
+                                </div>
+                                <div class="pf-meta">
+                                    <div class="pf-cat">{{ $p->project_category }}</div>
+                                    <h5 class="pf-title">{{ $p->name }}</h5>
+                                </div>
+                            </a>
+                        </div>
+                    @endforeach
+                </div>
+            </div>            
+            
+            <!-- Consultancy -->
+            <div class="tab-pane fade" id="pane-consultancy" role="tabpanel" aria-labelledby="tab-res">
+                <div class="row g-4">
+                    @php
+                        $consultancy = DB::table('business_projects')
+                            ->where('project_visibility', 'Published')
+                            ->where('project_status', 'Running')
+                            ->get();
+                    @endphp     
+                    @foreach($consultancy as $p)
+                        <div class="col-12 col-sm-6 col-lg-4 col-xl-3 mb-4">
+                            <a href="#" class="pf-card">
+                                <div class="pf-img">
+                                    <img src="{{ url($p->project_photo) }}" alt="{{ $p->name }}">
+                                </div>
+                                <div class="pf-meta">
+                                    <div class="pf-cat">{{ $p->project_category }}</div>
+                                    <h5 class="pf-title">{{ $p->name }}</h5>
+                                </div>
+                            </a>
+                        </div>
+                    @endforeach
+                </div>
+            </div>
+            
+            <!-- Kitchen -->
+            <div class="tab-pane fade" id="pane-kitchen" role="tabpanel" aria-labelledby="tab-res">
+                <div class="row g-4">
+                    @php
+                        $kitchen = DB::table('business_projects')
+                            ->where('project_visibility', 'Published')
+                            ->where('project_status', 'Running')
+                            ->get();
+                    @endphp     
+                    @foreach($kitchen as $p)
+                        <div class="col-12 col-sm-6 col-lg-4 col-xl-3 mb-4">
+                            <a href="#" class="pf-card">
+                                <div class="pf-img">
+                                    <img src="{{ url($p->project_photo) }}" alt="{{ $p->name }}">
+                                </div>
+                                <div class="pf-meta">
+                                    <div class="pf-cat">{{ $p->project_category }}</div>
+                                    <h5 class="pf-title">{{ $p->name }}</h5>
+                                </div>
+                            </a>
+                        </div>
+                    @endforeach
+                </div>
+            </div>            
+            
+            <!-- Office -->
+            <div class="tab-pane fade" id="pane-office" role="tabpanel" aria-labelledby="tab-res">
+                <div class="row g-4">
+                    @php
+                        $office  = DB::table('business_projects')
+                            ->where('project_visibility', 'Published')
+                            ->where('project_status', 'Running')
+                            ->get();
+                    @endphp     
+                    @foreach($office as $p)
+                        <div class="col-12 col-sm-6 col-lg-4 col-xl-3 mb-4">
+                            <a href="#" class="pf-card">
+                                <div class="pf-img">
+                                    <img src="{{ url($p->project_photo) }}" alt="{{ $p->name }}">
+                                </div>
+                                <div class="pf-meta">
+                                    <div class="pf-cat">{{ $p->project_category }}</div>
+                                    <h5 class="pf-title">{{ $p->name }}</h5>
+                                </div>
+                            </a>
+                        </div>
+                    @endforeach
+                </div>
+            </div>
+            
+            <!-- Residence -->
+            <div class="tab-pane fade" id="pane-residence" role="tabpanel" aria-labelledby="tab-res">
+                <div class="row g-4">
+                    @php
+                        $residence = DB::table('business_projects')
+                            ->where('project_visibility', 'Published')
+                            ->where('project_status', 'Running')
+                            ->get();
+                    @endphp     
+                    @foreach($residence as $p)
+                        <div class="col-12 col-sm-6 col-lg-4 col-xl-3 mb-4">
+                            <a href="#" class="pf-card">
+                                <div class="pf-img">
+                                    <img src="{{ url($p->project_photo) }}" alt="{{ $p->name }}">
+                                </div>
+                                <div class="pf-meta">
+                                    <div class="pf-cat">{{ $p->project_category }}</div>
+                                    <h5 class="pf-title">{{ $p->name }}</h5>
                                 </div>
                             </a>
                         </div>
@@ -82,117 +270,7 @@
                 </div>
             </div>
 
-            <!-- RESIDENTIAL -->
-            <div class="tab-pane fade" id="pane-res" role="tabpanel" aria-labelledby="tab-res">
-                <div class="row g-4">
-                    @php
-                        $resProjects = [
-                            ['img' => 'website/assets/img/projects/about-us.jpg', 'title' => 'Modern Living Room'],
-                            ['img' => 'website/assets/img/service/interior-service.jpg', 'title' => 'Luxury Bedroom'],
-                            ['img' => 'website/assets/img/projects/interior/kitchen/Architectural (3).png', 'title' => 'Kitchen & Dining'],
-                            ['img' => 'website/assets/img/projects/interior/residence/resident (9).png', 'title' => 'Duplex Interior'],
-                        ];
-                    @endphp
-
-                    @foreach($resProjects as $p)
-                        <div class="col-12 col-sm-6 col-lg-4 col-xl-3 mb-4">
-                            <a href="#" class="pf-card">
-                                <div class="pf-img">
-                                    <img src="{{ static_asset($p['img']) }}" alt="{{ $p['title'] }}">
-                                </div>
-                                <div class="pf-meta">
-                                    <div class="pf-cat">Residential</div>
-                                    <h5 class="pf-title">{{ $p['title'] }}</h5>
-                                </div>
-                            </a>
-                        </div>
-                    @endforeach
-                </div>
-            </div>
-
-            <!-- COMMERCIAL -->
-            <div class="tab-pane fade" id="pane-com" role="tabpanel" aria-labelledby="tab-com">
-                <div class="row g-4">
-                    @php
-                        $comProjects = [
-                            ['img' => 'website/assets/img/projects/interior/residence/resident-(2).png', 'title' => 'Restaurant Interior'],
-                            ['img' => 'website/assets/img/projects/interior/office/Interior-(1).png', 'title' => 'Showroom Space'],
-                            ['img' => 'website/assets/img/projects/interior/residence/resident (4).png', 'title' => 'Retail Counter'],
-                            ['img' => 'website/assets/img/projects/interior/office/Interior-(7).png', 'title' => 'Cafe Concept'],
-                        ];
-                    @endphp
-
-                    @foreach($comProjects as $p)
-                        <div class="col-12 col-sm-6 col-lg-4 col-xl-3 mb-4">
-                            <a href="#" class="pf-card">
-                                <div class="pf-img">
-                                    <img src="{{ static_asset($p['img']) }}" alt="{{ $p['title'] }}">
-                                </div>
-                                <div class="pf-meta">
-                                    <div class="pf-cat">Commercial</div>
-                                    <h5 class="pf-title">{{ $p['title'] }}</h5>
-                                </div>
-                            </a>
-                        </div>
-                    @endforeach
-                </div>
-            </div>
-
-            <!-- OFFICE -->
-            <div class="tab-pane fade" id="pane-office" role="tabpanel" aria-labelledby="tab-office">
-                <div class="row g-4">
-                    @php
-                        $officeProjects = [
-                            ['img' => 'website/assets/img/projects/interior/office/Interior-(12).png', 'title' => 'Corporate Office'],
-                            ['img' => 'website/assets/img/projects/interior/office/Interior-(10).png', 'title' => 'Meeting Room'],
-                            ['img' => 'website/assets/img/projects/interior/office/Interior-(11).png', 'title' => 'Reception Desk'],
-                            ['img' => 'website/assets/img/projects/interior/office/Interior-(9).png', 'title' => 'Workspace Layout'],
-                        ];
-                    @endphp
-
-                    @foreach($officeProjects as $p)
-                        <div class="col-12 col-sm-6 col-lg-4 col-xl-3 mb-4">
-                            <a href="#" class="pf-card">
-                                <div class="pf-img">
-                                    <img src="{{ static_asset($p['img']) }}" alt="{{ $p['title'] }}">
-                                </div>
-                                <div class="pf-meta">
-                                    <div class="pf-cat">Office</div>
-                                    <h5 class="pf-title">{{ $p['title'] }}</h5>
-                                </div>
-                            </a>
-                        </div>
-                    @endforeach
-                </div>
-            </div>
-
-            <!-- EXTERIOR -->
-            <div class="tab-pane fade" id="pane-ext" role="tabpanel" aria-labelledby="tab-ext">
-                <div class="row g-4">
-                    @php
-                        $extProjects = [
-                            ['img' => 'website/assets/img/projects/exterior/exterior-(33).jpg', 'title' => 'Facade Design'],
-                            ['img' => 'website/assets/img/projects/exterior/exterior-(34).jpg', 'title' => 'Landscape Concept'],
-                            ['img' => 'website/assets/img/projects/exterior/exterior-(35).jpg', 'title' => 'Exterior Lighting'],
-                            ['img' => 'website/assets/img/projects/exterior/exterior (5).png', 'title' => 'Front Elevation'],
-                        ];
-                    @endphp
-
-                    @foreach($extProjects as $p)
-                        <div class="col-12 col-sm-6 col-lg-4 col-xl-3 mb-4">
-                            <a href="#" class="pf-card">
-                                <div class="pf-img">
-                                    <img src="{{ static_asset($p['img']) }}" alt="{{ $p['title'] }}">
-                                </div>
-                                <div class="pf-meta">
-                                    <div class="pf-cat">Exterior</div>
-                                    <h5 class="pf-title">{{ $p['title'] }}</h5>
-                                </div>
-                            </a>
-                        </div>
-                    @endforeach
-                </div>
-            </div>
+            
 
         </div>
 

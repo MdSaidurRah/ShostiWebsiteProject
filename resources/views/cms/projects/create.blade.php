@@ -35,7 +35,7 @@
                                         <div class="row">
                                             <div class="form-group col-md-12">
                                                 <label for="content">Description</label>
-                                                <div id="quill-editor" class="mb-3" style="height: 300px;"></div>
+                                                <div id="quill-editor" class="mb-3" style="height: 200px;"></div>
                                                 <textarea rows="3" class="mb-3 d-none" name="project_description"  id="quill-editor-area"></textarea>
                                             </div>
                                         </div>
@@ -46,6 +46,7 @@
                                             <div class="form-group col-md-4">
                                                 <label for="status">Project Type </label>
                                                 <select class="form-control" name="project_type">
+                                                    <option value="">-- Select Type --</option>
                                                     <option value="Interior">Interior</option>
                                                     <option value="Exterior">Exterior</option>
                                                     <option value="Consultancy">Consultancy</option>
@@ -54,9 +55,11 @@
 
                                             <div class="form-group col-md-4">
                                                 <label for="status">Project Category </label>
-                                                <select class="form-control" name="project_category ">
+                                                <select class="form-control" name="project_category">
+                                                    <option value="">-- Select Category --</option>
                                                     <option value="Residence">Residence</option>
                                                     <option value="Office">Office</option>
+                                                    <option value="Kitchen">Kitchen</option>
                                                 </select>
                                             </div>
 
@@ -64,8 +67,19 @@
                                             <div class="form-group col-md-4">
                                                 <label for="status">Project Visibility</label>
                                                 <select class="form-control" name="project_visibility">
+                                                    <option value="">-- Select Visibility --</option>
                                                     <option value="Published" >Published</option>
                                                     <option value="Hidden" >Hidden</option>
+                                                </select>
+                                            </div>
+
+                                            <div class="form-group col-md-4">
+                                                <label for="status">Project Status</label>
+                                                <select class="form-control" name="project_status">
+                                                    <option value="">-- Select Status --</option>
+                                                    <option value="Completed" >Completed</option>
+                                                    <option value="Running">Running</option>
+                                                    <option value="Upcoming">Upcoming</option>
                                                 </select>
                                             </div>
 

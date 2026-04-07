@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 03, 2026 at 08:58 AM
+-- Generation Time: Apr 08, 2026 at 12:26 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -108,7 +108,57 @@ INSERT INTO `access_logs` (`id`, `userId`, `actionName`, `workingDomain`, `note`
 (5132, 2, 'Blog Created', 'Blog', '11', NULL, 2, 2, '2026-04-03 06:49:48', '2026-04-03 06:49:48'),
 (5133, 2, 'Blog Updated', 'Blog', '11', NULL, 2, 2, '2026-04-03 06:50:07', '2026-04-03 06:50:07'),
 (5134, 2, 'Blog Updated', 'Blog', '11', NULL, 2, 2, '2026-04-03 06:50:12', '2026-04-03 06:50:12'),
-(5135, 2, 'Blog Updated', 'Blog', '11', NULL, 2, 2, '2026-04-03 06:50:17', '2026-04-03 06:50:17');
+(5135, 2, 'Blog Updated', 'Blog', '11', NULL, 2, 2, '2026-04-03 06:50:17', '2026-04-03 06:50:17'),
+(5136, 2, 'Successful Login Attempt', 'System', '', NULL, 2, 2, '2026-04-05 05:32:06', '2026-04-05 05:32:06'),
+(5137, 2, 'News submit.', 'News content', '', NULL, 2, 2, '2026-04-05 05:38:45', '2026-04-05 05:38:45'),
+(5138, 2, 'News submit.', 'News content', '', NULL, 2, 2, '2026-04-05 05:39:55', '2026-04-05 05:39:55'),
+(5139, 2, 'Successful Login Attempt', 'System', '', NULL, 2, 2, '2026-04-07 16:08:06', '2026-04-07 16:08:06'),
+(5140, 2, 'Successful Login Attempt', 'System', '', NULL, 2, 2, '2026-04-07 19:28:54', '2026-04-07 19:28:54'),
+(5141, 2, 'News Update.', 'News content', '', NULL, 2, 2, '2026-04-07 19:34:22', '2026-04-07 19:34:22'),
+(5142, 2, 'News Update.', 'News content', '', NULL, 2, 2, '2026-04-07 19:34:42', '2026-04-07 19:34:42'),
+(5143, 2, 'Business Project Update.', 'Business Project', '', NULL, 2, 2, '2026-04-07 20:56:16', '2026-04-07 20:56:16'),
+(5144, 2, 'Business Project Update.', 'Business Project', '', NULL, 2, 2, '2026-04-07 20:56:21', '2026-04-07 20:56:21'),
+(5145, 2, 'Business Project Update.', 'Business Project', '', NULL, 2, 2, '2026-04-07 21:03:52', '2026-04-07 21:03:52'),
+(5146, 2, 'Business Project Update.', 'Business Project', '', NULL, 2, 2, '2026-04-07 21:04:28', '2026-04-07 21:04:28'),
+(5147, 2, 'Business Project Update.', 'Business Project', '', NULL, 2, 2, '2026-04-07 21:09:15', '2026-04-07 21:09:15'),
+(5148, 2, 'Business Project Update.', 'Business Project', '', NULL, 2, 2, '2026-04-07 21:10:20', '2026-04-07 21:10:20'),
+(5149, 2, 'Business Project Update.', 'Business Project', '', NULL, 2, 2, '2026-04-07 21:10:24', '2026-04-07 21:10:24'),
+(5150, 2, 'Business Project Update.', 'Business Project', '', NULL, 2, 2, '2026-04-07 21:10:31', '2026-04-07 21:10:31'),
+(5151, 2, 'Business Project Update.', 'Business Project', '', NULL, 2, 2, '2026-04-07 21:10:37', '2026-04-07 21:10:37'),
+(5152, 2, 'Business Project Update.', 'Business Project', '', NULL, 2, 2, '2026-04-07 21:10:42', '2026-04-07 21:10:42'),
+(5153, 2, 'Business Project Update.', 'Business Project', '', NULL, 2, 2, '2026-04-07 21:14:55', '2026-04-07 21:14:55'),
+(5154, 2, 'Business Project Update.', 'Business Project', '', NULL, 2, 2, '2026-04-07 21:14:59', '2026-04-07 21:14:59'),
+(5155, 2, 'Business Project Update.', 'Business Project', '', NULL, 2, 2, '2026-04-07 21:15:04', '2026-04-07 21:15:04'),
+(5156, 2, 'Business Project Update.', 'Business Project', '', NULL, 2, 2, '2026-04-07 21:15:08', '2026-04-07 21:15:08'),
+(5157, 2, 'Business Project Update.', 'Business Project', '', NULL, 2, 2, '2026-04-07 21:15:12', '2026-04-07 21:15:12'),
+(5158, 2, 'Business Project Update.', 'Business Project', '', NULL, 2, 2, '2026-04-07 21:15:15', '2026-04-07 21:15:15'),
+(5159, 2, 'Business Project Update.', 'Business Project', '', NULL, 2, 2, '2026-04-07 21:16:11', '2026-04-07 21:16:11'),
+(5160, 2, 'Business Project Update.', 'Business Project', '', NULL, 2, 2, '2026-04-07 21:16:29', '2026-04-07 21:16:29'),
+(5161, 2, 'Business Project Update.', 'Business Project', '', NULL, 2, 2, '2026-04-07 21:16:33', '2026-04-07 21:16:33'),
+(5162, 2, 'Business Project Update.', 'Business Project', '', NULL, 2, 2, '2026-04-07 21:16:40', '2026-04-07 21:16:40'),
+(5163, 2, 'Business Project Update.', 'Business Project', '', NULL, 2, 2, '2026-04-07 21:16:44', '2026-04-07 21:16:44'),
+(5164, 2, 'Business Project Update.', 'Business Project', '', NULL, 2, 2, '2026-04-07 21:17:13', '2026-04-07 21:17:13'),
+(5165, 2, 'Business Project Update.', 'Business Project', '', NULL, 2, 2, '2026-04-07 21:17:17', '2026-04-07 21:17:17'),
+(5166, 2, 'Business Project Update.', 'Business Project', '', NULL, 2, 2, '2026-04-07 21:17:31', '2026-04-07 21:17:31'),
+(5167, 2, 'Business Project Update.', 'Business Project', '', NULL, 2, 2, '2026-04-07 21:21:55', '2026-04-07 21:21:55'),
+(5168, 2, 'Business Project Submit.', 'Business Project', '', NULL, 2, 2, '2026-04-07 21:27:21', '2026-04-07 21:27:21'),
+(5169, 2, 'Business Project Update.', 'Business Project', '', NULL, 2, 2, '2026-04-07 21:29:16', '2026-04-07 21:29:16'),
+(5170, 2, 'Business Project Update.', 'Business Project', '', NULL, 2, 2, '2026-04-07 21:29:29', '2026-04-07 21:29:29'),
+(5171, 2, 'Business Project Update.', 'Business Project', '', NULL, 2, 2, '2026-04-07 21:29:48', '2026-04-07 21:29:48'),
+(5172, 2, 'Business Project Update.', 'Business Project', '', NULL, 2, 2, '2026-04-07 21:30:48', '2026-04-07 21:30:48'),
+(5173, 2, 'Business Project Update.', 'Business Project', '', NULL, 2, 2, '2026-04-07 21:31:09', '2026-04-07 21:31:09'),
+(5174, 2, 'Business Project Update.', 'Business Project', '', NULL, 2, 2, '2026-04-07 21:31:23', '2026-04-07 21:31:23'),
+(5175, 2, 'Business Project Update.', 'Business Project', '', NULL, 2, 2, '2026-04-07 21:31:32', '2026-04-07 21:31:32'),
+(5176, 2, 'Gallery Submit.', 'Gallery ', '', NULL, 2, 2, '2026-04-07 21:57:38', '2026-04-07 21:57:38'),
+(5177, 2, 'Gallery Submit.', 'Gallery ', '', NULL, 2, 2, '2026-04-07 21:58:20', '2026-04-07 21:58:20'),
+(5178, 2, 'Gallery Submit.', 'Gallery ', '', NULL, 2, 2, '2026-04-07 22:04:00', '2026-04-07 22:04:00'),
+(5179, 2, 'Gallery Submit.', 'Gallery ', '', NULL, 2, 2, '2026-04-07 22:11:55', '2026-04-07 22:11:55'),
+(5180, 2, 'Gallery Submit.', 'Gallery ', '', NULL, 2, 2, '2026-04-07 22:12:12', '2026-04-07 22:12:12'),
+(5181, 2, 'Gallery Submit.', 'Gallery ', '', NULL, 2, 2, '2026-04-07 22:12:46', '2026-04-07 22:12:46'),
+(5182, 2, 'Banner Update.', 'Banner', '20', NULL, 2, 2, '2026-04-07 22:17:13', '2026-04-07 22:17:13'),
+(5183, 2, 'Banner Update.', 'Banner', '19', NULL, 2, 2, '2026-04-07 22:17:16', '2026-04-07 22:17:16'),
+(5184, 2, 'Banner Update.', 'Banner', '16', NULL, 2, 2, '2026-04-07 22:17:18', '2026-04-07 22:17:18'),
+(5185, 2, 'Banner Update.', 'Banner', '20', NULL, 2, 2, '2026-04-07 22:25:59', '2026-04-07 22:25:59');
 
 -- --------------------------------------------------------
 
@@ -650,6 +700,7 @@ CREATE TABLE `business_packages` (
   `duration` varchar(255) DEFAULT NULL,
   `price` varchar(100) DEFAULT NULL,
   `size` varchar(100) DEFAULT NULL,
+  `package_type` varchar(100) DEFAULT NULL,
   `cover_photo` varchar(255) DEFAULT NULL,
   `reference_link` varchar(500) DEFAULT NULL,
   `status` varchar(30) DEFAULT NULL,
@@ -661,10 +712,10 @@ CREATE TABLE `business_packages` (
 -- Dumping data for table `business_packages`
 --
 
-INSERT INTO `business_packages` (`id`, `slug`, `title`, `description`, `duration`, `price`, `size`, `cover_photo`, `reference_link`, `status`, `created_by`, `created_at`) VALUES
-(14, 'asdfas-fas', 'asdfas fas', '<p>df asdfasdf asdfasdf</p>', 'asdf3wr', 'werwerwe', NULL, 'uploads/pacakge-cover/2_1775197837_pacakge-cover.png', NULL, 'Published', NULL, '2026-04-03 06:30:37'),
-(15, 'asdfasdf-sdfg-sdfgdfg', 'asdfasdf sdfg sdfgdfg', '<p>asdfasdfasdf dsf asdf asdfasdf</p>', 'asdfasdf44444444', 'asdfasdffgdsdfgsdfg', 'fffffffffffff', 'uploads/package-cover/2_1775198430_package-cover.png', NULL, 'INACTIVE', NULL, '2026-04-03 06:34:16'),
-(16, 'essential', 'Essential', '<p><span style=\"background-color: rgb(255, 255, 255); color: rgb(108, 117, 125);\">as dfasdf asd fgfsrdfdgfs gsdfg asdfg adsg sdfg sdfg sdfg sdfg sdfg sdfg sdf gsdf</span></p>', '2 Month', 'Price : 500000', 'Size : 1500/Sft', 'uploads/pacakge-cover/2_1775198673_pacakge-cover.png', NULL, 'Published', NULL, '2026-04-03 06:44:33');
+INSERT INTO `business_packages` (`id`, `slug`, `title`, `description`, `duration`, `price`, `size`, `package_type`, `cover_photo`, `reference_link`, `status`, `created_by`, `created_at`) VALUES
+(14, 'asdfas-fas', 'asdfas fas', '<p>df asdfasdf asdfasdf</p>', 'asdf3wr', 'werwerwe', NULL, NULL, 'uploads/pacakge-cover/2_1775197837_pacakge-cover.png', NULL, 'Published', NULL, '2026-04-03 06:30:37'),
+(15, 'asdfasdf-sdfg-sdfgdfg', 'asdfasdf sdfg sdfgdfg', '<p>asdfasdfasdf dsf asdf asdfasdf</p>', 'asdfasdf44444444', 'asdfasdffgdsdfgsdfg', 'fffffffffffff', NULL, 'uploads/package-cover/2_1775198430_package-cover.png', NULL, 'INACTIVE', NULL, '2026-04-03 06:34:16'),
+(16, 'essential', 'Essential', '<p><span style=\"background-color: rgb(255, 255, 255); color: rgb(108, 117, 125);\">as dfasdf asd fgfsrdfdgfs gsdfg asdfg adsg sdfg sdfg sdfg sdfg sdfg sdfg sdf gsdf</span></p>', '2 Month', 'Price : 500000', 'Size : 1500/Sft', NULL, 'uploads/pacakge-cover/2_1775198673_pacakge-cover.png', NULL, 'Published', NULL, '2026-04-03 06:44:33');
 
 -- --------------------------------------------------------
 
@@ -732,7 +783,7 @@ INSERT INTO `business_product_entity` (`id`, `product_title`, `product_descripti
 
 CREATE TABLE `business_projects` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `category_id` int(11) NOT NULL,
+  `category_id` int(11) DEFAULT NULL,
   `name` varchar(200) NOT NULL,
   `slug` varchar(100) DEFAULT NULL,
   `project_description` longtext DEFAULT NULL,
@@ -740,6 +791,7 @@ CREATE TABLE `business_projects` (
   `project_category` varchar(100) DEFAULT NULL,
   `project_photo` varchar(255) DEFAULT NULL,
   `service_category` varchar(60) DEFAULT NULL,
+  `project_visibility` varchar(50) DEFAULT NULL,
   `client_id` bigint(20) UNSIGNED DEFAULT NULL,
   `client_name` varchar(150) DEFAULT NULL,
   `contact_person` varchar(120) DEFAULT NULL,
@@ -763,39 +815,40 @@ CREATE TABLE `business_projects` (
 -- Dumping data for table `business_projects`
 --
 
-INSERT INTO `business_projects` (`id`, `category_id`, `name`, `slug`, `project_description`, `project_type`, `project_category`, `project_photo`, `service_category`, `client_id`, `client_name`, `contact_person`, `phone`, `email`, `site_address`, `city`, `area`, `postcode`, `latitude`, `longitude`, `project_status`, `created_by`, `updated_by`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 3, 'Greem House', NULL, NULL, 'Interior', 'Kitchen', 'website/assets/img/projects/interior/Architectural (3).png', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'ACTIVE', NULL, NULL, '2026-03-01 04:52:06', '2026-03-01 08:19:04', NULL),
-(2, 3, 'Chowdhury House', NULL, NULL, 'Interior', 'Kitchen', 'website/assets/img/projects/interior/Architectural (8).png', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'ACTIVE', NULL, NULL, '2026-03-01 04:52:56', '2026-03-01 08:19:01', NULL),
-(3, 3, 'Neel Diganta', NULL, NULL, 'Interior', 'Kitchen', 'website/assets/img/projects/interior/Architectural (11).png', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'ACTIVE', NULL, NULL, '2026-03-01 04:53:10', '2026-03-01 08:18:57', NULL),
-(4, 3, 'Swapno Bari', NULL, NULL, 'Interior', 'Kitchen', 'website/assets/img/projects/interior/Architectural (14).png', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'ACTIVE', NULL, NULL, '2026-03-01 04:53:22', '2026-03-01 08:18:54', NULL),
-(5, 2, 'Ace Enterprises', NULL, NULL, 'Interior', 'Office', 'website/assets/img/projects/interior/Interior-(1).png', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'ACTIVE', NULL, NULL, '2026-03-01 04:55:11', '2026-03-01 08:18:47', NULL),
-(6, 2, 'Alpha Enterprises', NULL, NULL, 'Interior', 'Office', 'website/assets/img/projects/interior/Interior-(2).png', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'ACTIVE', NULL, NULL, '2026-03-01 04:55:55', '2026-03-01 08:18:43', NULL),
-(7, 2, 'Zeron Group of Company', NULL, NULL, 'Interior', 'Office', 'website/assets/img/projects/interior/Interior-(3).png', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'ACTIVE', NULL, NULL, '2026-03-01 04:56:09', '2026-03-01 08:18:39', NULL),
-(8, 2, 'Brilliance Group', '', NULL, 'Interior', 'Office', 'website/assets/img/projects/interior/Interior-(4).png', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'ACTIVE', NULL, NULL, '2026-03-01 04:56:16', '2026-04-03 03:49:38', NULL),
-(9, 2, 'Byte Solutions', NULL, NULL, 'Interior', 'Office', 'website/assets/img/projects/interior/Interior-(5).png', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'ACTIVE', NULL, NULL, '2026-03-01 04:56:22', '2026-03-01 08:18:34', NULL),
-(10, 2, 'Beacon Holdings\r\n', NULL, NULL, 'Interior', 'Office', 'website/assets/img/projects/interior/Interior-(6).png', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'ACTIVE', NULL, NULL, '2026-03-01 04:56:27', '2026-03-01 08:18:31', NULL),
-(11, 2, 'Caliber Enterprises', NULL, NULL, 'Interior', 'Office', 'website/assets/img/projects/interior/Interior-(7).png', NULL, NULL, 'Mr. Rahim', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'ACTIVE', NULL, NULL, '2026-03-01 04:56:32', '2026-03-01 08:18:28', NULL),
-(12, 2, 'Driven Solutions', NULL, NULL, 'Interior', 'Office', 'website/assets/img/projects/interior/Interior-(8).png', NULL, NULL, 'Fahim', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'ACTIVE', NULL, NULL, '2026-03-01 04:56:37', '2026-03-01 08:18:25', NULL),
-(13, 2, 'Focus Group', NULL, NULL, 'Interior', 'Office', 'website/assets/img/projects/interior/Interior-(9).png', NULL, NULL, 'Sahin Khan', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'ACTIVE', NULL, NULL, '2026-03-01 04:56:43', '2026-03-01 08:18:23', NULL),
-(14, 2, 'Future Horizons\r\n', NULL, NULL, 'Interior', 'Office', 'website/assets/img/projects/interior/Interior-(10).png', NULL, NULL, 'sahjahan khan', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'ACTIVE', NULL, NULL, '2026-03-01 04:56:48', '2026-03-01 08:18:21', NULL),
-(15, 2, 'Fresh Start Holdings\r\n', NULL, NULL, 'Interior', 'Office', 'website/assets/img/projects/interior/Interior-(11).png', NULL, NULL, 'Fariha khanum', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'ACTIVE', NULL, NULL, '2026-03-01 04:56:54', '2026-03-01 08:18:18', NULL),
-(16, 2, 'Growth Solutions\r\n', NULL, NULL, 'Interior', 'Office', 'website/assets/img/projects/interior/Interior-(12).png', NULL, NULL, 'sahjahan khan', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'ACTIVE', NULL, NULL, '2026-03-01 04:56:59', '2026-03-01 08:18:16', NULL),
-(17, 2, 'Guardian Ventures\r\n', NULL, NULL, 'Interior', 'Office', 'website/assets/img/projects/interior/Interior-(13).png', NULL, NULL, 'sahjahan khan', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'ACTIVE', NULL, NULL, '2026-03-01 04:59:39', '2026-03-01 08:18:13', NULL),
-(18, 1, 'Halo Technologies\r\n', NULL, NULL, 'Interior', 'Residence', 'website/assets/img/projects/interior/resident (1).png', NULL, NULL, 'sahjahan khan', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'ACTIVE', NULL, NULL, '2026-03-01 04:59:46', '2026-03-01 08:18:01', NULL),
-(19, 1, 'Paradigm Holdings', NULL, NULL, 'Interior', 'Residence', '\nwebsite/assets/img/projects/interior/resident (3).png', NULL, NULL, 'Riya Khanum', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'ACTIVE', NULL, NULL, '2026-03-01 04:59:52', '2026-03-01 08:18:04', NULL),
-(20, 1, 'Quantum Solutions\r\n', NULL, NULL, 'Interior', 'Residence', 'website/assets/img/projects/interior/resident (4).png', NULL, NULL, 'Sarif', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'ACTIVE', NULL, NULL, '2026-03-01 05:00:12', '2026-03-01 08:18:06', NULL),
-(21, 0, 'Rally Ventures', NULL, NULL, 'Interior', 'Residence', 'website/assets/img/projects/interior/resident (5).png', NULL, NULL, 'sahjahan khan', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'ACTIVE', NULL, NULL, '2026-03-01 05:00:18', '2026-03-01 07:38:22', NULL),
-(22, 0, 'Sapphire Ventures\r\n', NULL, NULL, 'Interior', 'Residence', 'website/assets/img/projects/interior/resident (6).png', NULL, NULL, 'Riya Khanum', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'ACTIVE', NULL, NULL, '2026-03-01 05:00:23', '2026-03-01 07:38:22', NULL),
-(23, 0, 'Titan Innovations\r\n', NULL, NULL, 'Interior', 'Residence', 'website/assets/img/projects/interior/resident (7).png', NULL, NULL, 'sahjahan khan', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'ACTIVE', NULL, NULL, '2026-03-01 05:00:28', '2026-03-01 07:38:22', NULL),
-(24, 0, 'Umbra Innovations\r\n', NULL, NULL, 'Interior', 'Residence', 'website/assets/img/projects/interior/resident (8).png', NULL, NULL, 'Rakib kha', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'ACTIVE', NULL, NULL, '2026-03-01 05:00:40', '2026-03-01 07:38:22', NULL),
-(25, 0, 'Unity Holdings\r\n', '', '<p> dsfgasdf asdf asdf dsf dsafgdfgsdfg</p>', 'Interior', 'Residence', 'website/assets/img/projects/interior/resident (9).png', NULL, NULL, 'Tasrif Ahmed', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'ACTIVE', NULL, NULL, '2026-03-01 05:00:46', '2026-04-03 03:48:40', NULL),
-(26, 0, 'Vanguard Enterprises\r\n', NULL, NULL, 'Interior', 'Residence', 'website/assets/img/projects/interior/resident (10).png', NULL, NULL, 'Saddam Hussain', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'ACTIVE', NULL, NULL, '2026-03-01 05:00:51', '2026-03-01 07:38:22', NULL),
-(27, 0, 'Win Enterprises\r\n', NULL, NULL, 'Interior', 'Residence', 'website/assets/img/projects/interior/resident-(2).png', NULL, NULL, 'Rahat Khan', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'ACTIVE', NULL, NULL, '2026-03-01 05:03:34', '2026-03-01 07:38:22', NULL),
-(28, 0, 'Windfall Enterprises\r\n', NULL, NULL, 'Exterior', NULL, 'website/assets/img/projects/exterior/exterior (4).png', NULL, NULL, 'MR.Korim', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'ACTIVE', NULL, NULL, '2026-03-01 05:03:44', '2026-03-01 07:38:22', NULL),
-(29, 0, 'Worldview Enterprises\r\n', NULL, NULL, 'Exterior', NULL, 'website/assets/img/projects/exterior/exterior (5).png', NULL, NULL, 'Rakib kha', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'ACTIVE', NULL, NULL, '2026-03-01 05:03:50', '2026-03-01 08:19:55', NULL),
-(30, 0, 'Xpert Innovations\r\n', NULL, NULL, 'Exterior', NULL, 'website/assets/img/projects/exterior/exterior-(33).jpg', NULL, NULL, 'Saddam Hussain', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'ACTIVE', NULL, NULL, '2026-03-01 05:03:56', '2026-03-01 08:19:52', NULL),
-(31, 0, 'Xperience Holdings\r\n', NULL, NULL, 'Exterior', NULL, 'website/assets/img/projects/exterior/exterior-(34).jpg', NULL, NULL, 'Riya Khanum', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'ACTIVE', NULL, NULL, '2026-03-01 05:04:02', '2026-03-01 08:19:48', NULL),
-(32, 0, 'Exterior', '', '<p>sda sdf asdf asdf asd dgsdfg sdfgsdfg</p>', 'Consultancy', NULL, 'uploads/project-cover/2_1775188510_project-cover.png', NULL, NULL, 'MR.Korim', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'ACTIVE', NULL, NULL, '2026-03-01 05:06:04', '2026-04-03 03:59:21', NULL);
+INSERT INTO `business_projects` (`id`, `category_id`, `name`, `slug`, `project_description`, `project_type`, `project_category`, `project_photo`, `service_category`, `project_visibility`, `client_id`, `client_name`, `contact_person`, `phone`, `email`, `site_address`, `city`, `area`, `postcode`, `latitude`, `longitude`, `project_status`, `created_by`, `updated_by`, `created_at`, `updated_at`, `deleted_at`) VALUES
+(1, 3, 'Greem House', NULL, NULL, 'Interior', 'Kitchen', 'website/assets/img/projects/interior/Architectural (3).png', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'ACTIVE', NULL, NULL, '2026-03-01 04:52:06', '2026-03-01 08:19:04', NULL),
+(2, 3, 'Chowdhury House', 'chowdhury-house', NULL, 'Interior', 'Residence', 'website/assets/img/projects/interior/Architectural (8).png', NULL, 'Hidden', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Completed', 2, NULL, '2026-03-01 04:52:56', '2026-04-07 21:21:55', NULL),
+(3, 3, 'Neel Diganta', NULL, NULL, 'Interior', 'Kitchen', 'website/assets/img/projects/interior/Architectural (11).png', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'ACTIVE', NULL, NULL, '2026-03-01 04:53:10', '2026-03-01 08:18:57', NULL),
+(4, 3, 'Swapno Bari', NULL, NULL, 'Interior', 'Kitchen', 'website/assets/img/projects/interior/Architectural (14).png', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'ACTIVE', NULL, NULL, '2026-03-01 04:53:22', '2026-03-01 08:18:54', NULL),
+(5, 2, 'Ace Enterprises', NULL, NULL, 'Interior', 'Office', 'website/assets/img/projects/interior/Interior-(1).png', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'ACTIVE', NULL, NULL, '2026-03-01 04:55:11', '2026-03-01 08:18:47', NULL),
+(6, 2, 'Alpha Enterprises', NULL, NULL, 'Interior', 'Office', 'website/assets/img/projects/interior/Interior-(2).png', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'ACTIVE', NULL, NULL, '2026-03-01 04:55:55', '2026-03-01 08:18:43', NULL),
+(7, 2, 'Zeron Group of Company', NULL, NULL, 'Interior', 'Office', 'website/assets/img/projects/interior/Interior-(3).png', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'ACTIVE', NULL, NULL, '2026-03-01 04:56:09', '2026-03-01 08:18:39', NULL),
+(8, 2, 'Brilliance Group', '', NULL, 'Interior', 'Office', 'website/assets/img/projects/interior/Interior-(4).png', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'ACTIVE', NULL, NULL, '2026-03-01 04:56:16', '2026-04-03 03:49:38', NULL),
+(9, 2, 'Byte Solutions', NULL, NULL, 'Interior', 'Office', 'website/assets/img/projects/interior/Interior-(5).png', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'ACTIVE', NULL, NULL, '2026-03-01 04:56:22', '2026-03-01 08:18:34', NULL),
+(10, 2, 'Beacon Holdings\r\n', NULL, NULL, 'Interior', 'Office', 'website/assets/img/projects/interior/Interior-(6).png', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'ACTIVE', NULL, NULL, '2026-03-01 04:56:27', '2026-03-01 08:18:31', NULL),
+(11, 2, 'Caliber Enterprises', NULL, NULL, 'Interior', 'Office', 'website/assets/img/projects/interior/Interior-(7).png', NULL, NULL, NULL, 'Mr. Rahim', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'ACTIVE', NULL, NULL, '2026-03-01 04:56:32', '2026-03-01 08:18:28', NULL),
+(12, 2, 'Driven Solutions', NULL, NULL, 'Interior', 'Office', 'website/assets/img/projects/interior/Interior-(8).png', NULL, NULL, NULL, 'Fahim', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'ACTIVE', NULL, NULL, '2026-03-01 04:56:37', '2026-03-01 08:18:25', NULL),
+(13, 2, 'Focus Group', NULL, NULL, 'Interior', 'Office', 'website/assets/img/projects/interior/Interior-(9).png', NULL, NULL, NULL, 'Sahin Khan', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'ACTIVE', NULL, NULL, '2026-03-01 04:56:43', '2026-03-01 08:18:23', NULL),
+(14, 2, 'Future Horizons\r\n', NULL, NULL, 'Interior', 'Office', 'website/assets/img/projects/interior/Interior-(10).png', NULL, NULL, NULL, 'sahjahan khan', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'ACTIVE', NULL, NULL, '2026-03-01 04:56:48', '2026-03-01 08:18:21', NULL),
+(15, 2, 'Fresh Start Holdings\r\n', NULL, NULL, 'Interior', 'Office', 'website/assets/img/projects/interior/Interior-(11).png', NULL, NULL, NULL, 'Fariha khanum', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'ACTIVE', NULL, NULL, '2026-03-01 04:56:54', '2026-03-01 08:18:18', NULL),
+(16, 2, 'Growth Solutions\r\n', NULL, NULL, 'Interior', 'Office', 'website/assets/img/projects/interior/Interior-(12).png', NULL, NULL, NULL, 'sahjahan khan', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'ACTIVE', NULL, NULL, '2026-03-01 04:56:59', '2026-03-01 08:18:16', NULL),
+(17, 2, 'Guardian Ventures\r\n', NULL, NULL, 'Interior', 'Office', 'website/assets/img/projects/interior/Interior-(13).png', NULL, NULL, NULL, 'sahjahan khan', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'ACTIVE', NULL, NULL, '2026-03-01 04:59:39', '2026-03-01 08:18:13', NULL),
+(18, 1, 'Halo Technologies\r\n', NULL, NULL, 'Interior', 'Residence', 'website/assets/img/projects/interior/resident (1).png', NULL, NULL, NULL, 'sahjahan khan', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'ACTIVE', NULL, NULL, '2026-03-01 04:59:46', '2026-03-01 08:18:01', NULL),
+(19, 1, 'Paradigm Holdings', NULL, NULL, 'Interior', 'Residence', '\nwebsite/assets/img/projects/interior/resident (3).png', NULL, NULL, NULL, 'Riya Khanum', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'ACTIVE', NULL, NULL, '2026-03-01 04:59:52', '2026-03-01 08:18:04', NULL),
+(20, 1, 'Quantum Solutions\r\n', NULL, NULL, 'Interior', 'Residence', 'website/assets/img/projects/interior/resident (4).png', NULL, NULL, NULL, 'Sarif', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'ACTIVE', NULL, NULL, '2026-03-01 05:00:12', '2026-03-01 08:18:06', NULL),
+(21, 0, 'Rally Ventures', NULL, NULL, 'Interior', 'Residence', 'website/assets/img/projects/interior/resident (5).png', NULL, NULL, NULL, 'sahjahan khan', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'ACTIVE', NULL, NULL, '2026-03-01 05:00:18', '2026-03-01 07:38:22', NULL),
+(22, 0, 'Sapphire Ventures\r\n', NULL, NULL, 'Interior', 'Residence', 'website/assets/img/projects/interior/resident (6).png', NULL, NULL, NULL, 'Riya Khanum', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'ACTIVE', NULL, NULL, '2026-03-01 05:00:23', '2026-03-01 07:38:22', NULL),
+(23, 0, 'Titan Innovations\r\n', NULL, NULL, 'Interior', 'Residence', 'website/assets/img/projects/interior/resident (7).png', NULL, NULL, NULL, 'sahjahan khan', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'ACTIVE', NULL, NULL, '2026-03-01 05:00:28', '2026-03-01 07:38:22', NULL),
+(24, 0, 'Umbra Innovations\r\n', NULL, NULL, 'Interior', 'Residence', 'website/assets/img/projects/interior/resident (8).png', NULL, NULL, NULL, 'Rakib kha', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'ACTIVE', NULL, NULL, '2026-03-01 05:00:40', '2026-03-01 07:38:22', NULL),
+(25, 0, 'Unity Holdings\r\n', '', '<p> dsfgasdf asdf asdf dsf dsafgdfgsdfg</p>', 'Interior', 'Residence', 'website/assets/img/projects/interior/resident (9).png', NULL, NULL, NULL, 'Tasrif Ahmed', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'ACTIVE', NULL, NULL, '2026-03-01 05:00:46', '2026-04-03 03:48:40', NULL),
+(26, 0, 'Vanguard Enterprises\r\n', NULL, NULL, 'Interior', 'Residence', 'website/assets/img/projects/interior/resident (10).png', NULL, NULL, NULL, 'Saddam Hussain', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'ACTIVE', NULL, NULL, '2026-03-01 05:00:51', '2026-03-01 07:38:22', NULL),
+(27, 0, 'Win Enterprises\r\n', NULL, NULL, 'Interior', 'Residence', 'website/assets/img/projects/interior/resident-(2).png', NULL, 'Published', NULL, 'Rahat Khan', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Published', NULL, NULL, '2026-03-01 05:03:34', '2026-04-07 21:43:21', NULL),
+(28, 0, 'Windfall Enterprises', 'windfall-enterprises', NULL, 'Exterior', NULL, 'website/assets/img/projects/exterior/exterior (4).png', NULL, NULL, NULL, 'MR.Korim', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Running', 2, NULL, '2026-03-01 05:03:44', '2026-04-07 21:31:32', NULL),
+(29, 0, 'Worldview Enterprises asd fasdf', 'worldview-enterprises-asd-fasdf', '<p> sdfg sdfgsdfg sdfg sd asdf asdf asdf</p>', 'Consultancy', 'Office', 'uploads/project-cover/2_1775596651_project-cover.png', NULL, 'Hidden', NULL, 'Rakib kha', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Running', 2, NULL, '2026-03-01 05:03:50', '2026-04-07 21:17:31', NULL),
+(30, 0, 'Xpert Innovations', 'xpert-innovations', NULL, 'Exterior', NULL, 'website/assets/img/projects/exterior/exterior-(33).jpg', NULL, NULL, NULL, 'Saddam Hussain', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Running', 2, NULL, '2026-03-01 05:03:56', '2026-04-07 21:31:23', NULL),
+(31, 0, 'Xperience Holdings', 'xperience-holdings', NULL, 'Exterior', 'Kitchen', 'website/assets/img/projects/exterior/exterior-(34).jpg', NULL, NULL, NULL, 'Riya Khanum', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Completed', 2, NULL, '2026-03-01 05:04:02', '2026-04-07 21:31:09', NULL),
+(32, 0, 'Exterior', 'exterior', '<p>sda sdf asdf asdf asd dgsdfg sd sdsa dasdfasdf asdf asdf asdf asdf asdf asdffgsdfasdf asdf asdf asdf asdfg</p>', 'Consultancy', 'Residence', 'uploads/project-cover/2_1775188510_project-cover.png', NULL, 'Published', NULL, 'MR.Korim', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Running', 2, NULL, '2026-03-01 05:06:04', '2026-04-07 21:39:55', NULL),
+(33, NULL, 'sadfasd', 'sadfasd', '<p>fasdfasdfasdf</p>', 'Consultancy', 'Office', 'uploads/project-cover/2_1775597241_project-cover.png', NULL, 'Published', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Completed', 2, NULL, '2026-04-07 21:27:21', '2026-04-07 21:29:48', NULL);
 
 -- --------------------------------------------------------
 
@@ -898,6 +951,7 @@ CREATE TABLE `consultation_form` (
   `size` varchar(50) DEFAULT NULL,
   `type` varchar(150) DEFAULT NULL,
   `message` text DEFAULT NULL,
+  `query_status` varchar(20) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT current_timestamp(),
   `updated_at` timestamp NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -906,9 +960,9 @@ CREATE TABLE `consultation_form` (
 -- Dumping data for table `consultation_form`
 --
 
-INSERT INTO `consultation_form` (`id`, `name`, `phone`, `location`, `size`, `type`, `message`, `created_at`, `updated_at`) VALUES
-(1, 'Saidur Rahman', '01717560539', 'Dhaka', '3', 'Interior Design', 'safd fasdfasdf', '2026-02-27 10:53:35', '2026-02-27 10:53:35'),
-(2, 'Saidur Rahman', '01717560539', 'Dhaka', '3', 'Architectural Consultancy', 'asdf asdf asdf asdf', '2026-02-27 10:55:26', '2026-02-27 10:55:26');
+INSERT INTO `consultation_form` (`id`, `name`, `phone`, `location`, `size`, `type`, `message`, `query_status`, `created_at`, `updated_at`) VALUES
+(1, 'Saidur Rahman', '01717560539', 'Dhaka', '3', 'Interior Design', 'safd fasdfasdf', NULL, '2026-02-27 10:53:35', '2026-02-27 10:53:35'),
+(2, 'Saidur Rahman', '01717560539', 'Dhaka', '3', 'Architectural Consultancy', 'asdf asdf asdf asdf', NULL, '2026-02-27 10:55:26', '2026-02-27 10:55:26');
 
 -- --------------------------------------------------------
 
@@ -1008,13 +1062,12 @@ CREATE TABLE `gallery` (
 --
 
 INSERT INTO `gallery` (`id`, `title`, `slug`, `gallery_image`, `reference_link`, `item_category`, `status`, `created_by`, `created_at`) VALUES
-(8, 'Site Banner', 'site-banner', 'uploads/project-cover/2_1758255488_project-cover.jpg', NULL, 'SITE BANNER', 'ACTIVE', NULL, NULL),
-(9, 'Footer', 'footer', 'uploads/banner/2_1758425558_banner.jpg', NULL, 'FOOTER BANNER', 'ACTIVE', NULL, NULL),
-(10, 'Page Title', 'page-title', 'uploads/banner/2_1758624407_banner.jpg', NULL, 'INNER COVER', 'ACTIVE', NULL, NULL),
-(11, 'sadfasdfas dfasdf', 'sadfasdfas-dfasdf', 'uploads/banner/2_1775189317_banner.png', NULL, 'SITE BANNER', 'Published', NULL, NULL),
-(12, 'sdfg sdfg sdf', '', '', 'gsdfg', NULL, 'ACTIVE', NULL, NULL),
-(13, 'asdf asdf asdfasdf asdf', '', 'uploads/banner/2_1775194649_banner.png', 'asdf asdf asdf asdf asdf', NULL, 'Published', NULL, NULL),
-(14, 'sadfas dfasdf asdf asdf sdf asdfasdfasd', 'sadfas-dfasdf-asdf-asdf-sdf-asdfasdfasd', 'uploads/gallery-item/2_1775195528_gallery-item.png', 'asdfasdfsadfas dfasdf asdf', 'sixth', 'Published', NULL, NULL);
+(15, 'Gallery One', '', 'uploads/gallery-item/2_1775599057_gallery-item.jpg', 'gsdfg', 'first', 'Published', NULL, NULL),
+(16, 'Second', 'second', 'uploads/gallery-item/2_1775599100_gallery-item.jpg', 'asdfasdfsadfas dfasdf asdf', 'second', 'Published', NULL, NULL),
+(17, 'Thirdasdf asdf asdf', '', 'uploads/gallery-item/2_1775599440_gallery-item.png', 'asdfasdfsadfas dfasdf asdf', 'third', 'Published', NULL, NULL),
+(18, 'sDfasdfa', '', 'uploads/gallery-item/2_1775599915_gallery-item.jpg', 'sdf', 'fourth', 'Published', NULL, NULL),
+(19, 'as    dddd ddddeeee eee', 'as-dddd-ddddeeee-eee', 'uploads/gallery-item/2_1775599932_gallery-item.png', 'asdfasdfsadfas dfasdf asdf', 'fifth', 'Published', NULL, NULL),
+(20, 'fggdfgrte ert er ert ertert ert asdf asdf asdf', 'fggdfgrte-ert-er-ert-ertert-ert-asdf-asdf-asdf', 'uploads/gallery-item/2_1775599966_gallery-item.jpg', 'ert ertert asdf asdf asdf', 'sixth', 'Published', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -1589,10 +1642,12 @@ INSERT INTO `system_information` (`id`, `information_key`, `information_value`, 
 (2, 'System Name', 'AidBD System Account Management System', 'ACTIVE', '2025-03-13 14:10:36', 2, '2025-03-13 14:10:36', NULL),
 (3, 'Address', 'House 11, Road 4, Block B, Sector 17, Uttara Model Town, Dhaka.', 'ACTIVE', '2025-03-13 14:12:26', 2, '2025-03-13 14:12:26', NULL),
 (4, 'Email', 'info@aidbd.org', 'ACTIVE', '2025-03-13 14:13:25', 2, '2025-03-13 14:13:25', NULL),
-(5, 'Organization Website', 'https://aidbd.org/', 'ACTIVE', '2025-03-13 14:13:54', 2, '2025-03-13 14:13:54', NULL),
-(6, 'System URL', 'https://admin.aidbd.org/', 'ACTIVE', '2025-03-13 14:14:18', 2, '2025-03-13 14:14:18', NULL),
+(5, 'Organization Website', 'Shosti Arc Studio', 'ACTIVE', '2025-03-13 14:13:54', 2, '2025-03-13 14:13:54', 2),
+(6, 'System URL', 'https://shostiarcstudio.com', NULL, '2025-03-13 14:14:18', 2, '2025-03-13 14:14:18', 2),
 (7, 'Official Logo', 'assets/img/aid-logo.jpg', 'ACTIVE', '2025-03-13 14:28:29', 2, '2025-03-13 14:28:29', NULL),
-(8, 'Organization Name', 'Aidbd.org', 'ACTIVE', '2025-03-13 14:43:26', 2, '2025-03-13 14:43:26', NULL);
+(8, 'Organization Name', 'Aidbd.org', 'ACTIVE', '2025-03-13 14:43:26', 2, '2025-03-13 14:43:26', NULL),
+(9, 'Trade License', 'TRAD/DNCC/040116/2025', 'ACTIVE', '2026-04-05 11:38:45', NULL, '2026-04-05 11:38:45', NULL),
+(10, 'TIN', '449308880231', 'ACTIVE', '2026-04-05 11:39:55', NULL, '2026-04-05 11:39:55', NULL);
 
 -- --------------------------------------------------------
 
@@ -1814,7 +1869,161 @@ INSERT INTO `visitor_access_log` (`id`, `visitorIP`, `visitorCountry`, `visitorR
 (25578, '127.0.0.1', NULL, NULL, NULL, NULL, '12:54:11', '2026-04-03', 'http://127.0.0.1:8000/contact-us', 'contact-us', 'GET', 'EduInnTech Site'),
 (25579, '127.0.0.1', NULL, NULL, NULL, NULL, '12:54:15', '2026-04-03', 'http://127.0.0.1:8000/portfolio', 'portfolio', 'GET', 'EduInnTech Site'),
 (25580, '127.0.0.1', NULL, NULL, NULL, NULL, '12:54:18', '2026-04-03', 'http://127.0.0.1:8000/quotation', 'quotation', 'GET', 'EduInnTech Site'),
-(25581, '127.0.0.1', NULL, NULL, NULL, NULL, '12:54:23', '2026-04-03', 'http://127.0.0.1:8000', '/', 'GET', 'EduInnTech Site');
+(25581, '127.0.0.1', NULL, NULL, NULL, NULL, '12:54:23', '2026-04-03', 'http://127.0.0.1:8000', '/', 'GET', 'EduInnTech Site'),
+(25582, '127.0.0.1', NULL, NULL, NULL, NULL, '11:31:40', '2026-04-05', 'http://127.0.0.1:8000', '/', 'GET', 'EduInnTech Site'),
+(25583, '127.0.0.1', NULL, NULL, NULL, NULL, '11:31:52', '2026-04-05', 'http://127.0.0.1:8000', '/', 'GET', 'EduInnTech Site'),
+(25584, '127.0.0.1', NULL, NULL, NULL, NULL, '11:36:48', '2026-04-05', 'http://127.0.0.1:8000/terms-of-use', 'terms-of-use', 'GET', 'EduInnTech Site'),
+(25585, '127.0.0.1', NULL, NULL, NULL, NULL, '11:38:38', '2026-04-05', 'http://127.0.0.1:8000', '/', 'GET', 'EduInnTech Site'),
+(25586, '127.0.0.1', NULL, NULL, NULL, NULL, '22:05:49', '2026-04-07', 'http://127.0.0.1:8000', '/', 'GET', 'EduInnTech Site'),
+(25587, '127.0.0.1', NULL, NULL, NULL, NULL, '22:28:33', '2026-04-07', 'http://127.0.0.1:8000', '/', 'GET', 'EduInnTech Site'),
+(25588, '127.0.0.1', NULL, NULL, NULL, NULL, '22:28:40', '2026-04-07', 'http://127.0.0.1:8000', '/', 'GET', 'EduInnTech Site'),
+(25589, '127.0.0.1', NULL, NULL, NULL, NULL, '23:21:44', '2026-04-07', 'http://127.0.0.1:8000', '/', 'GET', 'EduInnTech Site'),
+(25590, '127.0.0.1', NULL, NULL, NULL, NULL, '01:52:14', '2026-04-08', 'http://127.0.0.1:8000', '/', 'GET', 'EduInnTech Site'),
+(25591, '127.0.0.1', NULL, NULL, NULL, NULL, '01:52:51', '2026-04-08', 'http://127.0.0.1:8000', '/', 'GET', 'EduInnTech Site'),
+(25592, '127.0.0.1', NULL, NULL, NULL, NULL, '01:52:58', '2026-04-08', 'http://127.0.0.1:8000', '/', 'GET', 'EduInnTech Site'),
+(25593, '127.0.0.1', NULL, NULL, NULL, NULL, '01:53:04', '2026-04-08', 'http://127.0.0.1:8000/contact-us', 'contact-us', 'GET', 'EduInnTech Site'),
+(25594, '127.0.0.1', NULL, NULL, NULL, NULL, '01:59:46', '2026-04-08', 'http://127.0.0.1:8000/contact-us', 'contact-us', 'GET', 'EduInnTech Site'),
+(25595, '127.0.0.1', NULL, NULL, NULL, NULL, '01:59:50', '2026-04-08', 'http://127.0.0.1:8000', '/', 'GET', 'EduInnTech Site'),
+(25596, '127.0.0.1', NULL, NULL, NULL, NULL, '01:59:54', '2026-04-08', 'http://127.0.0.1:8000/contact-us', 'contact-us', 'GET', 'EduInnTech Site'),
+(25597, '127.0.0.1', NULL, NULL, NULL, NULL, '02:00:30', '2026-04-08', 'http://127.0.0.1:8000', '/', 'GET', 'EduInnTech Site'),
+(25598, '127.0.0.1', NULL, NULL, NULL, NULL, '02:02:58', '2026-04-08', 'http://127.0.0.1:8000', '/', 'GET', 'EduInnTech Site'),
+(25599, '127.0.0.1', NULL, NULL, NULL, NULL, '02:03:40', '2026-04-08', 'http://127.0.0.1:8000', '/', 'GET', 'EduInnTech Site'),
+(25600, '127.0.0.1', NULL, NULL, NULL, NULL, '02:04:07', '2026-04-08', 'http://127.0.0.1:8000', '/', 'GET', 'EduInnTech Site'),
+(25601, '127.0.0.1', NULL, NULL, NULL, NULL, '02:08:28', '2026-04-08', 'http://127.0.0.1:8000', '/', 'GET', 'EduInnTech Site'),
+(25602, '127.0.0.1', NULL, NULL, NULL, NULL, '02:16:52', '2026-04-08', 'http://127.0.0.1:8000/projects/interior', 'projects/interior', 'GET', 'EduInnTech Site'),
+(25603, '127.0.0.1', NULL, NULL, NULL, NULL, '02:17:10', '2026-04-08', 'http://127.0.0.1:8000/interior-project/Residance', 'interior-project/Residance', 'GET', 'EduInnTech Site'),
+(25604, '127.0.0.1', NULL, NULL, NULL, NULL, '02:17:48', '2026-04-08', 'http://127.0.0.1:8000/interior-project/Residance', 'interior-project/Residance', 'GET', 'EduInnTech Site'),
+(25605, '127.0.0.1', NULL, NULL, NULL, NULL, '02:17:49', '2026-04-08', 'http://127.0.0.1:8000/interior-project/site.webmanifest', 'interior-project/site.webmanifest', 'GET', 'EduInnTech Site'),
+(25606, '127.0.0.1', NULL, NULL, NULL, NULL, '02:17:50', '2026-04-08', 'http://127.0.0.1:8000/interior-project/site.webmanifest', 'interior-project/site.webmanifest', 'GET', 'EduInnTech Site'),
+(25607, '127.0.0.1', NULL, NULL, NULL, NULL, '02:17:53', '2026-04-08', 'http://127.0.0.1:8000/projects/interior', 'projects/interior', 'GET', 'EduInnTech Site'),
+(25608, '127.0.0.1', NULL, NULL, NULL, NULL, '02:17:56', '2026-04-08', 'http://127.0.0.1:8000/interior-project/Residance', 'interior-project/Residance', 'GET', 'EduInnTech Site'),
+(25609, '127.0.0.1', NULL, NULL, NULL, NULL, '02:17:56', '2026-04-08', 'http://127.0.0.1:8000/interior-project/Office', 'interior-project/Office', 'GET', 'EduInnTech Site'),
+(25610, '127.0.0.1', NULL, NULL, NULL, NULL, '02:17:57', '2026-04-08', 'http://127.0.0.1:8000/interior-project/Kitchen', 'interior-project/Kitchen', 'GET', 'EduInnTech Site'),
+(25611, '127.0.0.1', NULL, NULL, NULL, NULL, '02:17:59', '2026-04-08', 'http://127.0.0.1:8000/interior-project/site.webmanifest', 'interior-project/site.webmanifest', 'GET', 'EduInnTech Site'),
+(25612, '127.0.0.1', NULL, NULL, NULL, NULL, '02:18:01', '2026-04-08', 'http://127.0.0.1:8000/interior-project/site.webmanifest', 'interior-project/site.webmanifest', 'GET', 'EduInnTech Site'),
+(25613, '127.0.0.1', NULL, NULL, NULL, NULL, '02:18:01', '2026-04-08', 'http://127.0.0.1:8000/interior-project/site.webmanifest', 'interior-project/site.webmanifest', 'GET', 'EduInnTech Site'),
+(25614, '127.0.0.1', NULL, NULL, NULL, NULL, '02:18:03', '2026-04-08', 'http://127.0.0.1:8000/interior-project/site.webmanifest', 'interior-project/site.webmanifest', 'GET', 'EduInnTech Site'),
+(25615, '127.0.0.1', NULL, NULL, NULL, NULL, '02:18:03', '2026-04-08', 'http://127.0.0.1:8000/interior-project/site.webmanifest', 'interior-project/site.webmanifest', 'GET', 'EduInnTech Site'),
+(25616, '127.0.0.1', NULL, NULL, NULL, NULL, '02:18:05', '2026-04-08', 'http://127.0.0.1:8000/interior-project/site.webmanifest', 'interior-project/site.webmanifest', 'GET', 'EduInnTech Site'),
+(25617, '127.0.0.1', NULL, NULL, NULL, NULL, '02:18:11', '2026-04-08', 'http://127.0.0.1:8000/projects/exterior', 'projects/exterior', 'GET', 'EduInnTech Site'),
+(25618, '127.0.0.1', NULL, NULL, NULL, NULL, '02:18:34', '2026-04-08', 'http://127.0.0.1:8000/projects/exterior', 'projects/exterior', 'GET', 'EduInnTech Site'),
+(25619, '127.0.0.1', NULL, NULL, NULL, NULL, '02:18:41', '2026-04-08', 'http://127.0.0.1:8000/services', 'services', 'GET', 'EduInnTech Site'),
+(25620, '127.0.0.1', NULL, NULL, NULL, NULL, '02:20:56', '2026-04-08', 'http://127.0.0.1:8000/services', 'services', 'GET', 'EduInnTech Site'),
+(25621, '127.0.0.1', NULL, NULL, NULL, NULL, '02:22:12', '2026-04-08', 'http://127.0.0.1:8000/services', 'services', 'GET', 'EduInnTech Site'),
+(25622, '127.0.0.1', NULL, NULL, NULL, NULL, '02:22:16', '2026-04-08', 'http://127.0.0.1:8000/quotation', 'quotation', 'GET', 'EduInnTech Site'),
+(25623, '127.0.0.1', NULL, NULL, NULL, NULL, '02:22:47', '2026-04-08', 'http://127.0.0.1:8000/interior-project/Office', 'interior-project/Office', 'GET', 'EduInnTech Site'),
+(25624, '127.0.0.1', NULL, NULL, NULL, NULL, '02:22:49', '2026-04-08', 'http://127.0.0.1:8000/interior-project/site.webmanifest', 'interior-project/site.webmanifest', 'GET', 'EduInnTech Site'),
+(25625, '127.0.0.1', NULL, NULL, NULL, NULL, '02:22:50', '2026-04-08', 'http://127.0.0.1:8000/interior-project/site.webmanifest', 'interior-project/site.webmanifest', 'GET', 'EduInnTech Site'),
+(25626, '127.0.0.1', NULL, NULL, NULL, NULL, '02:23:12', '2026-04-08', 'http://127.0.0.1:8000/quotation', 'quotation', 'GET', 'EduInnTech Site'),
+(25627, '127.0.0.1', NULL, NULL, NULL, NULL, '02:25:56', '2026-04-08', 'http://127.0.0.1:8000/quotation', 'quotation', 'GET', 'EduInnTech Site'),
+(25628, '127.0.0.1', NULL, NULL, NULL, NULL, '02:28:00', '2026-04-08', 'http://127.0.0.1:8000/quotation', 'quotation', 'GET', 'EduInnTech Site'),
+(25629, '127.0.0.1', NULL, NULL, NULL, NULL, '02:28:13', '2026-04-08', 'http://127.0.0.1:8000/quotation', 'quotation', 'GET', 'EduInnTech Site'),
+(25630, '127.0.0.1', NULL, NULL, NULL, NULL, '02:29:15', '2026-04-08', 'http://127.0.0.1:8000/quotation', 'quotation', 'GET', 'EduInnTech Site'),
+(25631, '127.0.0.1', NULL, NULL, NULL, NULL, '02:29:53', '2026-04-08', 'http://127.0.0.1:8000/quotation', 'quotation', 'GET', 'EduInnTech Site'),
+(25632, '127.0.0.1', NULL, NULL, NULL, NULL, '02:30:14', '2026-04-08', 'http://127.0.0.1:8000/quotation', 'quotation', 'GET', 'EduInnTech Site'),
+(25633, '127.0.0.1', NULL, NULL, NULL, NULL, '02:30:34', '2026-04-08', 'http://127.0.0.1:8000/quotation', 'quotation', 'GET', 'EduInnTech Site'),
+(25634, '127.0.0.1', NULL, NULL, NULL, NULL, '02:31:41', '2026-04-08', 'http://127.0.0.1:8000/quotation', 'quotation', 'GET', 'EduInnTech Site'),
+(25635, '127.0.0.1', NULL, NULL, NULL, NULL, '02:32:22', '2026-04-08', 'http://127.0.0.1:8000/quotation', 'quotation', 'GET', 'EduInnTech Site'),
+(25636, '127.0.0.1', NULL, NULL, NULL, NULL, '02:32:52', '2026-04-08', 'http://127.0.0.1:8000/quotation', 'quotation', 'GET', 'EduInnTech Site'),
+(25637, '127.0.0.1', NULL, NULL, NULL, NULL, '02:35:08', '2026-04-08', 'http://127.0.0.1:8000/quotation', 'quotation', 'GET', 'EduInnTech Site'),
+(25638, '127.0.0.1', NULL, NULL, NULL, NULL, '02:36:08', '2026-04-08', 'http://127.0.0.1:8000/interior-project/Residance', 'interior-project/Residance', 'GET', 'EduInnTech Site'),
+(25639, '127.0.0.1', NULL, NULL, NULL, NULL, '02:36:09', '2026-04-08', 'http://127.0.0.1:8000/interior-project/site.webmanifest', 'interior-project/site.webmanifest', 'GET', 'EduInnTech Site'),
+(25640, '127.0.0.1', NULL, NULL, NULL, NULL, '02:36:10', '2026-04-08', 'http://127.0.0.1:8000/interior-project/Office', 'interior-project/Office', 'GET', 'EduInnTech Site'),
+(25641, '127.0.0.1', NULL, NULL, NULL, NULL, '02:36:12', '2026-04-08', 'http://127.0.0.1:8000/quotation', 'quotation', 'GET', 'EduInnTech Site'),
+(25642, '127.0.0.1', NULL, NULL, NULL, NULL, '02:36:13', '2026-04-08', 'http://127.0.0.1:8000/interior-project/site.webmanifest', 'interior-project/site.webmanifest', 'GET', 'EduInnTech Site'),
+(25643, '127.0.0.1', NULL, NULL, NULL, NULL, '02:36:14', '2026-04-08', 'http://127.0.0.1:8000/interior-project/site.webmanifest', 'interior-project/site.webmanifest', 'GET', 'EduInnTech Site'),
+(25644, '127.0.0.1', NULL, NULL, NULL, NULL, '02:36:16', '2026-04-08', 'http://127.0.0.1:8000/interior-project/site.webmanifest', 'interior-project/site.webmanifest', 'GET', 'EduInnTech Site'),
+(25645, '127.0.0.1', NULL, NULL, NULL, NULL, '02:36:37', '2026-04-08', 'http://127.0.0.1:8000/quotation', 'quotation', 'GET', 'EduInnTech Site'),
+(25646, '127.0.0.1', NULL, NULL, NULL, NULL, '02:37:13', '2026-04-08', 'http://127.0.0.1:8000/quotation', 'quotation', 'GET', 'EduInnTech Site'),
+(25647, '127.0.0.1', NULL, NULL, NULL, NULL, '02:37:41', '2026-04-08', 'http://127.0.0.1:8000/quotation', 'quotation', 'GET', 'EduInnTech Site'),
+(25648, '127.0.0.1', NULL, NULL, NULL, NULL, '02:37:56', '2026-04-08', 'http://127.0.0.1:8000/services', 'services', 'GET', 'EduInnTech Site'),
+(25649, '127.0.0.1', NULL, NULL, NULL, NULL, '02:38:07', '2026-04-08', 'http://127.0.0.1:8000/quotation', 'quotation', 'GET', 'EduInnTech Site'),
+(25650, '127.0.0.1', NULL, NULL, NULL, NULL, '02:38:28', '2026-04-08', 'http://127.0.0.1:8000/quotation', 'quotation', 'GET', 'EduInnTech Site'),
+(25651, '127.0.0.1', NULL, NULL, NULL, NULL, '02:38:43', '2026-04-08', 'http://127.0.0.1:8000/quotation', 'quotation', 'GET', 'EduInnTech Site'),
+(25652, '127.0.0.1', NULL, NULL, NULL, NULL, '02:38:54', '2026-04-08', 'http://127.0.0.1:8000/interior-project/Office', 'interior-project/Office', 'GET', 'EduInnTech Site'),
+(25653, '127.0.0.1', NULL, NULL, NULL, NULL, '02:38:55', '2026-04-08', 'http://127.0.0.1:8000/interior-project/site.webmanifest', 'interior-project/site.webmanifest', 'GET', 'EduInnTech Site'),
+(25654, '127.0.0.1', NULL, NULL, NULL, NULL, '02:39:04', '2026-04-08', 'http://127.0.0.1:8000/about-us', 'about-us', 'GET', 'EduInnTech Site'),
+(25655, '127.0.0.1', NULL, NULL, NULL, NULL, '02:39:08', '2026-04-08', 'http://127.0.0.1:8000/portfolio', 'portfolio', 'GET', 'EduInnTech Site'),
+(25656, '127.0.0.1', NULL, NULL, NULL, NULL, '02:39:11', '2026-04-08', 'http://127.0.0.1:8000/about-us', 'about-us', 'GET', 'EduInnTech Site'),
+(25657, '127.0.0.1', NULL, NULL, NULL, NULL, '02:39:13', '2026-04-08', 'http://127.0.0.1:8000/quotation', 'quotation', 'GET', 'EduInnTech Site'),
+(25658, '127.0.0.1', NULL, NULL, NULL, NULL, '02:40:02', '2026-04-08', 'http://127.0.0.1:8000/quotation', 'quotation', 'GET', 'EduInnTech Site'),
+(25659, '127.0.0.1', NULL, NULL, NULL, NULL, '02:40:20', '2026-04-08', 'http://127.0.0.1:8000/quotation', 'quotation', 'GET', 'EduInnTech Site'),
+(25660, '127.0.0.1', NULL, NULL, NULL, NULL, '02:41:50', '2026-04-08', 'http://127.0.0.1:8000/quotation', 'quotation', 'GET', 'EduInnTech Site'),
+(25661, '127.0.0.1', NULL, NULL, NULL, NULL, '02:42:39', '2026-04-08', 'http://127.0.0.1:8000/quotation', 'quotation', 'GET', 'EduInnTech Site'),
+(25662, '127.0.0.1', NULL, NULL, NULL, NULL, '02:43:01', '2026-04-08', 'http://127.0.0.1:8000/quotation', 'quotation', 'GET', 'EduInnTech Site'),
+(25663, '127.0.0.1', NULL, NULL, NULL, NULL, '02:45:00', '2026-04-08', 'http://127.0.0.1:8000/quotation', 'quotation', 'GET', 'EduInnTech Site'),
+(25664, '127.0.0.1', NULL, NULL, NULL, NULL, '02:45:10', '2026-04-08', 'http://127.0.0.1:8000/quotation', 'quotation', 'GET', 'EduInnTech Site'),
+(25665, '127.0.0.1', NULL, NULL, NULL, NULL, '02:45:29', '2026-04-08', 'http://127.0.0.1:8000/quotation', 'quotation', 'GET', 'EduInnTech Site'),
+(25666, '127.0.0.1', NULL, NULL, NULL, NULL, '02:45:33', '2026-04-08', 'http://127.0.0.1:8000/portfolio', 'portfolio', 'GET', 'EduInnTech Site'),
+(25667, '127.0.0.1', NULL, NULL, NULL, NULL, '02:46:28', '2026-04-08', 'http://127.0.0.1:8000/quotation', 'quotation', 'GET', 'EduInnTech Site'),
+(25668, '127.0.0.1', NULL, NULL, NULL, NULL, '02:46:50', '2026-04-08', 'http://127.0.0.1:8000/contact-us', 'contact-us', 'GET', 'EduInnTech Site'),
+(25669, '127.0.0.1', NULL, NULL, NULL, NULL, '02:46:53', '2026-04-08', 'http://127.0.0.1:8000/quotation', 'quotation', 'GET', 'EduInnTech Site'),
+(25670, '127.0.0.1', NULL, NULL, NULL, NULL, '02:47:09', '2026-04-08', 'http://127.0.0.1:8000/quotation', 'quotation', 'GET', 'EduInnTech Site'),
+(25671, '127.0.0.1', NULL, NULL, NULL, NULL, '02:47:25', '2026-04-08', 'http://127.0.0.1:8000', '/', 'GET', 'EduInnTech Site'),
+(25672, '127.0.0.1', NULL, NULL, NULL, NULL, '02:47:28', '2026-04-08', 'http://127.0.0.1:8000/services', 'services', 'GET', 'EduInnTech Site'),
+(25673, '127.0.0.1', NULL, NULL, NULL, NULL, '02:47:34', '2026-04-08', 'http://127.0.0.1:8000/portfolio', 'portfolio', 'GET', 'EduInnTech Site'),
+(25674, '127.0.0.1', NULL, NULL, NULL, NULL, '02:47:52', '2026-04-08', 'http://127.0.0.1:8000/quotation', 'quotation', 'GET', 'EduInnTech Site'),
+(25675, '127.0.0.1', NULL, NULL, NULL, NULL, '02:48:12', '2026-04-08', 'http://127.0.0.1:8000/contact-us', 'contact-us', 'GET', 'EduInnTech Site'),
+(25676, '127.0.0.1', NULL, NULL, NULL, NULL, '02:48:15', '2026-04-08', 'http://127.0.0.1:8000/quotation', 'quotation', 'GET', 'EduInnTech Site'),
+(25677, '127.0.0.1', NULL, NULL, NULL, NULL, '02:57:03', '2026-04-08', 'http://127.0.0.1:8000/services', 'services', 'GET', 'EduInnTech Site'),
+(25678, '127.0.0.1', NULL, NULL, NULL, NULL, '02:57:08', '2026-04-08', 'http://127.0.0.1:8000/contact-us', 'contact-us', 'GET', 'EduInnTech Site'),
+(25679, '127.0.0.1', NULL, NULL, NULL, NULL, '02:57:10', '2026-04-08', 'http://127.0.0.1:8000', '/', 'GET', 'EduInnTech Site'),
+(25680, '127.0.0.1', NULL, NULL, NULL, NULL, '03:02:38', '2026-04-08', 'http://127.0.0.1:8000', '/', 'GET', 'EduInnTech Site'),
+(25681, '127.0.0.1', NULL, NULL, NULL, NULL, '03:02:51', '2026-04-08', 'http://127.0.0.1:8000/projects/interior', 'projects/interior', 'GET', 'EduInnTech Site'),
+(25682, '127.0.0.1', NULL, NULL, NULL, NULL, '03:02:54', '2026-04-08', 'http://127.0.0.1:8000/interior-project/Office', 'interior-project/Office', 'GET', 'EduInnTech Site'),
+(25683, '127.0.0.1', NULL, NULL, NULL, NULL, '03:02:55', '2026-04-08', 'http://127.0.0.1:8000/interior-project/site.webmanifest', 'interior-project/site.webmanifest', 'GET', 'EduInnTech Site'),
+(25684, '127.0.0.1', NULL, NULL, NULL, NULL, '03:02:56', '2026-04-08', 'http://127.0.0.1:8000/interior-project/site.webmanifest', 'interior-project/site.webmanifest', 'GET', 'EduInnTech Site'),
+(25685, '127.0.0.1', NULL, NULL, NULL, NULL, '03:16:06', '2026-04-08', 'http://127.0.0.1:8000/quotation', 'quotation', 'GET', 'EduInnTech Site'),
+(25686, '127.0.0.1', NULL, NULL, NULL, NULL, '03:28:10', '2026-04-08', 'http://127.0.0.1:8000/interior-project/Office', 'interior-project/Office', 'GET', 'EduInnTech Site'),
+(25687, '127.0.0.1', NULL, NULL, NULL, NULL, '03:28:12', '2026-04-08', 'http://127.0.0.1:8000/interior-project/site.webmanifest', 'interior-project/site.webmanifest', 'GET', 'EduInnTech Site'),
+(25688, '127.0.0.1', NULL, NULL, NULL, NULL, '03:28:14', '2026-04-08', 'http://127.0.0.1:8000/interior-project/site.webmanifest', 'interior-project/site.webmanifest', 'GET', 'EduInnTech Site'),
+(25689, '127.0.0.1', NULL, NULL, NULL, NULL, '03:32:27', '2026-04-08', 'http://127.0.0.1:8000/services', 'services', 'GET', 'EduInnTech Site'),
+(25690, '127.0.0.1', NULL, NULL, NULL, NULL, '03:32:29', '2026-04-08', 'http://127.0.0.1:8000/portfolio', 'portfolio', 'GET', 'EduInnTech Site'),
+(25691, '127.0.0.1', NULL, NULL, NULL, NULL, '03:32:32', '2026-04-08', 'http://127.0.0.1:8000/quotation', 'quotation', 'GET', 'EduInnTech Site'),
+(25692, '127.0.0.1', NULL, NULL, NULL, NULL, '03:32:38', '2026-04-08', 'http://127.0.0.1:8000/portfolio', 'portfolio', 'GET', 'EduInnTech Site'),
+(25693, '127.0.0.1', NULL, NULL, NULL, NULL, '03:34:21', '2026-04-08', 'http://127.0.0.1:8000/portfolio', 'portfolio', 'GET', 'EduInnTech Site'),
+(25694, '127.0.0.1', NULL, NULL, NULL, NULL, '03:35:06', '2026-04-08', 'http://127.0.0.1:8000/portfolio', 'portfolio', 'GET', 'EduInnTech Site'),
+(25695, '127.0.0.1', NULL, NULL, NULL, NULL, '03:35:30', '2026-04-08', 'http://127.0.0.1:8000/services', 'services', 'GET', 'EduInnTech Site'),
+(25696, '127.0.0.1', NULL, NULL, NULL, NULL, '03:35:32', '2026-04-08', 'http://127.0.0.1:8000/portfolio', 'portfolio', 'GET', 'EduInnTech Site'),
+(25697, '127.0.0.1', NULL, NULL, NULL, NULL, '03:35:36', '2026-04-08', 'http://127.0.0.1:8000/quotation', 'quotation', 'GET', 'EduInnTech Site'),
+(25698, '127.0.0.1', NULL, NULL, NULL, NULL, '03:35:40', '2026-04-08', 'http://127.0.0.1:8000/portfolio', 'portfolio', 'GET', 'EduInnTech Site'),
+(25699, '127.0.0.1', NULL, NULL, NULL, NULL, '03:41:23', '2026-04-08', 'http://127.0.0.1:8000/portfolio', 'portfolio', 'GET', 'EduInnTech Site'),
+(25700, '127.0.0.1', NULL, NULL, NULL, NULL, '03:41:40', '2026-04-08', 'http://127.0.0.1:8000/portfolio', 'portfolio', 'GET', 'EduInnTech Site'),
+(25701, '127.0.0.1', NULL, NULL, NULL, NULL, '03:41:53', '2026-04-08', 'http://127.0.0.1:8000/portfolio', 'portfolio', 'GET', 'EduInnTech Site'),
+(25702, '127.0.0.1', NULL, NULL, NULL, NULL, '03:42:12', '2026-04-08', 'http://127.0.0.1:8000/portfolio', 'portfolio', 'GET', 'EduInnTech Site'),
+(25703, '127.0.0.1', NULL, NULL, NULL, NULL, '03:42:34', '2026-04-08', 'http://127.0.0.1:8000/portfolio', 'portfolio', 'GET', 'EduInnTech Site'),
+(25704, '127.0.0.1', NULL, NULL, NULL, NULL, '03:43:24', '2026-04-08', 'http://127.0.0.1:8000/portfolio', 'portfolio', 'GET', 'EduInnTech Site'),
+(25705, '127.0.0.1', NULL, NULL, NULL, NULL, '03:44:09', '2026-04-08', 'http://127.0.0.1:8000/portfolio', 'portfolio', 'GET', 'EduInnTech Site'),
+(25706, '127.0.0.1', NULL, NULL, NULL, NULL, '03:44:43', '2026-04-08', 'http://127.0.0.1:8000/portfolio', 'portfolio', 'GET', 'EduInnTech Site'),
+(25707, '127.0.0.1', NULL, NULL, NULL, NULL, '03:45:04', '2026-04-08', 'http://127.0.0.1:8000/portfolio', 'portfolio', 'GET', 'EduInnTech Site'),
+(25708, '127.0.0.1', NULL, NULL, NULL, NULL, '03:45:18', '2026-04-08', 'http://127.0.0.1:8000/portfolio', 'portfolio', 'GET', 'EduInnTech Site'),
+(25709, '127.0.0.1', NULL, NULL, NULL, NULL, '03:45:33', '2026-04-08', 'http://127.0.0.1:8000/portfolio', 'portfolio', 'GET', 'EduInnTech Site'),
+(25710, '127.0.0.1', NULL, NULL, NULL, NULL, '03:49:42', '2026-04-08', 'http://127.0.0.1:8000/portfolio', 'portfolio', 'GET', 'EduInnTech Site'),
+(25711, '127.0.0.1', NULL, NULL, NULL, NULL, '03:50:52', '2026-04-08', 'http://127.0.0.1:8000/quotation', 'quotation', 'GET', 'EduInnTech Site'),
+(25712, '127.0.0.1', NULL, NULL, NULL, NULL, '03:51:07', '2026-04-08', 'http://127.0.0.1:8000', '/', 'GET', 'EduInnTech Site'),
+(25713, '127.0.0.1', NULL, NULL, NULL, NULL, '03:55:51', '2026-04-08', 'http://127.0.0.1:8000', '/', 'GET', 'EduInnTech Site'),
+(25714, '127.0.0.1', NULL, NULL, NULL, NULL, '03:56:29', '2026-04-08', 'http://127.0.0.1:8000', '/', 'GET', 'EduInnTech Site'),
+(25715, '127.0.0.1', NULL, NULL, NULL, NULL, '03:57:55', '2026-04-08', 'http://127.0.0.1:8000', '/', 'GET', 'EduInnTech Site'),
+(25716, '127.0.0.1', NULL, NULL, NULL, NULL, '03:58:28', '2026-04-08', 'http://127.0.0.1:8000/quotation', 'quotation', 'GET', 'EduInnTech Site'),
+(25717, '127.0.0.1', NULL, NULL, NULL, NULL, '03:58:37', '2026-04-08', 'http://127.0.0.1:8000', '/', 'GET', 'EduInnTech Site'),
+(25718, '127.0.0.1', NULL, NULL, NULL, NULL, '03:59:07', '2026-04-08', 'http://127.0.0.1:8000', '/', 'GET', 'EduInnTech Site'),
+(25719, '127.0.0.1', NULL, NULL, NULL, NULL, '04:00:29', '2026-04-08', 'http://127.0.0.1:8000', '/', 'GET', 'EduInnTech Site'),
+(25720, '127.0.0.1', NULL, NULL, NULL, NULL, '04:02:16', '2026-04-08', 'http://127.0.0.1:8000', '/', 'GET', 'EduInnTech Site'),
+(25721, '127.0.0.1', NULL, NULL, NULL, NULL, '04:03:15', '2026-04-08', 'http://127.0.0.1:8000', '/', 'GET', 'EduInnTech Site'),
+(25722, '127.0.0.1', NULL, NULL, NULL, NULL, '04:04:21', '2026-04-08', 'http://127.0.0.1:8000', '/', 'GET', 'EduInnTech Site'),
+(25723, '127.0.0.1', NULL, NULL, NULL, NULL, '04:06:09', '2026-04-08', 'http://127.0.0.1:8000', '/', 'GET', 'EduInnTech Site'),
+(25724, '127.0.0.1', NULL, NULL, NULL, NULL, '04:07:30', '2026-04-08', 'http://127.0.0.1:8000', '/', 'GET', 'EduInnTech Site'),
+(25725, '127.0.0.1', NULL, NULL, NULL, NULL, '04:08:10', '2026-04-08', 'http://127.0.0.1:8000', '/', 'GET', 'EduInnTech Site'),
+(25726, '127.0.0.1', NULL, NULL, NULL, NULL, '04:08:44', '2026-04-08', 'http://127.0.0.1:8000', '/', 'GET', 'EduInnTech Site'),
+(25727, '127.0.0.1', NULL, NULL, NULL, NULL, '04:10:29', '2026-04-08', 'http://127.0.0.1:8000', '/', 'GET', 'EduInnTech Site'),
+(25728, '127.0.0.1', NULL, NULL, NULL, NULL, '04:11:10', '2026-04-08', 'http://127.0.0.1:8000', '/', 'GET', 'EduInnTech Site'),
+(25729, '127.0.0.1', NULL, NULL, NULL, NULL, '04:12:58', '2026-04-08', 'http://127.0.0.1:8000', '/', 'GET', 'EduInnTech Site'),
+(25730, '127.0.0.1', NULL, NULL, NULL, NULL, '04:14:33', '2026-04-08', 'http://127.0.0.1:8000', '/', 'GET', 'EduInnTech Site'),
+(25731, '127.0.0.1', NULL, NULL, NULL, NULL, '04:15:50', '2026-04-08', 'http://127.0.0.1:8000', '/', 'GET', 'EduInnTech Site'),
+(25732, '127.0.0.1', NULL, NULL, NULL, NULL, '04:17:22', '2026-04-08', 'http://127.0.0.1:8000', '/', 'GET', 'EduInnTech Site'),
+(25733, '127.0.0.1', NULL, NULL, NULL, NULL, '04:17:32', '2026-04-08', 'http://127.0.0.1:8000', '/', 'GET', 'EduInnTech Site'),
+(25734, '127.0.0.1', NULL, NULL, NULL, NULL, '04:20:28', '2026-04-08', 'http://127.0.0.1:8000', '/', 'GET', 'EduInnTech Site'),
+(25735, '127.0.0.1', NULL, NULL, NULL, NULL, '04:21:23', '2026-04-08', 'http://127.0.0.1:8000', '/', 'GET', 'EduInnTech Site');
 
 -- --------------------------------------------------------
 
@@ -2194,7 +2403,7 @@ ALTER TABLE `website_pages`
 -- AUTO_INCREMENT for table `access_logs`
 --
 ALTER TABLE `access_logs`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5136;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5186;
 
 --
 -- AUTO_INCREMENT for table `access_permission`
@@ -2266,7 +2475,7 @@ ALTER TABLE `business_product_entity`
 -- AUTO_INCREMENT for table `business_projects`
 --
 ALTER TABLE `business_projects`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 
 --
 -- AUTO_INCREMENT for table `business_services`
@@ -2308,7 +2517,7 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT for table `gallery`
 --
 ALTER TABLE `gallery`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `info_key_note`
@@ -2410,7 +2619,7 @@ ALTER TABLE `site_banners`
 -- AUTO_INCREMENT for table `system_information`
 --
 ALTER TABLE `system_information`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `technical_expertise`
@@ -2428,7 +2637,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `visitor_access_log`
 --
 ALTER TABLE `visitor_access_log`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25582;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25736;
 
 --
 -- AUTO_INCREMENT for table `visitor_contactus_message`

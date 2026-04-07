@@ -54,17 +54,16 @@ class BusinessProjectController extends Controller
     public function store(Request $request)
     {
 
+
         $userId = Session::get('userId');
 
         $request->validate([
-            'project_title'       => 'required|string|max:255',
-            'project_description' => 'required|string',
-            'status'              => 'required|string',
+            'name'       => 'required|string|max:255',
             'project_photo'         => 'nullable|file|mimes:jpg,jpeg,png|max:2048'
         ]);
 
         // Check for duplicate project
-        if (BusinessProject::where('project_title', $request->project_title)->exists()) {
+        if (BusinessProject::where('name', $request->name)->exists()) {
             flash()->addError('Sorry, Duplicate Found, Business Project save operation has been failed.');
             return Redirect::back();
         }
@@ -96,7 +95,7 @@ class BusinessProjectController extends Controller
             'project_type'        => $request->project_type,
             'project_category'    => $request->project_category,
             'project_visibility' => $request->project_visibility,
-            'status'              => $request->status,
+            'project_status'              => $request->project_status,
             'project_photo'         => $photoPath,
             'created_by'          => $userId,
         ]);
@@ -104,7 +103,7 @@ class BusinessProjectController extends Controller
         if ($project) {
             $this->accessLogger->logEntry($userId, 'Business Project Submit.', 'Business Project', '', '');
             flash()->addSuccess('Business Project save operation has been successful.');
-            return Redirect::back();
+            return redirect()->route('project.index');
         } else {
             flash()->addError('Sorry, Business Project save operation has been failed.');
             return Redirect::back();
@@ -150,7 +149,7 @@ class BusinessProjectController extends Controller
             $storagePath  = 'uploads/project-cover/';
             $parent       = "project-cover";
 
-            $photoUrl  = $this->imageObject->photoUpload(
+            $photoUrl  = $this->imageObject->photoUpload( 
                 $request,
                 'project_photo',
                 $uploadedPath,
@@ -178,7 +177,7 @@ class BusinessProjectController extends Controller
         if ($updated) {
             $this->accessLogger->logEntry($userId, 'Business Project Update.', 'Business Project', '', '');
             flash()->addSuccess('Business Project update operation has been successful.');
-            return Redirect::back();
+            return redirect()->route('project.index');
         } else {
             flash()->addError('Sorry, Business Project update operation has been failed.');
             return Redirect::back();

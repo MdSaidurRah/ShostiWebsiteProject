@@ -62,6 +62,7 @@
                                                     <option value="">-- Select Category --</option>
                                                     <option value="Residence" {{ old('project_category', $project->project_category) == 'Residence' ? 'selected' : '' }}>Residence</option>
                                                     <option value="Office" {{ old('project_category', $project->project_category) == 'Office' ? 'selected' : '' }}>Office</option>
+                                                    <option value="Kitchen" {{ old('project_category', $project->project_category) == 'Kitchen' ? 'selected' : '' }}>Kitchen</option>
                                                 </select>
                                             </div>
 
@@ -80,6 +81,7 @@
                                                     <option value="">-- Select Status --</option>
                                                     <option value="Completed" {{ old('project_status', $project->project_status) == 'Completed' ? 'selected' : '' }}>Completed</option>
                                                     <option value="Running" {{ old('project_status', $project->project_status) == 'Running' ? 'selected' : '' }}>Running</option>
+                                                    <option value="Upcoming" {{ old('project_status', $project->project_status) == 'Upcoming' ? 'selected' : '' }}>Upcoming</option>
                                                 </select>
                                             </div>
 
