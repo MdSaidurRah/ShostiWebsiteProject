@@ -17,7 +17,7 @@
 
                 @foreach($exteriorProjects as $projet)
                     <div class="col-lg-4 col-md-6 mb-30">
-                        <a href="#" class="text-decoration-none">
+                        <a href="{{ url('/project-information/' . $project->id) }}" class="text-decoration-none">
                             <div class="card zoom-card h-100 shadow-sm">
                                 <img src="{{ url($projet->project_photo) }}"
                                     class="card-img-top"

@@ -16,7 +16,7 @@ class ExteriorProjectController extends Controller
 
         $exteriorProjects =  DB::table('business_projects')
             ->where('project_type','Exterior')
-            ->where('project_status','ACTIVE')
+            ->where('project_visibility','Published')
             ->select('*')
             ->orderBy('id','DESC')
             ->get();

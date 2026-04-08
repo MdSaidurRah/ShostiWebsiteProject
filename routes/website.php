@@ -49,10 +49,11 @@ Route::middleware(['VisitorRegister'])->group(function(){
     Route::get('/service/duplex-interior-design',[ServiceController::class,'duplexInteriorDesign']);
 
     Route::get('/projects/interior',[InteriorProjectController::class,'interior']);
+    Route::get('/projects/exterior',[ExteriorProjectController::class,'exteriorProjects']);
     Route::get('/interior-project/{catetgory}',[InteriorProjectController::class,'interiorProjectDetail']);
 
+    Route::get('/project-information/{id}',[InteriorProjectController::class,'projectInformation']);
 
-    Route::get('/projects/exterior',[ExteriorProjectController::class,'exteriorProjects']);
 
     Route::get('/portfolio',[PortfolioController::class,'portfolio']);
 

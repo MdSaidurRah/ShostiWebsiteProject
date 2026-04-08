@@ -20,7 +20,7 @@ use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Crypt;
 
-class ConsultationFlowController extends Controller
+class ConsultationFormController extends Controller
 {
     public $accessLogger;
     public $crudObject;
@@ -46,13 +46,9 @@ class ConsultationFlowController extends Controller
     {
         $keyId = Crypt::decryptString($id);
         $form = ConsultationForm::findOrFail($keyId);
-
         return view('crm.consultation-show')->with('form', $form);
-
-
     }
 
-   
 
     /** ✅ Get all pages (for DataTables or listing) */
     public function getAllItems(Request $request)

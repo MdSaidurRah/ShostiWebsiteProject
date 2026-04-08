@@ -7,7 +7,7 @@
 
             <div class="row mb-50">
                 <div class="col-12 text-center">
-                    <h2>Residence Interior Completed Projects</h2>
+                    <h2>{{$pageTitle}}</h2>
                     <p class="mt-2 text-muted">
                         Explore our carefully crafted interior projects that blend functionality, comfort, and modern design.
                     </p>
@@ -22,7 +22,7 @@
 
                     <!-- Card 1 -->
                     <div class="col-lg-4 col-md-6 mb-30">
-                        <a href="#" class="text-decoration-none">
+                        <a href="{{ url('/project-information/' . $project->id) }}" class="text-decoration-none">
                             <div class="card zoom-card h-100 shadow-sm">
                                 <img src="{{ url($project->project_photo) }}"
                                     class="card-img-top"

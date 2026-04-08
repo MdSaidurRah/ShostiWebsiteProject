@@ -17,7 +17,7 @@ use App\Http\Controllers\CMS\SiteBannerController;
 use App\Http\Controllers\CMS\SiteGallaryController;
 use App\Http\Controllers\CMS\PromotionalVideoController;
 use App\Http\Controllers\Report\VisitorMessageController;
-use App\Http\Controllers\Report\ConsultationFlowControllerConsultationFlowController;
+use App\Http\Controllers\Report\ConsultationFormController;
 use App\Http\Controllers\UserController\SystemInformationController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Artisan;
@@ -120,10 +120,10 @@ Route::middleware(['checkauthencation'])->group(function(){
     Route::get('/get-all/visitor-message', [VisitorMessageController::class, 'getAllItems'])->name('get-all-visitor-message');    
     
     // consultation query
-    Route::get('/consultation-query', [ConsultationFlowController::class, 'consultationQuery'])->name('consultation-query.index');
-    Route::get('/consultation-query/show/{id}', [ConsultationFlowController::class, 'consultationQueryShow'])->name('consultation-query.show');
-    Route::get('/get-all/consultation-query', [ConsultationFlowController::class, 'getAllItems'])->name('get-all-consultation-query'); 
-
+    Route::get('/consultation-query', [ConsultationFormController::class, 'consultationQuery'])->name('consultation-query.index');
+    Route::get('/consultation-query/show/{id}', [ConsultationFormController::class, 'consultationQueryShow'])->name('consultation-query.show');
+    Route::get('/get-all/consultation-query', [ConsultationFormController::class, 'getAllItems'])->name('get-all-consultation-query'); 
+    
     
     
   
@@ -230,11 +230,14 @@ Route::middleware(['checkauthencation'])->group(function(){
     Route::post('/project/store', [BusinessProjectController::class, 'store'])->name('project.store');
     Route::get('/project/preview/{id}', [BusinessProjectController::class, 'preview'])->name('project.show');
     Route::get('/project/edit/{id}', [BusinessProjectController::class, 'edit'])->name('project.edit');
+    Route::get('/project/show/{id}', [BusinessProjectController::class, 'show'])->name('project.show');
     Route::post('/project/update', [BusinessProjectController::class, 'update'])->name('project.update');
     Route::delete('/project/{id}', [BusinessProjectController::class, 'destroy'])->name('project.destroy');
     Route::get('/get-all/projects', [BusinessProjectController::class, 'getAllItems'])->name('get-all-project');
 
-
+    Route::post('/business-projects/photo-upload', [BusinessProjectController::class, 'projectPhotoUpload'])->name('project.photo.upload');
+    Route::get('/project-photo/edit/{id}', [BusinessProjectController::class, 'editProjectPhoto'])->name('project.photo.edit');
+    Route::post('/project-photo/update', [BusinessProjectController::class, 'updateProjectPhoto'])->name('project.photo.update');
 
     // Blog Routes
     Route::get('/pages', [PageController::class, 'index'])->name('page.index');

@@ -20,21 +20,20 @@
 
         <!-- Grid -->
         <div class="row g-4">
-
             @foreach($businessService as $service)
                 <div class="col-sm-6 col-lg-4 col-xl-3 mb-4 mb-5">
                     <div class="service-card h-100">
-                        <div class="service-icon"><i class="bi bi-brush"></i></div>
+                        <div class="service-icon">
+                            <!-- Example inline SVG icon -->
+                            <svg width="32" height="32" fill="none" stroke="#198754" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M4 19V5a2 2 0 012-2h6l2 3h6a2 2 0 012 2v11M3 19h18M8 23h8"/>
+                            </svg>
+                        </div>
                         <h5 class="service-title">{{$service->service_title}}</h5>
                         <p class="service-text">{{$service->service_defination}}</p>
                     </div>
                 </div>
-
             @endforeach
-
-        
-           
-
         </div>
 
         <!-- CTA -->
@@ -46,7 +45,7 @@
                 </div>
                 <div class="d-flex flex-wrap gap-2">
                     <a href="{{ url('/quotation') }}" class="btn btn-success rounded-pill mx-2">Get a Quote</a>
-                    <a href="{{ url('/portfolio') }}" class="btn btn-outline-dark rounded-pill ">View Portfolio</a>
+                    <a href="{{ url('/portfolio') }}" class="btn btn-outline-dark rounded-pill">View Portfolio</a>
                 </div>
             </div>
         </div>
@@ -56,92 +55,95 @@
 <!-- Services / Expertise Grid End -->
 
 <style>
-    .services-page{
-        background: linear-gradient(180deg, #f6f7f9 0%, #ffffff 60%);
+    .services-page {
+        background: linear-gradient(180deg, #f9fafc 0%, #ffffff 60%);
     }
 
-    .sp-pill{
-        display:inline-block;
-        padding: 8px 14px;
+    .sp-pill {
+        display: inline-block;
+        padding: 8px 16px;
         border-radius: 999px;
         font-weight: 700;
         font-size: .8rem;
         letter-spacing: .08em;
         text-transform: uppercase;
         color: #198754;
-        background: rgba(25,135,84,.10);
+        background: rgba(25,135,84,.12);
+        transition: all 0.3s ease;
     }
 
-    .sp-h1{
+    .sp-h1 {
         font-weight: 900;
         letter-spacing: -0.03em;
         line-height: 1.15;
         color: #111827;
-        font-size: clamp(1.7rem, 2.2vw + 1rem, 2.6rem);
+        font-size: clamp(1.7rem, 2.2vw + 1rem, 2.8rem);
     }
 
-    .sp-lead{
-        color:#6c757d;
-        line-height:1.7;
-        max-width: 760px;
+    .sp-lead {
+        color: #6c757d;
+        line-height: 1.7;
+        max-width: 720px;
         margin: 0 auto;
     }
 
-    .service-card{
-        background:#fff;
-        border:1px solid #e9ecef;
-        border-radius: 18px;
-        padding: 18px;
-        box-shadow: 0 14px 35px rgba(0,0,0,.05);
-        transition: .2s ease;
+    .service-card {
+        background: #ffffffcc;
+        border-radius: 20px;
+        padding: 20px;
+        box-shadow: 0 16px 40px rgba(0,0,0,0.06);
+        transition: all 0.3s ease;
         height: 100%;
+        border: 1px solid rgba(0,0,0,0.05);
     }
 
-    .service-icon{
-        width: 44px;
-        height: 44px;
-        border-radius: 12px;
-        display:flex;
-        align-items:center;
-        justify-content:center;
-        background: rgba(25,135,84,.10);
-        color:#198754;
-        font-size: 1.3rem;
-        margin-bottom: 12px;
-    }
-
-    .service-title{
-        font-weight: 800;
-        color:#111827;
-        font-size: 1.05rem;
-        margin-bottom: 8px;
-        letter-spacing: -0.01em;
-    }
-
-    .service-text{
-        color:#6c757d;
-        line-height: 1.75;
-        margin-bottom: 0;
-        font-size: .98rem;
-    }
-
-    .service-card:hover{
-        transform: translateY(-3px);
-        box-shadow: 0 18px 45px rgba(0,0,0,.08);
+    .service-card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 20px 50px rgba(0,0,0,0.1);
         border-color: rgba(25,135,84,.25);
     }
 
-    .sp-cta{
-        background:#fff;
-        border:1px solid #e9ecef;
-        border-radius: 18px;
-        padding: 20px;
-        box-shadow: 0 14px 35px rgba(0,0,0,.05);
+    .service-icon {
+        width: 50px;
+        height: 50px;
+        border-radius: 14px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: rgba(25,135,84,.1);
+        margin-bottom: 16px;
+        transition: all 0.3s ease;
     }
 
-    @media (max-width: 575.98px){
-        .service-card{ padding: 16px; }
-        .sp-cta{ padding: 16px; }
+    .service-card:hover .service-icon svg {
+        stroke: #0f5132; /* Darker green on hover */
+        transform: scale(1.1);
+    }
+
+    .service-title {
+        font-weight: 700;
+        color: #111827;
+        font-size: 1.1rem;
+        margin-bottom: 10px;
+    }
+
+    .service-text {
+        color: #6c757d;
+        line-height: 1.7;
+        font-size: .95rem;
+    }
+
+    .sp-cta {
+        background: #fff;
+        border-radius: 20px;
+        padding: 24px;
+        box-shadow: 0 16px 35px rgba(0,0,0,.06);
+        border: 1px solid rgba(0,0,0,0.05);
+    }
+
+    @media (max-width: 575.98px) {
+        .service-card { padding: 18px; }
+        .sp-cta { padding: 18px; }
     }
 </style>
 

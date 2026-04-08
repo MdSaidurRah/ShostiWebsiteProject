@@ -3,11 +3,7 @@
 @section('page-content')
 
     <h4 class="fw-bold py-3 "><span class="text-muted fw-light">Admin /</span> Consultation Query</h4>
-
-    Admin / Projects
-Projects
-    
-
+  
     <div class="row">
         <div class="col-xl-12 col-md-12">
             <div class="card table-card">
@@ -23,7 +19,7 @@ Projects
                                 <thead>
                                     <tr>
                                         <th style="width: 5%;">SL</th>
-                                        <th style="width: 10%;">Consultant Name</th>
+                                        <th style="width: 10%;"> Name</th>
                                         <th style="width: 10%;">Phone</th>
                                         <th style="width: 10%;">Location </th>
                                         <th style="width: 10%;">Size</th>
@@ -54,10 +50,10 @@ Projects
 
                 columns: [
                     {data: 'DT_RowIndex', name: 'DT_RowIndex', orderable: false, searchable: false },
-                    {data: 'visitor_name', name: 'visitor_name', searchable: true},
-                    {data: 'visitor_phone', name: 'phone', searchable: true},
+                    {data: 'name', name: 'name', searchable: true},
+                    {data: 'phone', name: 'phone', searchable: true},
                     {data: 'location', name: 'location', searchable: true},
-                    {data: 'physical_', name: 'size', searchable: true},
+                    {data: 'size', name: 'size', searchable: true},
                     {data: 'type', name: 'type', searchable: true},
                     {data: 'query_status', name: 'query_status', searchable: true},
                     {data: 'action', name: 'action', searchable: false},

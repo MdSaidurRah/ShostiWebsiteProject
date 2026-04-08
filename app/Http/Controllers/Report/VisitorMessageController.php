@@ -75,13 +75,13 @@ class VisitorMessageController extends Controller
     /** ✅ Get all pages (for DataTables or listing) */
     public function getAllItems(Request $request)
     {
-        $consultationQuery = DB::table('consultation_form')->select(['*'])->orderBy('id', 'DESC')->get();
+        $consultationQuery = DB::table('visitor_contactus_message')->select(['*'])->orderBy('id', 'DESC')->get();
 
         return datatables()->of($consultationQuery)
             ->addIndexColumn()
          
             ->addColumn('action', function ($consultationQuery) {
-                $btn2 = '<a href="' . '/consultation-query/show/' . Crypt::encryptString($consultationQuery->id) . '" class="btn btn-primary btn-sm"><i class="fa fa-edit"></i> Show</a> ';
+                $btn2 = '<a href="' . '/visitor-message/show/' . Crypt::encryptString($consultationQuery->id) . '" class="btn btn-primary btn-sm"><i class="fa fa-edit"></i> Show</a> ';
                 return $btn2;
             })
             ->rawColumns(['action','video_thums'])

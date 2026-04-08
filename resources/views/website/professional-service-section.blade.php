@@ -39,10 +39,18 @@
             <div class="col-lg-5 col-md-8">
                 <div class="pro-anim pro-right">
                     <div class="pro-media">
+                        
+                        <?php
+                            $videoLink = DB::table('promotional_videos')
+                                ->where('status','Published')
+                                ->orderBy('id','DESC')
+                                ->first();
+                        
+                        ?>
 
                         <div class="video-wrapper">
                             <iframe 
-                                src="https://www.youtube.com/embed/P5V5EFxGYZQ"
+                                src="{{$videoLink->reference_link ?? 'https://www.youtube.com/embed/P5V5EFxGYZQ'}}"
                                 title="YouTube video player"
                                 frameborder="0"
                                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"

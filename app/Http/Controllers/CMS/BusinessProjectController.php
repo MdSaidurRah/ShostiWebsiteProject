@@ -8,6 +8,7 @@ use App\LibraryFunctions\crudlib;
 use App\LibraryFunctions\imagelib;
 use App\Models\BlogCategory;
 use App\Models\BusinessProject;
+use App\Models\ProjectPhoto;
 use App\Models\WebsitePage;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
@@ -51,6 +52,108 @@ class BusinessProjectController extends Controller
     }
 
     /** ✅ Store a new page */
+    public function projectPhotoUpload(Request $request)
+    {
+
+        $userId = Session::get('userId');
+
+        $request->validate([
+            'project_photo'         => 'nullable|file|mimes:jpg,jpeg,png|max:2048'
+        ]);
+
+        $photoPath = '';
+        if ($request->project_photo) {
+            $uploadedPath = 'uploads/project-photo/';
+            $storagePath  = 'uploads/project-photo/';
+            $parent       = "project-photo";
+
+            $photoUrl  = $this->imageObject->photoUpload(
+                $request,
+                'project_photo',
+                $uploadedPath,
+                $storagePath,
+                $parent,
+                $userId
+            );
+
+            $photoPath = $photoUrl;
+        }
+
+        $project = ProjectPhoto::create([
+
+            'project_id'  => $request->project_id,
+            'photo_title' => $request->photo_title,
+            'photo_url'        =>   $photoUrl ,
+            'photo_status'    => "Published",
+            'created_by'          => $userId,
+        ]);
+
+        if ($project) {
+            $this->accessLogger->logEntry($userId, ' Project photo upload.', ' Project photo', '', '');
+            flash()->addSuccess('Project photo operation has been successful.');
+            return Redirect::back();
+        } else {
+            flash()->addError('Sorry, Project photo save operation has been failed.');
+            return Redirect::back();
+        }
+
+        
+    }
+
+    public function editProjectPhoto($id)
+    {
+        $keyId = Crypt::decryptString($id);
+        $photos = ProjectPhoto::where('id', $keyId)->first();
+        $project  = BusinessProject::where('id', $photos->project_id)->first();
+        
+        return view('cms.projects.project-photo-edit', compact('project','photos'));
+    }
+
+    public function updateProjectPhoto(Request $request)
+    {
+        $userId = Session::get('userId');
+        $photos = ProjectPhoto::findOrFail($request->id);
+
+        // Handle cover photo (keep old if not replaced)
+        $photoPath = $photos->photo_url; // keep old photo if not replaced
+        if ($request->project_photo) {
+            $uploadedPath = 'uploads/project-photo/';
+            $storagePath  = 'uploads/project-photo/';
+            $parent       = "project-photo";
+
+            $photoUrl  = $this->imageObject->photoUpload( 
+                $request,
+                'project_photo',
+                $uploadedPath,
+                $storagePath,
+                $parent,
+                $userId
+            );
+            $photoPath = $photoUrl;
+        }   
+
+        // Update the project photo
+        $updated = $photos->update([
+            'photo_title' => $request->photo_title,
+            'photo_url'        =>   $photoPath ,
+            'photo_status'    => $request->photo_status,
+            'updated_by'          => $userId,
+        ]);
+
+        if ($updated) {
+            $this->accessLogger->logEntry($userId, 'Project photo Update.', 'Project photo', '', '');
+            flash()->addSuccess('Project photo update operation has been successful.');
+            return Redirect::back();
+        } else {
+            flash()->addError('Sorry, Project photo update operation has been failed.');
+            return Redirect::back();
+        }
+    }
+
+
+    
+    
+   
     public function store(Request $request)
     {
 
@@ -127,6 +230,20 @@ class BusinessProjectController extends Controller
     }
 
 
+    public function show($id)
+    {
+
+        $keyId = Crypt::decryptString($id);
+        $project  = BusinessProject::findOrFail($keyId);
+        $blog_categories = DB::table('blog_categories')
+                    ->select('*')
+                    ->orderBy('id','DESC')
+                    ->get();
+
+        return view('cms.projects.show', compact('project','blog_categories'));
+    }
+
+
 
     public function update(Request $request)
     {
@@ -199,8 +316,9 @@ class BusinessProjectController extends Controller
                 return '<span class="text-muted">No Image</span>';
             })
             ->addColumn('action', function ($business_projects) {
-                $btn2 = '<a href="' . '/project/edit/' . Crypt::encryptString($business_projects->id) . '" class="btn btn-primary btn-sm"><i class="fa fa-edit"></i> Edit</a> ';
-                return $btn2;
+                $btn1 = '<a href="' . '/project/edit/' . Crypt::encryptString($business_projects->id) . '" class="btn btn-primary btn-sm"><i class="fa fa-edit"></i> Edit</a> ';
+                $btn2 = '<a href="' . '/project/show/' . Crypt::encryptString($business_projects->id) . '" class="btn btn-success btn-sm"><i class="fa fa-eye"></i> Show</a> ';
+                return $btn1 . $btn2;
             })
             ->rawColumns(['action','project_photo'])
             ->make(true);

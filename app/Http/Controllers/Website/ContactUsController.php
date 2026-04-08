@@ -3,14 +3,9 @@
 namespace App\Http\Controllers\Website;
 
 use Illuminate\Http\Request;
-use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
-use Illuminate\Foundation\Validation\ValidatesRequests;
+
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\DB;
-
-use App\Mail\ContactUsSubmissionReply;
-use App\Mail\ContactUsSubmissionNotification;
-use Illuminate\Support\Facades\Mail;
 
 class ContactUsController extends Controller
 {
@@ -31,12 +26,12 @@ class ContactUsController extends Controller
 
     public function contactUsSubmission(Request $request)
     {
-
+    
         $request->validate([
             'name'       => 'required|string|max:100',
-            'email'      => 'required|email|max:150',
-            'subject'    => 'required|string|max:255',
-            'contact_no' => 'nullable|digits_between:10,11',
+            'email'      => 'nullable|email|max:150',
+            'subject'    => 'nullable|string|max:255',
+            'contact_no' => 'required|digits_between:10,11',
             'message'    => 'required|string|max:2000',
         ]);
 

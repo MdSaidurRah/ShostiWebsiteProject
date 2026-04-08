@@ -25,6 +25,16 @@
                     </div>
                 @endif
 
+                @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
+
 
                 <form id="contactUsForm" action="{{ url('/contact-us-submission') }}" method="post">
                     @csrf
@@ -34,14 +44,14 @@
 
                         <div class="col-12">
                             <div class="form-group">
-                                <input class="form-control" name="subject" type="text" placeholder="Enter Subject">
+                                <input class="form-control" name="subject" type="text" placeholder="Enter Subject" required>
                                 <small class="text-danger error-subject"></small>
                             </div>
                         </div>
 
                         <div class="col-sm-4">
                             <div class="form-group">
-                                <input class="form-control" name="name" type="text" placeholder="Enter Name">
+                                <input class="form-control" name="name" type="text" placeholder="Enter Name" required>
                                 <small class="text-danger error-name"></small>
                             </div>
                         </div>
@@ -54,7 +64,7 @@
                         </div>                        
                         <div class="col-sm-4">
                             <div class="form-group">
-                                <input class="form-control" name="contact_no" type="text" placeholder="Contact No">
+                                <input class="form-control" name="contact_no" type="text" placeholder="Contact No" required>
                                 <small class="text-danger error-email"></small>
                             </div>
                         </div>

@@ -10,6 +10,26 @@ class InteriorProjectController extends Controller
 {
     //
 
+    public function projectInformation($id)
+    {
+        $projects = DB::table('business_projects')
+            ->where('id', $id)
+            ->select('*')
+            ->get();
+        
+        $projectPhotos = DB::table('project_photos')
+            ->where('project_id', $id)
+            ->select('*')
+            ->get();
+
+        $pageTitle = $projects[0]->name . ' - Project Information';
+
+        return view('website.projects.project-information')
+            ->with('projects', $projects)
+            ->with('projectPhotos', $projectPhotos)
+            ->with('pageTitle', $pageTitle);
+    }
+
     public function interior()
     {
         $pageTitle ="Interior";
@@ -26,18 +46,18 @@ class InteriorProjectController extends Controller
 
     public function interiorProjectDetail($category)
     {
-        $category  = DB::table('project_category')
+        $categoryId  = DB::table('project_category')
             ->where('category_name', $category )
             ->select('id')
             ->first();
 
         $projects  = DB::table('business_projects')
-            ->where('category_id', $category->id)
+            ->where('category_id', $categoryId->id)
             ->select('*')
             ->get();
 
 
-        $pageTitle ="Kitchen Interior Projects";
+        $pageTitle = $category .' Interior Projects';
 
         return view('website.projects.project-detials')
             ->with('projects',$projects)
