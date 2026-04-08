@@ -14,7 +14,7 @@
 
                     @if($firstGalleryItems->count() > 0)
                         @foreach($firstGalleryItems as $firstItem)
-                            <div class="col-xl-6 col-lg-4 col-md-6">
+                            <div class="col-xl-3 col-lg-4 col-md-6">
                                 <div class="single-gallery mb-30">
                                     <div class="gallery-img" style="background-image: url({{ url($firstItem->gallery_image) }});"></div>
                                     <div class="thumb-content-box">
@@ -52,7 +52,7 @@
 
                     @if($secondGalleryItems->count() > 0)
                         @foreach($secondGalleryItems as $secondItem)
-                            <div class="col-xl-6 col-lg-4 col-md-6">
+                            <div class="col-xl-3 col-lg-4 col-md-6">
                                 <div class="single-gallery mb-30">
                                     <div class="gallery-img" style="background-image: url({{ url($secondItem->gallery_image) }});"></div>
                                     <div class="thumb-content-box">
@@ -103,7 +103,7 @@
                             </div>
                         @endforeach
                     @else
-                        <div class="col-xl-3 col-lg-4 col-md-6">
+                        <div class="col-xl-6 col-lg-4 col-md-6">
                             <div class="single-gallery mb-30">
                                 <div class="gallery-img" style="background-image: url(http://127.0.0.1:8000/website/assets/img/gallery/gallery2.jpg);"></div>
                                 <div class="thumb-content-box">
@@ -140,7 +140,7 @@
                             </div>
                         @endforeach
                     @else
-                        <div class="col-xl-3 col-lg-4 col-md-6">
+                        <div class="col-xl-6 col-lg-4 col-md-6">
                             <div class="single-gallery mb-30">
                                 <div class="gallery-img" style="background-image: url(http://127.0.0.1:8000/website/assets/img/gallery/gallery2.jpg);"></div>
                                 <div class="thumb-content-box">
@@ -165,7 +165,7 @@
 
                     @if($fifthGalleryItems->count() > 0)
                         @foreach($fifthGalleryItems as $fifthItem)
-                            <div class="col-xl-6 col-lg-4 col-md-6">
+                            <div class="col-xl-3 col-lg-4 col-md-6">
                                 <div class="single-gallery mb-30">
                                     <div class="gallery-img" style="background-image: url({{ url($fifthItem->gallery_image) }});"></div>
                                     <div class="thumb-content-box">
@@ -202,7 +202,7 @@
 
                     @if($sixthGalleryItems->count() > 0)
                         @foreach($sixthGalleryItems as $sixthItem)
-                            <div class="col-xl-6 col-lg-4 col-md-6">
+                            <div class="col-xl-3 col-lg-4 col-md-6">
                                 <div class="single-gallery mb-30">
                                     <div class="gallery-img" style="background-image: url({{ url($sixthItem->gallery_image) }});"></div>
                                     <div class="thumb-content-box">

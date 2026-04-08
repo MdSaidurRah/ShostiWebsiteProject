@@ -3,72 +3,13 @@
 @section('page-content')
 
 
-    <!-- [ breadcrumb ] start -->
+    <h4 class="fw-bold py-3 "><span class="text-muted fw-light">Admin /</span> Clients</h4>
 
-    <div class="page-header">
-
-        <div class="page-block">
-
-            <div class="row align-items-center">
-
-                <div class="col-md-12">
-
-                    <div class="page-header-title">
-
-                        <h5 class="m-b-10">Dashboard </h5>
-
-                    </div>
-
-                    <ul class="breadcrumb">
-
-                        <li class="breadcrumb-item"><a href="index.html"><i class="feather icon-home"></i></a></li>
-
-                        <li class="breadcrumb-item"><a href="#!">System Information</a></li>
-
-                    </ul>
-
-                </div>
-
-            </div>
-
-        </div>
-
+    <div class="page-button-area mb-4">
+         <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#createModal"><i class="fa fa-plus-square" aria-hidden="true"></i> New System Information</button>
     </div>
 
-    <!-- [ breadcrumb ] end -->
 
-    <!-- [ Main Content ] start -->
-
-
-    <!-- [ Main Content ] start -->
-
-    <div class="row">
-
-
-
-        <!-- seo start -->
-
-        <div class="col-xl-4 col-md-12">
-
-            <div class="card">
-
-                <div class="card-body">
-
-                    <div class="row align-items-center">
-
-                        <div class="col-12">
-                            <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#createModal"><i class="fa fa-plus-square" aria-hidden="true"></i> New System Information</button>
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
 
 
     <!-- seo end -->

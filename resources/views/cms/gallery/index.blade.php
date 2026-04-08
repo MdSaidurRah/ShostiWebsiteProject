@@ -53,8 +53,8 @@
                 ajax: "{{ url('/get-all/gallery') }}",
                 columns: [
                     {data: 'DT_RowIndex', name: 'DT_RowIndex', orderable: false, searchable: false },
+                    {data: 'banner_image_preview', name: 'banner_image_preview', searchable: true},
                     {data: 'title', name: 'title', searchable: true},
-                    {data: 'gallery_image', name: 'gallery_image', searchable: true},
                     {data: 'item_category', name: 'item_category', searchable: true},
                     {data: 'status', name: 'status', searchable: true},
                     {data: 'action', name: 'action', searchable: false},

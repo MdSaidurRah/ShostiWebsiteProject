@@ -44,7 +44,7 @@
 
     <!-- Sign In Start -->
     <div class="container-fluid">
-        <div class="row h-100 align-items-center justify-content-center" style="min-height: 100vh;background-image: url('http://127.0.0.1:8000/website/assets/img/bg.jpg');    background-repeat: no-repeat;">
+        <div class="row h-100 align-items-center justify-content-center" style="min-height: 100vh;background-image: url('https://shostiarcstudio.com/public/website/assets/img/bg.jpg');  background-size: cover;   background-repeat: no-repeat;">
             <div class="col-12 col-sm-8 col-md-8 col-lg-8 col-xl-8"></div>
             <div class="col-12 col-sm-8 col-md-4 col-lg-4 col-xl-4">
                 <div class="bg-light rounded p-4 p-sm-5 my-4 mx-3">

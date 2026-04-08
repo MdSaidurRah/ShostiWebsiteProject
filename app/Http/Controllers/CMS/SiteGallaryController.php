@@ -99,7 +99,7 @@ class SiteGallaryController extends Controller
         if ($client) {
             $this->accessLogger->logEntry($userId, 'Gallery Submit.', 'Gallery ', '', '');
             flash()->addSuccess('Gallery save operation has been successful.');
-            return Redirect::back();
+            return redirect()->route('gallery.index');
         } else {
             flash()->addError('Sorry, Gallery save operation has been failed.');
             return Redirect::back();
@@ -175,7 +175,7 @@ class SiteGallaryController extends Controller
         if ($updated) {
             $this->accessLogger->logEntry($userId, 'Banner Update.', 'Banner', $gallery->id, '');
             flash()->addSuccess('Banner update operation has been successful.');
-            return redirect()->route('project.index');
+            return redirect()->route('gallery.index');
         }else{
             flash()->addError('Sorry, Banner update operation has been failed.');
             return Redirect::back();
@@ -192,7 +192,7 @@ class SiteGallaryController extends Controller
 
         return datatables()->of($gallery)
             ->addIndexColumn()
-            ->addColumn('banner_image_preview', function ($gallery) {
+            ->addColumn('banner_image_preview', function ($gallery) { 
                 if (!empty($gallery->gallery_image)) {
                     $url = asset($gallery->gallery_image);
                     return '<img src="' . $url . '" alt="Banner Image" width="80" height="50" style="object-fit:cover; border-radius:4px;" />';
