@@ -3,87 +3,146 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Shosti Arc Studio</title>
+    <title>{{ $pageTitle ?? 'Sign In' }} | Shosti Arc Studio</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta content="" name="keywords">
-    <meta content="" name="description">
-
-    <!-- Favicon -->
-    <link href="img/favicon.ico" rel="icon">
-
-    <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600;700&display=swap" rel="stylesheet">
-
-    <!-- Customized Bootstrap Stylesheet -->
-    <link href="{{static_asset('/assets/css/bootstrap.min.css')}}" rel="stylesheet">
-
-    <!-- Template Stylesheet -->
-    <link href="{{static_asset('/assets/css/style.css')}}" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="{{ static_asset('/assets/css/bootstrap.min.css') }}" rel="stylesheet">
+    <style>
+        :root {
+            --sas-navy: #1b3a4b;
+            --sas-teal: #2a7b9b;
+            --sas-gold: #c4a574;
+            --sas-sand: #f4f1ea;
+        }
+        body {
+            font-family: Inter, "Segoe UI", sans-serif;
+            margin: 0;
+            min-height: 100vh;
+            background: #122033;
+        }
+        .login-shell {
+            min-height: 100vh;
+            display: flex;
+            background:
+                linear-gradient(135deg, rgba(18,32,51,.82), rgba(27,58,75,.72)),
+                url('https://shostiarcstudio.com/public/website/assets/img/bg.jpg') center/cover no-repeat;
+        }
+        .login-brand {
+            flex: 1;
+            display: none;
+            color: #fff;
+            padding: 64px;
+            align-items: flex-end;
+        }
+        .login-brand h1 {
+            font-size: 2.4rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        .login-brand p {
+            max-width: 420px;
+            color: rgba(255,255,255,.72);
+            margin: 0;
+        }
+        .login-panel {
+            width: 100%;
+            max-width: 460px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 28px;
+        }
+        .login-card {
+            width: 100%;
+            background: #fff;
+            border-radius: 18px;
+            box-shadow: 0 18px 50px rgba(0,0,0,.22);
+            padding: 36px 32px;
+        }
+        .login-kicker {
+            color: var(--sas-gold);
+            font-size: .75rem;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+        .login-card h2 {
+            margin: 0 0 6px;
+            color: var(--sas-navy);
+            font-weight: 700;
+        }
+        .login-card .sub {
+            color: #6b7a8d;
+            margin-bottom: 22px;
+            font-size: .92rem;
+        }
+        .form-control {
+            min-height: 48px;
+            border-radius: 12px;
+            border-color: #d9e0e6;
+        }
+        .form-control:focus {
+            border-color: var(--sas-teal);
+            box-shadow: 0 0 0 .2rem rgba(42,123,155,.16);
+        }
+        .btn-login {
+            background: var(--sas-navy);
+            border: 0;
+            border-radius: 12px;
+            min-height: 48px;
+            font-weight: 600;
+        }
+        .btn-login:hover { background: var(--sas-teal); color: #fff; }
+        @media (min-width: 992px) {
+            .login-brand { display: flex; }
+        }
+    </style>
 </head>
 
 <body>
-<div class="container-xxl position-relative bg-white d-flex p-0">
-    <!-- Spinner Start -->
-    <!-- <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
-        <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
-            <span class="sr-only">Loading...</span>
-        </div>
-    </div> -->
-    <!-- Spinner End -->
+@php
+    $organization = DB::table('system_information')
+        ->where('information_key', 'Organization Name')
+        ->select('*')
+        ->first();
+    $orgName = $organization->information_value ?? 'Shosti Arc Studio';
+@endphp
 
-
-    <?php
-    $organization =  DB::table('system_information')
-        ->where('information_key','Organization Name')
-        ->select('*')->first();
-
-    ?>
-
-
-    <!-- Sign In Start -->
-    <div class="container-fluid">
-        <div class="row h-100 align-items-center justify-content-center" style="min-height: 100vh;background-image: url('https://shostiarcstudio.com/public/website/assets/img/bg.jpg');  background-size: cover;   background-repeat: no-repeat;">
-            <div class="col-12 col-sm-8 col-md-8 col-lg-8 col-xl-8"></div>
-            <div class="col-12 col-sm-8 col-md-4 col-lg-4 col-xl-4">
-                <div class="bg-light rounded p-4 p-sm-5 my-4 mx-3">
-                    <div class="d-flex align-items-center justify-content-between mb-3">
-                       <h3 class="text-primary">{{$organization->information_value}}</h3>
-                       <h3>Sign In</h3>
-                    </div>
-
-                    @if(isset($message))
-                        <div class="alert alert-danger" role="alert">
-                            {{$message}}
-                        </div>
-                    @endif
-                    <form id="loginform" action="{{url('/login-post')}}" method="post" enctype="" >
-                        @csrf
-                        <div class="form-floating mb-3">
-                            <input type="email" class="form-control"  required name="email" id="email" placeholder="User Email">
-                            <label for="floatingInput">Email address</label>
-                        </div>
-                        <div class="form-floating mb-4">
-                            <input type="password" class="form-control" name="password" required id="password" placeholder="Password">
-                            <label for="floatingPassword">Password</label>
-                        </div>
-
-                        <button type="submit" class="btn btn-primary py-3 w-100 mb-4">Sign In</button>
-
-                    </form>
-                </div>
-            </div>
+<div class="login-shell">
+    <div class="login-brand">
+        <div>
+            <div class="login-kicker">Interior · Architecture · Studio</div>
+            <h1>{{ $orgName }}</h1>
+            <p>Sign in to manage projects, website content, visitor messages, and consultation queries.</p>
         </div>
     </div>
-    <!-- Sign In End -->
+    <div class="login-panel">
+        <div class="login-card">
+            <div class="login-kicker">Admin access</div>
+            <h2>Sign in</h2>
+            <p class="sub">Use your studio credentials to continue.</p>
+
+            @if(isset($message))
+                <div class="alert alert-danger" role="alert">{{ $message }}</div>
+            @endif
+
+            <form id="loginform" action="{{ url('/login-post') }}" method="post">
+                @csrf
+                <div class="mb-3">
+                    <label class="form-label" for="email">Email address</label>
+                    <input type="email" class="form-control" required name="email" id="email" placeholder="you@studio.com">
+                </div>
+                <div class="mb-4">
+                    <label class="form-label" for="password">Password</label>
+                    <input type="password" class="form-control" name="password" required id="password" placeholder="Password">
+                </div>
+                <button type="submit" class="btn btn-primary btn-login w-100">Sign In</button>
+            </form>
+        </div>
+    </div>
 </div>
-
-<!-- JavaScript Libraries -->
-<script src="{{static_asset('/assets/lib/js/jquery-3.4.1.min.js')}}"></script>
-<script src="{{static_asset('/assets/lib/js/bootstrap.bundle.min.js')}}"></script>
-<!-- Template Javascript -->
-<script src="{{static_asset('/assets/js/main.js')}}"></script>
 </body>
-
 </html>

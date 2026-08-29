@@ -7,7 +7,13 @@ use App\Http\Controllers\Controller;
 use App\LibraryFunctions\accesslogger;
 use App\LibraryFunctions\emailsender;
 use App\Models\Account;
+use App\Models\BusinessClient;
+use App\Models\BusinessProject;
+use App\Models\BusinessService;
+use App\Models\ConsultationForm;
+use App\Models\Gallery;
 use App\Models\User;
+use App\Models\VisitorContactUsMessage;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Redirect;
@@ -28,10 +34,44 @@ class AuthenticationController extends Controller
 
     public function admin()
     {
+        $stats = [
+            'projects' => BusinessProject::count(),
+            'services' => BusinessService::count(),
+            'clients' => BusinessClient::count(),
+            'gallery' => Gallery::count(),
+            'messages' => VisitorContactUsMessage::count(),
+            'consultations' => ConsultationForm::count(),
+            'users' => User::count(),
+            'pending_replies' => VisitorContactUsMessage::where(function ($query) {
+                $query->whereNull('reply_status')
+                    ->orWhere('reply_status', '')
+                    ->orWhereRaw('LOWER(reply_status) = ?', ['pending'])
+                    ->orWhereRaw('LOWER(reply_status) = ?', ['new']);
+            })->count(),
+        ];
 
-  
-   
-       return view('dashboard');
+        $projectsByCategory = BusinessProject::select('project_category', DB::raw('COUNT(*) as total'))
+            ->groupBy('project_category')
+            ->orderByDesc('total')
+            ->get();
+
+        $projectsByType = BusinessProject::select('project_type', DB::raw('COUNT(*) as total'))
+            ->groupBy('project_type')
+            ->orderByDesc('total')
+            ->get();
+
+        $recentMessages = VisitorContactUsMessage::orderByDesc('id')->limit(6)->get();
+        $recentConsultations = ConsultationForm::orderByDesc('id')->limit(5)->get();
+        $recentProjects = BusinessProject::orderByDesc('id')->limit(5)->get();
+
+        return view('dashboard', compact(
+            'stats',
+            'projectsByCategory',
+            'projectsByType',
+            'recentMessages',
+            'recentConsultations',
+            'recentProjects'
+        ));
     }
 
     public function login()

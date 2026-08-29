@@ -5,7 +5,10 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>EduINNTECH Admin</title>
+    <title>Shosti Arc Studio Admin</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <!-- plugins:css -->
     <link rel="stylesheet" href="{{static_asset('/assets/vendors/mdi/css/materialdesignicons.min.css')}}">
     <link rel="stylesheet" href="{{static_asset('/assets/vendors/flag-icon-css/css/flag-icon.min.css')}}">
@@ -42,7 +45,13 @@
 
 </head>
 
-<body>
+<body class="admin-app">
+    @php
+        $userPhoto = \Illuminate\Support\Facades\DB::table('users')->where('id', session('userId'))->select('userPhoto')->first();
+        $adminPhoto = ($userPhoto && !empty($userPhoto->userPhoto))
+            ? url($userPhoto->userPhoto)
+            : static_asset('/assets/images/logo-mini.svg');
+    @endphp
     <div class="container-scroller">
         <!-- partial:partials/_navbar.html -->
         <nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
@@ -50,34 +59,29 @@
                 <a class="navbar-brand brand-logo" href="{{url('/dashboard')}}"><img src="{{static_asset('/assets/images/logo.svg')}}" alt="logo" /></a>
                 <a class="navbar-brand brand-logo-mini" href="{{url('/dashboard')}}"><img src="{{static_asset('/assets/images/logo-mini.svg')}}" alt="logo" /></a>
             </div>
-            <div class="navbar-menu-wrapper d-flex align-items-stretch">
-                <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
+            <div class="navbar-menu-wrapper d-flex align-items-center">
+                <button class="navbar-toggler align-self-center" type="button" data-toggle="minimize">
                     <span class="mdi mdi-menu"></span>
                 </button>
                 <div class="search-field d-none d-xl-block">
-                    <form class="d-flex align-items-center h-100" action="#">
+                    <form class="d-flex align-items-center h-100" action="#" onsubmit="return false;">
                         <div class="input-group">
-                            <div class="input-group-prepend bg-transparent">
-                                <i class="input-group-text border-0 mdi mdi-magnify"></i>
-                            </div>
-                            <input type="text" class="form-control bg-transparent border-0" placeholder="Search products">
+                            <span class="input-group-text border-0 mdi mdi-magnify"></span>
+                            <input type="text" class="form-control bg-transparent border-0" placeholder="Search admin pages">
                         </div>
                     </form>
                 </div>
                 <ul class="navbar-nav navbar-nav-right">
-
-                    
-
-                    
-
-
+                    <li class="nav-item">
+                        <a class="nav-link count-indicator" target="_blank" href="{{url('/')}}" title="View website">
+                            <i class="fas fa-globe"></i>
+                            <span class="count-symbol bg-success"></span>
+                        </a>
+                    </li>
                     <li class="nav-item nav-profile dropdown">
                         <a class="nav-link dropdown-toggle" id="profileDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
                             <div class="nav-profile-img">
-                                <?php
-                                    $userPhoto = DB::table('users')->where('id', session('userId'))->select('userPhoto')->first();
-                                ?>
-                                <img src="http://127.0.0.1:8000/{{$userPhoto->userPhoto}}" alt="image">
+                                <img src="{{ $adminPhoto }}" alt="profile">
                             </div>
                             <div class="nav-profile-text">
                                 <p class="mb-1 text-black">{{session('userName')}}</p>
@@ -85,7 +89,7 @@
                         </a>
                         <div class="dropdown-menu navbar-dropdown dropdown-menu-right p-0 border-0 font-size-sm" aria-labelledby="profileDropdown" data-x-placement="bottom-end">
                             <div class="p-3 text-center bg-primary">
-                                <img class="img-avatar img-avatar48 img-avatar-thumb" src="http://127.0.0.1:8000/{{$userPhoto->userPhoto}}" alt="">
+                                <img class="img-avatar img-avatar48 img-avatar-thumb" src="{{ $adminPhoto }}" alt="">
                             </div>
                             <div class="p-2">
                                 <h5 class="dropdown-header text-uppercase pl-2 text-dark">User Options</h5>
@@ -115,13 +119,6 @@
                             </div>
                         </div>
                     </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link count-indicator" target="_blank" id="messageDropdown" href="{{url('/')}}">
-                            <i class="fas fa-globe"></i>
-                            <span class="count-symbol bg-success"></span>
-                        </a>
-                    </li>
-                    
                 </ul>
                 <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
                     <span class="mdi mdi-menu"></span>
@@ -142,12 +139,12 @@
                     </li>
                
                     <li class="nav-item">
-                        <a class="nav-link" data-toggle="collapse" href="#projects" aria-expanded="false" aria-controls="ui-basic">
-                            <span class="icon-bg"><i class="mdi mdi-crosshairs-gps menu-icon"></i></span>
+                        <a class="nav-link" data-toggle="collapse" href="#menu-cms" aria-expanded="false" aria-controls="menu-cms">
+                            <span class="icon-bg"><i class="mdi mdi-view-dashboard menu-icon"></i></span>
                             <span class="menu-title">CMS</span>
                             <i class="menu-arrow"></i>
                         </a>
-                        <div class="collapse" id="projects">
+                        <div class="collapse" id="menu-cms">
                             <ul class="nav flex-column sub-menu">
                                 <li class="nav-item"> <a class="nav-link" href="{{url('/business-projects')}}">Project</a></li>
                                 <li class="nav-item"> <a class="nav-link" href="{{url('/business-services')}}">Service</a></li>
@@ -164,12 +161,12 @@
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" data-toggle="collapse" href="#report" aria-expanded="false" aria-controls="ui-basic">
-                            <span class="icon-bg"><i class="mdi mdi-crosshairs-gps menu-icon"></i></span>
+                        <a class="nav-link" data-toggle="collapse" href="#menu-report" aria-expanded="false" aria-controls="menu-report">
+                            <span class="icon-bg"><i class="mdi mdi-file-chart menu-icon"></i></span>
                             <span class="menu-title">Report</span>
                             <i class="menu-arrow"></i>
                         </a>
-                        <div class="collapse" id="report">
+                        <div class="collapse" id="menu-report">
                             <ul class="nav flex-column sub-menu">
                                 <li class="nav-item"> <a class="nav-link" href="{{url('/visitor-message')}}">Visitor Message</a></li>
                             </ul>
@@ -177,46 +174,41 @@
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" data-toggle="collapse" href="#report" aria-expanded="false" aria-controls="ui-basic">
-                            <span class="icon-bg"><i class="mdi mdi-crosshairs-gps menu-icon"></i></span>
+                        <a class="nav-link" data-toggle="collapse" href="#menu-crm" aria-expanded="false" aria-controls="menu-crm">
+                            <span class="icon-bg"><i class="mdi mdi-account-multiple menu-icon"></i></span>
                             <span class="menu-title">CRM</span>
                             <i class="menu-arrow"></i>
                         </a>
-                        <div class="collapse" id="report">
+                        <div class="collapse" id="menu-crm">
                             <ul class="nav flex-column sub-menu">
                                 <li class="nav-item"> <a class="nav-link" href="{{url('/consultation-query')}}">Consultation Query</a></li>
                             </ul>
                         </div>
                     </li>
 
-
-                 
-
                     <li class="nav-item">
-                        <a class="nav-link" data-toggle="collapse" href="#people" aria-expanded="false" aria-controls="ui-basic">
-                            <span class="icon-bg"><i class="mdi mdi-crosshairs-gps menu-icon"></i></span>
+                        <a class="nav-link" data-toggle="collapse" href="#menu-people" aria-expanded="false" aria-controls="menu-people">
+                            <span class="icon-bg"><i class="mdi mdi-account-group menu-icon"></i></span>
                             <span class="menu-title">Peoples</span>
                             <i class="menu-arrow"></i>
                         </a>
-                        <div class="collapse" id="people">
+                        <div class="collapse" id="menu-people">
                             <ul class="nav flex-column sub-menu">
                                 <li class="nav-item"> <a class="nav-link" href="{{url('/user/all-user')}}">All Users</a></li>
                             </ul>
                         </div>
                     </li>
 
-
-
                     <li class="nav-item">
-                        <a class="nav-link" data-toggle="collapse" href="#setup" aria-expanded="false" aria-controls="ui-basic">
-                            <span class="icon-bg"><i class="mdi mdi-crosshairs-gps menu-icon"></i></span>
+                        <a class="nav-link" data-toggle="collapse" href="#menu-setup" aria-expanded="false" aria-controls="menu-setup">
+                            <span class="icon-bg"><i class="mdi mdi-settings menu-icon"></i></span>
                             <span class="menu-title">Setup</span>
                             <i class="menu-arrow"></i>
                         </a>
-                        <div class="collapse" id="setup">
+                        <div class="collapse" id="menu-setup">
                             <ul class="nav flex-column sub-menu">
-                                <a href="{{url('/configurations/system-information')}}" class="dropdown-item">System Information</a>
-                                <a href="{{url('/configurations/role-permission')}}" class="dropdown-item">Role & Permission</a>
+                                <li class="nav-item"><a class="nav-link" href="{{url('/configurations/system-information')}}">System Information</a></li>
+                                <li class="nav-item"><a class="nav-link" href="{{url('/configurations/role-permission')}}">Role & Permission</a></li>
                             </ul>
                         </div>
                     </li>
@@ -232,7 +224,7 @@
                 <footer class="footer">
                     <div class="footer-inner-wraper">
                         <div class="d-sm-flex justify-content-center justify-content-sm-between">
-                            <span class="text-muted d-block text-center text-sm-left d-sm-inline-block">Copyright © 2023 Shosti Arc Studio. All rights reserved.</span>
+                            <span class="text-muted d-block text-center text-sm-left d-sm-inline-block">Copyright © {{ date('Y') }} Shosti Arc Studio. All rights reserved.</span>
 
                         </div>
                     </div>
