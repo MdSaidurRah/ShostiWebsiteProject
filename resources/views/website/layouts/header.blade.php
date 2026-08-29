@@ -6,7 +6,7 @@
                     <div class="menu-wrapper d-flex align-items-center justify-content-between">
                         <!-- Logo -->
                         <div class="logo">
-                            <a href="{{url('/')}}"><img src="{{static_asset('website/assets/img/logo/logo.png')}}" style="width: 300px;" alt=""></a>
+                            <a href="{{url('/')}}"><img src="{{static_asset('website/assets/img/logo/logo.png')}}" alt="Shosti Arc Studio"></a>
                         </div>
                         <!-- Main-menu -->
                         <div class="main-menu f-right d-none d-lg-block">
@@ -27,7 +27,7 @@
                                 </ul>
                             </nav>
                         </div>
-                     
+                        <a href="{{ url('/contact-us') }}" class="header-cta">Get a Quote</a>
                         <!-- Mobile Menu -->
                         <div class="col-12">
                             <div class="mobile_menu d-block d-lg-none"></div>

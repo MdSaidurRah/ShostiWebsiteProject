@@ -170,7 +170,7 @@
 }
 
 .footer-menu a:hover{
-    color:#1f8a5b;  /* stronger green */
+    color:#c4a574;
 }
 
 /* Links */
@@ -181,7 +181,7 @@
 }
 
 .footer-link:hover{
-    color:#1f8a5b;
+    color:#c4a574;
 }
 
 /* Divider */
