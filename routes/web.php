@@ -237,8 +237,15 @@ Route::middleware(['checkauthencation'])->group(function(){
 
     Route::post('/business-projects/photo-upload', [BusinessProjectController::class, 'projectPhotoUpload'])->name('project.photo.upload');
     Route::get('/project-photo/edit/{id}', [BusinessProjectController::class, 'editProjectPhoto'])->name('project.photo.edit');
-    Route::post('/project-photo/update', [BusinessProjectController::class, 'updateProjectPhoto'])->name('project.photo.update');
+    Route::post('/project-photo/update', [BusinessProjectController::class, 'updateProjectPhoto'])->name('project.photo.update');    
+    Route::get('/project-photo/delete/{id}', [BusinessProjectController::class, 'editProjectDelete'])->name('project.photo.delete');
 
+    Route::get('/project-photo/delete/{id}', [BusinessProjectController::class, 'editProjectDelete'])->name('project.photo.delete');
+    
+    Route::get('/project/clone/{id}', [BusinessProjectController::class, 'clone'])->name('project.clone');
+    Route::post('/project/clone-save', [BusinessProjectController::class, 'cloneSave'])->name('project.clone');
+    
+    
     // Blog Routes
     Route::get('/pages', [PageController::class, 'index'])->name('page.index');
     Route::get('/page/create', [PageController::class, 'create'])->name('page.create');

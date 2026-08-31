@@ -27,7 +27,7 @@
                                         <th style="width: 5%;">SL</th>
                                         <th style="width: 10%;">Thum</th>
                                         <th style="width: 20%;">Title</th>
-                                        <th style="width: 20%;">Source</th>
+                                        <th style="width: 20%;">Status</th>
                                         <th style="width: 15%;">Action</th>
                                     </tr>
                                 </thead>
@@ -54,7 +54,7 @@
                     {data: 'DT_RowIndex', name: 'DT_RowIndex', orderable: false, searchable: false },
                     {data: 'video_thumbnail', name: 'video_thumbnail', searchable: true},
                     {data: 'video_title', name: 'video_title', searchable: true},
-                    {data: 'video_source', name: 'video_source', searchable: true},
+                    {data: 'status', name: 'status', searchable: true},
                     {data: 'action', name: 'action', searchable: false},
                 ]
             });

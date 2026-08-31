@@ -6,7 +6,7 @@ class BusinessAdvertisement extends Model {
     protected $table = 'business_advertisements';
     public $timestamps=false;
     protected $fillable = [
-        'ad_title', 'slug', 'cover_photo', 'reference_link', 'created_by','ad_category'
+        'ad_title', 'slug', 'cover_photo', 'reference_link', 'created_by','ad_category','status'
     ];
     
 }

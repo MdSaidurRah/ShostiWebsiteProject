@@ -10522,7 +10522,10 @@ h3, .h3 {
   font-size: 1.25rem; }
 
 h4, .h4 {
-  font-size: 1.125rem; }
+  font-size: 1.125rem; 
+  color:#14327a !important;
+    
+}
 
 h5, .h5 {
   font-size: 1rem; }
@@ -13088,7 +13091,7 @@ dl {
     -webkit-transition: width 0.25s ease, background 0.25s ease;
     -moz-transition: width 0.25s ease, background 0.25s ease;
     -ms-transition: width 0.25s ease, background 0.25s ease;
-    background: #181824;
+    background: #bfe1ff;
     width: 258px;
     height: 64px; }
     @media (max-width: 991px) {
@@ -13490,7 +13493,7 @@ dl {
 /* Sidebar */
 .sidebar {
   min-height: calc(100vh - 64px);
-  background: #181824;
+  background: #ffffff;
   font-family: "nunito-medium", sans-serif;
   padding: 0;
   width: 258px;
@@ -13526,7 +13529,7 @@ dl {
         align-items: center;
         white-space: nowrap;
         padding: 0.625rem 0 0.625rem 0;
-        color: #8e94a9;
+        color: #030c2d;
         -webkit-transition-duration: 0.45s;
         transition-duration: 0.45s;
         transition-property: color;
@@ -13614,12 +13617,12 @@ dl {
             left: auto;
             right: 0; }
         .sidebar .nav .nav-item.active > .nav-link .menu-title {
-          color: #44ce42;
+          color: #006ccb;
           font-family: "nunito-medium", sans-serif; }
         .sidebar .nav .nav-item.active > .nav-link i {
           color: #44ce42; }
       .sidebar .nav .nav-item:hover {
-        background: #161621; }
+        background: #ddeaef; }
       .sidebar .nav .nav-item.nav-profile .nav-link {
         height: auto;
         line-height: 1;
@@ -13719,7 +13722,7 @@ dl {
       .sidebar .nav.sub-menu .nav-item {
         padding: 0; }
         .sidebar .nav.sub-menu .nav-item .nav-link {
-          color: #888;
+          color: #272d58;
           padding: 0.75rem 2rem 0.75rem 2rem;
           position: relative;
           font-size: 0.8125rem;
@@ -13742,12 +13745,12 @@ dl {
               right: 0;
               content: "\F04D"; }
           .sidebar .nav.sub-menu .nav-item .nav-link.active {
-            color: #44ce42;
+            color: #0e49b9;
             background: transparent; }
             .sidebar .nav.sub-menu .nav-item .nav-link.active:before {
-              color: #44ce42; }
+              color: #ffffff; }
           .sidebar .nav.sub-menu .nav-item .nav-link:hover {
-            color: #555555; }
+            color: #314e74; }
         .sidebar .nav.sub-menu .nav-item:hover {
           background: transparent; }
 
@@ -14136,7 +14139,7 @@ dl {
       width: 100%; } }
 
 .content-wrapper {
-  background: #f0f1f6;
+  background: #dadcdd;
   padding: 2.875rem 2.875rem 0 2.875rem;
   width: 100%;
   -webkit-box-flex: 1;
@@ -14291,5 +14294,9 @@ dl {
     line-height: 1;
     margin: auto 0;
     color: #b1b1b1; }
+    
+    
+
+
 
 /*# sourceMappingURL=style.css.map */

@@ -57,7 +57,7 @@
                                                 <label for="status">Project Category </label>
                                                 <select class="form-control" name="project_category">
                                                     <option value="">-- Select Category --</option>
-                                                    <option value="Residence">Residence</option>
+                                                    <option value="Residance">Residance</option>
                                                     <option value="Office">Office</option>
                                                     <option value="Kitchen">Kitchen</option>
                                                 </select>
@@ -78,12 +78,17 @@
                                                 <select class="form-control" name="project_status">
                                                     <option value="">-- Select Status --</option>
                                                     <option value="Completed" >Completed</option>
-                                                    <option value="Running">Running</option>
-                                                    <option value="Upcoming">Upcoming</option>
+                                                    <option value="Ongoing">Ongoing</option>
+                                                    <option value="Handover">Handover</option>
                                                 </select>
                                             </div>
 
-                                            <div class="form-group col-md-8">
+                                            <div class="form-group col-md-4">
+                                                <label for="employee-photo">Project Order</label>
+                                                <input type="number" name="project_order" id="project_order" class="form-control">
+                                            </div>
+                                            
+                                            <div class="form-group col-md-4">
                                                 <label for="employee-photo">Photo</label>
                                                 <input type="file" name="project_photo" id="project_photo" 
                                                        accept="image/*" class="form-control">

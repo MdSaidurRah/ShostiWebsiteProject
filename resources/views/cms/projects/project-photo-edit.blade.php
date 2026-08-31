@@ -9,6 +9,7 @@
         <a type="button" href="{{ url('/project/show/'. Crypt::encryptString($project->id)) }}" class="btn btn-primary btn-sm">
             <i class="fas fa-arrow-left"></i> Back to Projects
         </a>
+        
     </div>
 
 

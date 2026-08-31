@@ -2,14 +2,15 @@
 <style>
     .process-card {
         background: #ffffff;
-        min-height: 220px;
-        margin-bottom: 50px;
-        border-radius: 20px;
+        margin-bottom: 30px;
+        border-radius: 15px;
         box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
     }
 
     .process-card h4 {
         font-size: 20px;
+        font-size: 22px;
+        color:var(--light-pine-green);
     }
 
     .step-number {
@@ -27,6 +28,12 @@
         justify-content: center;
         font-size: 18px;
     }
+
+    .ad-image img {
+        width: 100%;
+        border-radius: 20px;
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    }
 </style>
 
 
@@ -37,88 +44,104 @@
 <section class="py-5 theme-bg-option2">
     <div class="container">
 
-        <!-- Section Title -->
-        <div class="text-center mb-5">
-            <h2 class="fw-bold" style="font-size:32px;"> The work process of Shosti Arc Studio </h2>
-            <p class="text-muted mt-2">
-                 Shosti Arc Studio is a comprehensive and collaborative approach to interior design, ensuring that every project is executed with precision and creativity.
-            </p>
-        </div>
+
 
         <!-- Process Cards -->
         <div class="row g-4 justify-content-center">
+            
+            
+                  <!-- Section Title -->
+                        <div class="text-center mb-5">
+                            <h2 class="fw-bold" style="font-size:32px;">  Our Approach </h2>
+                            <p class="text-muted mt-2">
+                                Our process is smooth, efficient, and easy to follow
+                            </p>
+                        </div>
 
-            <!-- Step 1 -->
-            <div class="col-md-6 col-lg-4">
-                <div class="process-card position-relative p-4 rounded-4">
-                    <span class="step-number">01</span>
-                    <h4 class="fw-bold mb-3">Consultation</h4>
-                    <p class="text-muted mb-0">
-                        We begin by understanding your vision and needs through in-depth discussions,
-                        ensuring we capture your ideas for the design.
-                    </p>
+
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="row">
+                        
+
+                  
+                        <!-- Step 1 -->
+                        <div class="col-md-12 col-lg-12">
+                            <div class="process-card position-relative p-4 rounded-4">
+                                <span class="step-number">01</span>
+                                <h4 class="fw-bold mb-3">Discovery & Consultation </h4>
+                                <p class="text-muted mb-0">
+                                    Meeting to define your vision, budget, and project requirements.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Step 2 -->
+                        <div class="col-md-12 col-lg-12">
+                            <div class="process-card position-relative p-4 rounded-4">
+                                <span class="step-number">02</span>
+                                <h4 class="fw-bold mb-3">Design Development</h4>
+                                <p class="text-muted mb-0">
+                                    Creating customized concepts and detailed 3D/technical drawings.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Step 3 -->
+                        <div class="col-md-12 col-lg-12">
+                            <div class="process-card position-relative p-4 rounded-4">
+                                <span class="step-number">03</span>
+                                <h4 class="fw-bold mb-3">Estimation & Planning</h4>
+                                <p class="text-muted mb-0">
+                                    Providing a transparent BOQ (Bill of Quantities) and finalizing material selections.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Step 4 -->
+                        <div class="col-md-12 col-lg-12">
+                            <div class="process-card position-relative p-4 rounded-4">
+                                <span class="step-number">04</span>
+                                <h4 class="fw-bold mb-3">Execution & Installation</h4>
+                                <p class="text-muted mb-0">
+                                    Managing on-site construction with precision and professional craftsmanship.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Step 5 -->
+                        <div class="col-md-12 col-lg-12">
+                            <div class="process-card position-relative p-4 rounded-4">
+                                <span class="step-number">05</span>
+                                <h4 class="fw-bold mb-3">Quality Check & Handover</h4>
+                                <p class="text-muted mb-0">
+                                    Final inspection to ensure excellence before you move into your new space.
+                                </p>
+                            </div>
+                        </div>
+
+                    
+                    </div>
+
+                </div>
+                <div class="col-md-6">
+
+                    <?php
+                    $adversitisement = DB::table('business_advertisements')
+                        ->where('status', 'Published')
+                        ->orderBy('id', 'DESC')
+                        ->limit(1)
+                        ->first();
+
+                    ?>
+                    <div class="ad-image">                             
+                        <img src="{{url($adversitisement->cover_photo) ?? static_asset('website/assets/img/service/interior-service.jpg')}}" alt="Process Flow Video" class="img-fluid rounded-4">
+                    </div>
                 </div>
             </div>
 
-            <!-- Step 2 -->
-            <div class="col-md-6 col-lg-4">
-                <div class="process-card position-relative p-4 rounded-4">
-                    <span class="step-number">02</span>
-                    <h4 class="fw-bold mb-3">Concept development</h4>
-                    <p class="text-muted mb-0">
-                        Our team creates customized design concepts that reflect your requirements,
-                        incorporating your style and functionality preferences.
-                    </p>
-                </div>
-            </div>
 
-            <!-- Step 3 -->
-            <div class="col-md-6 col-lg-4">
-                <div class="process-card position-relative p-4 rounded-4">
-                    <span class="step-number">03</span>
-                    <h4 class="fw-bold mb-3">Design development</h4>
-                    <p class="text-muted mb-0">
-                        We create detailed drawings & specifications that outline the project's scope,
-                        materials, and finishes.
-                    </p>
-                </div>
-            </div>
-
-            <!-- Step 4 -->
-            <div class="col-md-6 col-lg-4">
-                <div class="process-card position-relative p-4 rounded-4">
-                    <span class="step-number">04</span>
-                    <h4 class="fw-bold mb-3">Collaboration</h4>
-                    <p class="text-muted mb-0">
-                        We maintain open communication throughout the design and construction phases,
-                        working closely with you to incorporate feedback.
-                    </p>
-                </div>
-            </div>
-
-            <!-- Step 5 -->
-            <div class="col-md-6 col-lg-4">
-                <div class="process-card position-relative p-4 rounded-4">
-                    <span class="step-number">05</span>
-                    <h4 class="fw-bold mb-3">Implementation</h4>
-                    <p class="text-muted mb-0">
-                        Once the design is finalized, we execute the project with precision,
-                        ensuring seamless alignment with the approved design.
-                    </p>
-                </div>
-            </div>
-
-            <!-- Step 6 -->
-            <div class="col-md-6 col-lg-4">
-                <div class="process-card position-relative p-4 rounded-4">
-                    <span class="step-number">06</span>
-                    <h4 class="fw-bold mb-3">Completion</h4>
-                    <p class="text-muted mb-0">
-                        We conduct a final inspection to ensure every detail meets our high standards,
-                        guaranteeing quality and excellence.
-                    </p>
-                </div>
-            </div>
 
         </div>
     </div>

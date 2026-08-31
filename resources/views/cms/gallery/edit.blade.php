@@ -34,14 +34,40 @@
                                                        name="title" id="title"  value="{{ old('title', $galleryItem->title) }}"
                                                        placeholder="Title">
                                             </div>
-
-                                            <div class="form-group col-md-8">
-                                                <label for="title">Reference Link</label>
-                                                <input type="text" class="form-control" required 
-                                                       name="reference_link" id="reference_link"  value="{{ old('reference_link', $galleryItem->reference_link) }}"
-                                                       placeholder="Reference Link">
+                                            <div class="form-group col-md-4">
+                                                    <label for="status">Item Type </label>
+                                                    <select class="form-control" name="item_type">
+                                                        <option value="Gallery Element" {{ old('item_type', $galleryItem->item_type) == 'Gallery Element' ? 'selected' : '' }}>Gallery Element</option>
+                                                        <option value="Service Element" {{ old('item_type', $galleryItem->item_type) == 'Service Element' ? 'selected' : '' }}>Service Element</option>
+                                                        <option value="Site Logo" {{ old('item_type', $galleryItem->item_type) == 'Site Logo' ? 'selected' : '' }}>Site Logo</option>
+                                                        <option value="Site Footer Logo" {{ old('item_type', $galleryItem->item_type) == 'Site Footer Logo' ? 'selected' : '' }}>Site Footer Logo</option>
+                                                      
+                                                     
+                                                    </select>
+                                                </div> 
+                                        </div>
+                                        
+                                            <div class="row">  
+                                                <div class="form-group col-md-8">
+                                                    <label for="title">Reference Link</label>
+                                                    <input type="text" class="form-control" required 
+                                                           name="reference_link" id="reference_link"  value="{{ old('reference_link', $galleryItem->reference_link) }}"
+                                                           placeholder="Reference Link">
+                                                </div>
+                                                
+                                                <div class="form-group col-md-4">
+                                                    <label for="title">Item Order</label>
+                                                    <input type="number" class="form-control"  
+                                                           name="item_order" id="item_order" value="{{ old('item_order', $galleryItem->item_order) }}"
+                                                           placeholder="Order">
+                                                </div>
+        
+                                                
+                                            
                                             </div>
-
+                                            <div class="row"> 
+                                            
+                                            
                                             <div class="form-group col-md-4">
                                                 <label for="status">Item Category </label>
                                                 <select class="form-control" name="item_category">
@@ -54,12 +80,7 @@
                                                  
                                                 </select>
                                             </div>
-                                        </div>
-
-                                        
-
-                                        <div class="row">
-                                           
+                                      
                                             <div class="form-group col-md-4">
                                                 <label for="status">Status</label>
                                                 <select class="form-control" name="status">
@@ -69,7 +90,7 @@
                                                 </select>
                                             </div>
 
-                                            <div class="form-group col-md-8">
+                                            <div class="form-group col-md-4">
                                                 <label for="employee-photo">Cover Photo</label>
                                                 <input type="file" name="gallery_photo" id="cover_photo" 
                                                        accept="image/*" class="form-control">

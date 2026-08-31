@@ -28,6 +28,7 @@
                                         <th style="width: 10%;">Title</th>
                                         <th style="width: 20%;">Title</th>
                                         <th style="width: 20%;">Category</th>
+                                        <th style="width: 20%;">Status</th>
                                         <th style="width: 15%;">Action</th>
                                     </tr>
                                 </thead>
@@ -55,6 +56,7 @@
                     {data: 'banner_image_preview', name: 'banner_image_preview', searchable: true},
                     {data: 'banner_title', name: 'banner_title', searchable: true},
                     {data: 'banner_category', name: 'banner_category', searchable: true},
+                    {data: 'status', name: 'status', searchable: true},
                     {data: 'action', name: 'action', searchable: false},
                 ]
             });

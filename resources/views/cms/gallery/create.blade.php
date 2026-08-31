@@ -29,12 +29,34 @@
                                                        name="title" id="title" 
                                                        placeholder="Title">
                                             </div>
+                                            <div class="form-group col-md-4">
+                                                <label for="status"> Item Type</label>
+                                                <select class="form-control" name="item_type" required>
+                                                    <option value="">Select Type</option>
+                                                    <option value="Gallery Element" >Gallery Element</option>
+                                                    <option value="Service Element" >Service Element</option>
+                                                    <option value="Site Logo" >Site Logo</option>
+                                                    <option value="Site Footer Logo" >Site Footer Logo</option>
+                                                </select>
+                                            </div> 
+                                     
+                                        </div>
+                                        
+                                        <div class="row">
+                                            
                                             <div class="form-group col-md-8">
                                                 <label for="title">Reference Link</label>
                                                 <input type="text" class="form-control" required 
                                                        name="reference_link" id="reference_link" 
                                                        placeholder="Reference Link">
                                             </div>
+                                            <div class="form-group col-md-4">
+                                                <label for="title">Item Order</label>
+                                                <input type="number" class="form-control"  
+                                                       name="item_order" id="item_order" 
+                                                       placeholder="Order">
+                                            </div>
+                                            
                                         </div>
 
                                         
@@ -61,7 +83,7 @@
                                                 </select>
                                             </div> 
 
-                                            <div class="form-group col-md-8">
+                                            <div class="form-group col-md-4">
                                                 <label for="employee-photo">Photo</label>
                                                 <input type="file" name="gallery_photo" id="cover_photo" 
                                                        accept="image/*" class="form-control">

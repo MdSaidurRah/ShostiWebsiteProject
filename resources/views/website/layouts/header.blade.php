@@ -5,8 +5,14 @@
                 <div class="container-fluid">
                     <div class="menu-wrapper d-flex align-items-center justify-content-between">
                         <!-- Logo -->
+                        
+                           <?php 
+                                $siteLogo =  DB::table('gallery')->where('item_type','Site Logo')->where('status','Published')->orderBy('id','DESC')->select('gallery_image')->limit(1)->first();
+                            ?>
+                                        
+                        
                         <div class="logo">
-                            <a href="{{url('/')}}"><img src="{{static_asset('website/assets/img/logo/logo.png')}}" alt="Shosti Arc Studio"></a>
+                            <a href="{{url('/')}}"><img src="{{url($siteLogo->gallery_image) ?? 'website/assets/img/logo/logo.png'}}" style="width: 300px;" alt=""></a>
                         </div>
                         <!-- Main-menu -->
                         <div class="main-menu f-right d-none d-lg-block">
@@ -27,7 +33,7 @@
                                 </ul>
                             </nav>
                         </div>
-                        <a href="{{ url('/contact-us') }}" class="header-cta">Get a Quote</a>
+                     
                         <!-- Mobile Menu -->
                         <div class="col-12">
                             <div class="mobile_menu d-block d-lg-none"></div>

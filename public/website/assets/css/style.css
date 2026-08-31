@@ -3333,7 +3333,7 @@ hero-btn {
 .header-area .menu-wrapper .main-menu ul ul.submenu {
     position: absolute;
     width: 170px;
-    background: rgba(0, 12, 32, 0.8);
+    background: #008282;
     left: 0;
     top: 90%;
     visibility: hidden;
@@ -3516,7 +3516,6 @@ hero-btn {
 
 /* line 37, ../../../sponDon TI/Running Project/263.InteriorDesign_HTML/HTML/assets/scss/_h1-hero.scss */
 .slider-area2 {
-    background-image: url(../img/hero/hero2.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     height: 300px;
@@ -3525,7 +3524,7 @@ hero-btn {
 /* line 43, ../../../sponDon TI/Running Project/263.InteriorDesign_HTML/HTML/assets/scss/_h1-hero.scss */
 .slider-area {
     position: relative;
-    background-image: url(../img/hero/h1_hero.jpg);
+
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
@@ -3687,7 +3686,7 @@ hero-btn {
 
 /* line 161, ../../../sponDon TI/Running Project/263.InteriorDesign_HTML/HTML/assets/scss/_h1-hero.scss */
 .slider-area2 .hero-cap h2 {
-    color: #fff;
+    color: #ffffff;
     font-size: 70px;
     font-weight: 700;
     text-transform: capitalize;
@@ -4113,7 +4112,7 @@ hero-btn {
 
 /* line 1, ../../../sponDon TI/Running Project/263.InteriorDesign_HTML/HTML/assets/scss/_wantTowork.scss */
 .wantToWork-area {
-    background: var(--deep-pine-green);
+    background: var(--light-pine-green);
 }
 
 /* line 4, ../../../sponDon TI/Running Project/263.InteriorDesign_HTML/HTML/assets/scss/_wantTowork.scss */

@@ -27,7 +27,8 @@
                                         <th style="width: 5%;">SL</th>
                                         <th style="width: 10%;">Banner</th>
                                         <th style="width: 20%;">Title</th>
-                                        <th style="width: 20%;">Category</th>
+                                        <th style="width: 10%;">Category</th>
+                                        <th style="width: 10%;">Status</th>
                                         <th style="width: 15%;">Action</th>
                                     </tr>
                                 </thead>
@@ -55,6 +56,7 @@
                     {data: 'ad_banner', name: 'ad_banner', searchable: true},
                     {data: 'ad_title', name: 'ad_title', searchable: true},
                     {data: 'ad_category', name: 'ad_category', searchable: true},
+                    {data: 'status', name: 'status', searchable: true},
                     {data: 'action', name: 'action', searchable: false},
                 ]
             });

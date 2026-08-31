@@ -12,7 +12,7 @@
         <!-- Pricing Packages -->
         <div class="row g-4">
             <div class="col-12">
-                <h3 class="qp-section-title mb-3 text-center">Pricing Packages </h3>
+                <h3 class="qp-section-title mb-3 text-center"> Packages Pricing</h3>
                 <p class="text-muted text-center mb-4">
                     Choose a finish level. We’ll customize based on your scope and measurements.
                 </p>
@@ -28,20 +28,9 @@
                         <div class="pkg-top">
                             <span class="pkg-badge">{{$item->package_type}}</span>
                             <h4 class="pkg-title mt-2 mb-1">{{$item->title}}</h4>
-                            <div >
-                                <table class="table">
-                                    <tr>
-                                        <td>
-                                            <span class="pkg-from">{{$item->duration}}</span>
-                                        </td>
-                                        <td>
-                                             Price : {{$item->price}}
-                                        </td>
-                                    </tr>
-                                </table>
-                            </div>
+                            
                             <div>
-                                  <span class="pkg-amount">Size : {{$item->size}}</span>
+                                  <span class="pkg-amount">Price : {{$item->price}}</span>
                             </div>
                             <p class="pkg-sub text-muted mb-0">
                                 {!! $item->description !!}
@@ -361,7 +350,7 @@
     .pkg-title{
         font-weight: 900;
         letter-spacing: -0.02em;
-        color:#111827;
+        color:#0d7c97;
     }
 
     .pkg-price{
@@ -379,8 +368,8 @@
 
     .pkg-amount{
         font-weight: 900;
-        font-size: 1.2rem;
-        color:#111827;
+        font-size: 16px;
+        color: #021948;
     }
 
     .pkg-sub{

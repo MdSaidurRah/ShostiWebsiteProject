@@ -58,8 +58,6 @@ class SiteGallaryController extends Controller
     public function store(Request $request)
     {
 
-
-
         $userId = Session::get('userId');
 
         // Check for duplicate client
@@ -89,6 +87,8 @@ class SiteGallaryController extends Controller
         $client = Gallery::create([
             'title' => $request->title,
             'slug'        => generateSlug($request->banner_title),
+            'item_order'     => $request->item_order,
+            'item_type'     => $request->item_type,
             'item_category'     => $request->item_category,
             'reference_link'     => $request->reference_link,
             'status'      => $request->status,
@@ -97,8 +97,8 @@ class SiteGallaryController extends Controller
         ]);
 
         if ($client) {
-            $this->accessLogger->logEntry($userId, 'Gallery Submit.', 'Gallery ', '', '');
-            flash()->addSuccess('Gallery save operation has been successful.');
+            $this->accessLogger->logEntry($userId, 'Gallery Item Submit.', 'Gallery Item ', '', '');
+            flash()->addSuccess('Gallery item save operation has been successful.');
             return redirect()->route('gallery.index');
         } else {
             flash()->addError('Sorry, Gallery save operation has been failed.');
@@ -137,7 +137,7 @@ class SiteGallaryController extends Controller
                 ->where('id', '!=', $gallery->id)
                 ->exists()
         ) {
-            flash()->addError('Sorry, Duplicate Found, Gallery update operation has been failed.');
+            flash()->addError('Sorry, Duplicate Found, Gallery item update operation has been failed.');
             return Redirect::back();
         }
 
@@ -165,6 +165,8 @@ class SiteGallaryController extends Controller
         $updated = $gallery->update([
             'title'    => $request->title,
             'slug'            => generateSlug($request->title),
+            'item_type'     => $request->item_type,
+            'item_order'     => $request->item_order,
             'item_category' => $request->item_category,
             'reference_link' => $request->reference_link,
             'status'          => $request->status,
@@ -173,11 +175,11 @@ class SiteGallaryController extends Controller
         ]);
 
         if ($updated) {
-            $this->accessLogger->logEntry($userId, 'Banner Update.', 'Banner', $gallery->id, '');
-            flash()->addSuccess('Banner update operation has been successful.');
+            $this->accessLogger->logEntry($userId, 'Gallery Item Update.', 'Gallery Item', $gallery->id, '');
+            flash()->addSuccess('Gallery item update operation has been successful.');
             return redirect()->route('gallery.index');
         }else{
-            flash()->addError('Sorry, Banner update operation has been failed.');
+            flash()->addError('Sorry, Gallery item update operation has been failed.');
             return Redirect::back();
         }
     }

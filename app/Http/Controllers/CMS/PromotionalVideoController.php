@@ -102,7 +102,7 @@ class PromotionalVideoController extends Controller
         if ($ad) {
             $this->accessLogger->logEntry($userId, 'Promotional Video Submit.', 'Promotional Video', '', '');
             flash()->addSuccess('Promotional Video save operation has been successful.');
-            return Redirect::back();
+            return redirect()->route('promotional-video.index');
         } else {
             flash()->addError('Sorry, Promotional Video save operation has been failed.');
             return Redirect::back();
@@ -186,7 +186,7 @@ class PromotionalVideoController extends Controller
         if ($updated) {
             $this->accessLogger->logEntry($userId, 'Promotional Video Update.', 'Promotional Video', '', '');
             flash()->addSuccess('Promotional Video update operation has been successful.');
-            return Redirect::back();
+            return redirect()->route('promotional-video.index');
         } else {
             flash()->addError('Sorry, Promotional Video update operation has failed.');
             return Redirect::back();

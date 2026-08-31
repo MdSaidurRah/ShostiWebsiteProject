@@ -49,11 +49,10 @@ Route::middleware(['VisitorRegister'])->group(function(){
     Route::get('/service/duplex-interior-design',[ServiceController::class,'duplexInteriorDesign']);
 
     Route::get('/projects/interior',[InteriorProjectController::class,'interior']);
-    Route::get('/projects/exterior',[ExteriorProjectController::class,'exteriorProjects']);
     Route::get('/interior-project/{catetgory}',[InteriorProjectController::class,'interiorProjectDetail']);
+    Route::get('/projects/exterior',[ExteriorProjectController::class,'exteriorProjects']);
 
     Route::get('/project-information/{id}',[InteriorProjectController::class,'projectInformation']);
-
 
     Route::get('/portfolio',[PortfolioController::class,'portfolio']);
 
@@ -62,7 +61,7 @@ Route::middleware(['VisitorRegister'])->group(function(){
     Route::get('/terms-of-use',[GeneralPagesController::class,'termsOfUse']);
     Route::get('/site-map',[GeneralPagesController::class,'siteMap']);
     Route::get('/faq',[GeneralPagesController::class,'faq']);
-    Route::get('/quotation',[GeneralPagesController::class,'quotation']);
+    Route::get('/business-package',[GeneralPagesController::class,'businessPackage']);
     
     Route::get('/meet-the-team',[AboutUsController::class,'meetTheTeam']);
 

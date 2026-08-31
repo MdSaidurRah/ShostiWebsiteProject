@@ -45,12 +45,12 @@ class GeneralPagesController extends Controller
             ->with('pageTitle',$pageTitle);
     }  
 
-    public function quotation()
+    public function businessPackage()
     {
 
         $packages  = DB::table('business_packages')->where('status','Published')->get();
        
-        $pageTitle ="Quotation";
+        $pageTitle ="Business Package";
         return view('website.general-page.quatation')
             ->with('packages',$packages)
             ->with('pageTitle',$pageTitle);

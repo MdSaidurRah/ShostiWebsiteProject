@@ -28,8 +28,10 @@
                                         <th style="width: 10%;">Photo</th>
                                         <th style="width: 20%;">Title</th>
                                         <th style="width: 20%;">Category</th>
-                                        <th style="width: 20%;">Status</th>
-                                        <th style="width: 15%;">Action</th>
+                                        <th style="width: 20%;">Type</th>
+                                        <th style="width: 10%;">Order</th>
+                                        <th style="width: 10%;">Status</th>
+                                        <th style="width: 10%;">Action</th>
                                     </tr>
                                 </thead>
                             </table>
@@ -56,6 +58,8 @@
                     {data: 'banner_image_preview', name: 'banner_image_preview', searchable: true},
                     {data: 'title', name: 'title', searchable: true},
                     {data: 'item_category', name: 'item_category', searchable: true},
+                    {data: 'item_type', name: 'item_type', searchable: true},
+                    {data: 'item_order', name: 'item_order', searchable: true},
                     {data: 'status', name: 'status', searchable: true},
                     {data: 'action', name: 'action', searchable: false},
                 ]

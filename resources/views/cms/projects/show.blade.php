@@ -109,17 +109,38 @@
                                             <hr/>
                                             <div class="row">
                                                 @foreach($photos as $photo)
-
                                                     <div class="col-md-4 mb-3">
-                                                        <a href="{{ url('/project-photo/edit/' . Crypt::encryptString($photo->id)) }}"  class="text-decoration-none text-dark">
-                                                            <div class="card">
-                                                                <img src="{{ url($photo->photo_url) }}" class="card-img-top" style="height: 150px; object-fit: cover;">
+                                                        <div class="card position-relative">
+                                                    
+                                                            {{-- Delete Button --}}
+                                                            <form action="{{ url('/project-photo/delete/' . Crypt::encryptString($photo->id)) }}" 
+                                                                  method="POST" 
+                                                                  onsubmit="return confirm('Are you sure you want to delete this photo?');"
+                                                                  style="position:absolute; top:8px; right:8px; z-index:10;">
+                                                                @csrf
+                                                                @method('get')
+                                                                <button type="submit" class="btn btn-danger btn-sm">
+                                                                    <i class="fas fa-trash"></i>
+                                                                </button>
+                                                            </form>
+                                                    
+                                                            {{-- Clickable Image --}}
+                                                            <a href="{{ url('/project-photo/edit/' . Crypt::encryptString($photo->id)) }}"  
+                                                               class="text-decoration-none text-dark">
+                                                    
+                                                                <img src="{{ url($photo->photo_url) }}" 
+                                                                     class="card-img-top" 
+                                                                     style="height: 150px; object-fit: cover;">
+                                                    
                                                                 <div class="card-body">
                                                                     <h6 class="card-title">{{ $photo->photo_title }}</h6>
-                                                                    <p class="card-text"><small class="text-muted">Status: {{ $photo->photo_status }}</small></p>
+                                                                    <p class="card-text">
+                                                                        <small class="text-muted">Status: {{ $photo->photo_status }}</small>
+                                                                    </p>
                                                                 </div>
-                                                            </div>
-                                                        </a>
+                                                    
+                                                            </a>
+                                                        </div>
                                                     </div>
                                                     @endforeach
                                             </div>

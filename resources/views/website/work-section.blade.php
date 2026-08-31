@@ -41,9 +41,7 @@
             <div class="col-xl-7 col-lg-7 col-md-12 mb-4 mb-lg-0">
                 <div class="wantToWork-caption wantToWork-caption2">
                     <h2>Are you Searching For a First-Class Consultant?</h2>
-                    <p class="text-muted mt-3">
-                        Fill up the form and our team will contact you shortly.
-                    </p>
+                  
                 </div>
             </div>
 

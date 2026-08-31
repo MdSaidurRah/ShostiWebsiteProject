@@ -12,14 +12,14 @@
                 <div class="row">
                     
                     <?php 
-                        $serviceItems =  DB::table('gallery')->where('item_type','Service Element')->where('status','Published')->orderBy('id','DESC')->limit(3)->get();
+                        $serviceItems =  DB::table('gallery')->where('item_type','Service Element')->where('status','Published')->orderBy('item_order','ASC')->limit(3)->get();
                     ?>
                     
                     @foreach($serviceItems as $item)
                         <div class="col-lg-4 col-md-6 col-sm-10">
                             <div class="single-services mb-200">
                                 <div class="services-img">
-                                    <img src="{{ $item->gallery_image ?? static_asset('website/assets/img/service/interior-service.jpg') }}" alt="">
+                                    <img src="{{ url($item->gallery_image) ?? static_asset('website/assets/img/service/interior-service.jpg') }}" alt="">
                                 </div>
                                 <div class="services-caption">
                                     <h3><a href="{{ $item->reference_link }}">{{$item->title}}</a></h3>

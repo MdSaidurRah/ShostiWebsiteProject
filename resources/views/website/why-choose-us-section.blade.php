@@ -120,7 +120,7 @@
   .feature-card:hover {
     transform: translateY(-6px);
     box-shadow: 0 18px 48px rgba(2,6,23,.12);
-    border-color: #c4a574 !important;
+    border-color: #0d6efd !important;
   }
 
   .icon-wrap {

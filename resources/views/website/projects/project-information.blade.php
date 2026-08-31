@@ -10,7 +10,7 @@
 
                 <!-- Left Side -->
                 <div class="col-12 col-md-4 text-center">
-                    <img src="{{ url($projects[0]->project_photo) }}" alt="Main Image" class="img-fluid rounded shadow">
+                    <img src="{{ url($projects[0]->project_photo) }}" alt="{{$projects[0]->name}}" class="img-fluid rounded shadow">
                     <h2 class="mt-3">{{ $projects[0]->name }}</h2>
                     <h4 class="text-muted">{{ $projects[0]->project_type }} / {{ $projects[0]->project_category }}</h4>
                 </div>
@@ -18,7 +18,7 @@
                 <!-- Right Side -->
                 <div class="col-12 col-md-8">
 
-                    <h4 class="mb-4 text-center">Project Photos</h4>
+                    <h4 class="mb-4 text-center">Gallery</h4>
 
                     <div class="row">
 
@@ -31,10 +31,8 @@
                                          class="card-img-top lightbox-image"
                                          data-index="{{ $index }}"
                                          data-url="{{ url($photo->photo_url) }}"
-                                         style="height: 160px; object-fit: cover; cursor: pointer;">
-                                    <div class="card-body">
-                                        <h6 class="card-title">{{ $photo->photo_title }}</h6>
-                                    </div>
+                                         style=" object-fit: cover; cursor: pointer;">
+                                    
                                 </div>
                             </div>
                             @endforeach

@@ -131,32 +131,30 @@ class BusinessadvertisementController extends Controller
 
         $userId = Session::get('userId');
 
-        $request->validate([
-            'ad_title'    => 'required|string|max:255',
-            'ad_category' => 'required|string',
-            'status'      => 'required|string',
-            'cover_photo' => 'nullable|file|mimes:jpg,jpeg,png|max:2048'
-        ]);
-
-        // Find the ad to update
+        // Find the ad
         $ad = BusinessAdvertisement::findOrFail($request->id);
-
-        // Check for duplicate ad title (excluding current record)
-        if (BusinessAdvertisement::where('ad_title', $request->ad_title)
-            ->where('id', '!=',$request->id)
-            ->exists()) {
-            flash()->addError('Sorry, Duplicate Found, Business Ad update operation has been failed.');
-            return Redirect::back();
+        
+        // Check duplicate title (excluding current record)
+        $exists = BusinessAdvertisement::where('ad_title', trim($request->ad_title))
+            ->where('id', '!=', $ad->id)
+            ->exists();
+        
+        if ($exists) {
+            flash()->addError('Sorry, duplicate ad title found. Update failed.');
+            return back();
         }
-
-        // Handle cover photo upload if new one is provided
-        $photoPath = $ad->cover_photo; // keep existing
-        if ($request->cover_photo) {
+        
+        // Default old image
+        $photoPath = $ad->cover_photo;
+        
+        // Handle new image upload
+        if ($request->hasFile('cover_photo')) {
+        
             $uploadedPath = 'uploads/ad-cover/';
             $storagePath  = 'uploads/ad-cover/';
             $parent       = "ad-cover";
-
-            $photoUrl  = $this->imageObject->photoUpload(
+        
+            $photoPath = $this->imageObject->photoUpload(
                 $request,
                 'cover_photo',
                 $uploadedPath,
@@ -164,28 +162,26 @@ class BusinessadvertisementController extends Controller
                 $parent,
                 $userId
             );
-
-            $photoPath = $photoUrl;
         }
-
-        // Update ad
+        
+        // Update record
         $updated = $ad->update([
-            'ad_title'    => $request->ad_title,
+            'ad_title'    => trim($request->ad_title),
             'slug'        => generateSlug($request->ad_title),
             'ad_category' => $request->ad_category,
             'status'      => $request->status,
             'cover_photo' => $photoPath,
             'updated_by'  => $userId,
         ]);
-
+        
         if ($updated) {
             $this->accessLogger->logEntry($userId, 'Business Ad Update.', 'Business Ad', '', '');
-            flash()->addSuccess('Business Ad update operation has been successful.');
-            return Redirect::back();
+            flash()->addSuccess('Business Ad updated successfully.');
         } else {
-            flash()->addError('Sorry, Business Ad update operation has been failed.');
-            return Redirect::back();
+            flash()->addError('Business Ad update failed.');
         }
+
+        return back();
     }
 
     /** ✅ Get all pages (for DataTables or listing) */

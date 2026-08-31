@@ -5,18 +5,7 @@
 <section class="portfolio-page py-5 py-lg-6">
     <div class="container">
 
-        <!-- Header -->
-        <div class="row justify-content-center mb-4 mb-lg-5">
-            <div class="col-xl-8 col-lg-9">
-                <div class="text-center">
-                    <span class="pf-pill">Portfolio</span>
-                    <h1 class="pf-h1 mt-3 mb-2">Our Recent Projects</h1>
-                    <p class="pf-lead mb-0">
-                        Explore our work across residential, commercial, office, and exterior design.
-                    </p>
-                </div>
-            </div>
-        </div>
+     
 
         <!-- Tabs -->
         <div class="d-flex justify-content-center mb-4">
@@ -24,12 +13,17 @@
              
                 <li class="nav-item" role="presentation">
                     <button class="nav-link active" id="tab-res" data-bs-toggle="tab" data-bs-target="#pane-completed" type="button" role="tab" aria-controls="pane-completed" aria-selected="false">
-                        Completed
+                        All
                     </button>
                 </li>
                 <li class="nav-item" role="presentation">
                     <button class="nav-link" id="tab-com" data-bs-toggle="tab" data-bs-target="#pane-running" type="button" role="tab" aria-controls="pane-running" aria-selected="false">
-                        Running
+                        Handover
+                    </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="tab-com" data-bs-toggle="tab" data-bs-target="#pane-ongoing" type="button" role="tab" aria-controls="pane-running" aria-selected="false">
+                        On Going
                     </button>
                 </li>
                 <li class="nav-item" role="presentation">
@@ -38,13 +32,8 @@
                     </button>
                 </li>
                 <li class="nav-item" role="presentation">
-                    <button class="nav-link" id="tab-ext" data-bs-toggle="tab" data-bs-target="#pane-ext" type="button" role="tab" aria-controls="pane-ext" aria-selected="false">
-                        Exterior
-                    </button>
-                </li>
-                <li class="nav-item" role="presentation">
-                    <button class="nav-link" id="tab-ext" data-bs-toggle="tab" data-bs-target="#pane-consultancy" type="button" role="tab" aria-controls="pane-consultancy" aria-selected="false">
-                        Consultancy
+                    <button class="nav-link" id="tab-ext" data-bs-toggle="tab" data-bs-target="#pane-residence" type="button" role="tab" aria-controls="pane-residence" aria-selected="false">
+                        Residance
                     </button>
                 </li>
                 <li class="nav-item" role="presentation">
@@ -57,9 +46,15 @@
                         Office
                     </button>
                 </li>
+              
                 <li class="nav-item" role="presentation">
-                    <button class="nav-link" id="tab-ext" data-bs-toggle="tab" data-bs-target="#pane-residence" type="button" role="tab" aria-controls="pane-residence" aria-selected="false">
-                        Residence
+                    <button class="nav-link" id="tab-ext" data-bs-toggle="tab" data-bs-target="#pane-exterior" type="button" role="tab" aria-controls="pane-ext" aria-selected="false">
+                        Exterior
+                    </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="tab-ext" data-bs-toggle="tab" data-bs-target="#pane-consultancy" type="button" role="tab" aria-controls="pane-consultancy" aria-selected="false">
+                        Consultancy
                     </button>
                 </li>
             </ul>
@@ -76,12 +71,13 @@
                     @php
                         $completed = DB::table('business_projects')
                             ->where('project_visibility', 'Published')
-                            ->where('project_status', 'completed')
+                            ->where('project_status', 'Completed')
+                            ->orderBy('project_order','ASC')
                             ->get();
                     @endphp
                     @foreach($completed as $p)
                         <div class="col-12 col-sm-6 col-lg-4 col-xl-3 mb-4">
-                            <a href="#" class="pf-card">
+                            <a href="{{ url('/project-information/' . $p->id) }}" class="pf-card">
                                 <div class="pf-img">
                                     <img src="{{ url($p->project_photo) }}" alt="{{ $p->name }}">
                                 </div>
@@ -101,12 +97,39 @@
                     @php
                         $running = DB::table('business_projects')
                             ->where('project_visibility', 'Published')
-                            ->where('project_status', 'Running')
+                            ->where('project_status', 'Handover')
+                            ->orderBy('project_order','ASC')
                             ->get();
                     @endphp     
                     @foreach($running as $p)
                         <div class="col-12 col-sm-6 col-lg-4 col-xl-3 mb-4">
-                            <a href="#" class="pf-card">
+                            <a href="{{ url('/project-information/' . $p->id) }}" class="pf-card">
+                                <div class="pf-img">
+                                    <img src="{{ url($p->project_photo) }}" alt="{{ $p->name }}">
+                                </div>
+                                <div class="pf-meta">
+                                    <div class="pf-cat">{{ $p->project_category }}</div>
+                                    <h5 class="pf-title">{{ $p->name }}</h5>
+                                </div>
+                            </a>
+                        </div>
+                    @endforeach
+                </div>
+            </div>             
+            
+            <!-- Ongoing -->
+            <div class="tab-pane fade" id="pane-ongoing" role="tabpanel" aria-labelledby="tab-res">
+                <div class="row g-4">
+                    @php
+                        $running = DB::table('business_projects')
+                            ->where('project_visibility', 'Published')
+                            ->where('project_status', 'On Going')
+                            ->orderBy('project_order','ASC')
+                            ->get();
+                    @endphp     
+                    @foreach($running as $p)
+                        <div class="col-12 col-sm-6 col-lg-4 col-xl-3 mb-4">
+                            <a href="{{ url('/project-information/' . $p->id) }}" class="pf-card">
                                 <div class="pf-img">
                                     <img src="{{ url($p->project_photo) }}" alt="{{ $p->name }}">
                                 </div>
@@ -126,12 +149,13 @@
                     @php
                         $interior = DB::table('business_projects')
                             ->where('project_visibility', 'Published')
-                            ->where('project_status', 'Running')
+                            ->where('project_type', 'Interior')
+                            ->orderBy('project_order','ASC')
                             ->get();
                     @endphp     
                     @foreach($interior as $p)
                         <div class="col-12 col-sm-6 col-lg-4 col-xl-3 mb-4">
-                            <a href="#" class="pf-card">
+                            <a href="{{ url('/project-information/' . $p->id) }}" class="pf-card">
                                 <div class="pf-img">
                                     <img src="{{ url($p->project_photo) }}" alt="{{ $p->name }}">
                                 </div>
@@ -151,17 +175,17 @@
                     @php
                         $exterior = DB::table('business_projects')
                             ->where('project_visibility', 'Published')
-                            ->where('project_status', 'Running')
+                            ->where('project_type', 'Exterior')
+                            ->orderBy('project_order','ASC')
                             ->get();
                     @endphp     
                     @foreach($exterior as $p)
                         <div class="col-12 col-sm-6 col-lg-4 col-xl-3 mb-4">
-                            <a href="#" class="pf-card">
+                            <a href="{{ url('/project-information/' . $p->id) }}" class="pf-card">
                                 <div class="pf-img">
                                     <img src="{{ url($p->project_photo) }}" alt="{{ $p->name }}">
                                 </div>
                                 <div class="pf-meta">
-                                    <div class="pf-cat">{{ $p->project_category }}</div>
                                     <h5 class="pf-title">{{ $p->name }}</h5>
                                 </div>
                             </a>
@@ -176,12 +200,13 @@
                     @php
                         $consultancy = DB::table('business_projects')
                             ->where('project_visibility', 'Published')
-                            ->where('project_status', 'Running')
+                            ->where('project_category', 'Consultancy')
+                            ->orderBy('project_order','ASC')
                             ->get();
                     @endphp     
                     @foreach($consultancy as $p)
                         <div class="col-12 col-sm-6 col-lg-4 col-xl-3 mb-4">
-                            <a href="#" class="pf-card">
+                            <a href="{{ url('/project-information/' . $p->id) }}" class="pf-card">
                                 <div class="pf-img">
                                     <img src="{{ url($p->project_photo) }}" alt="{{ $p->name }}">
                                 </div>
@@ -201,12 +226,14 @@
                     @php
                         $kitchen = DB::table('business_projects')
                             ->where('project_visibility', 'Published')
-                            ->where('project_status', 'Running')
+                            ->where('project_type', 'Interior')
+                            ->where('project_category', 'Kitchen')
+                            ->orderBy('project_order','ASC')
                             ->get();
                     @endphp     
                     @foreach($kitchen as $p)
                         <div class="col-12 col-sm-6 col-lg-4 col-xl-3 mb-4">
-                            <a href="#" class="pf-card">
+                            <a href="{{ url('/project-information/' . $p->id) }}" class="pf-card">
                                 <div class="pf-img">
                                     <img src="{{ url($p->project_photo) }}" alt="{{ $p->name }}">
                                 </div>
@@ -226,12 +253,14 @@
                     @php
                         $office  = DB::table('business_projects')
                             ->where('project_visibility', 'Published')
-                            ->where('project_status', 'Running')
+                            ->where('project_type', 'Interior')
+                            ->where('project_category', 'Office')
+                            ->orderBy('project_order','ASC')
                             ->get();
                     @endphp     
                     @foreach($office as $p)
                         <div class="col-12 col-sm-6 col-lg-4 col-xl-3 mb-4">
-                            <a href="#" class="pf-card">
+                            <a href="{{ url('/project-information/' . $p->id) }}" class="pf-card">
                                 <div class="pf-img">
                                     <img src="{{ url($p->project_photo) }}" alt="{{ $p->name }}">
                                 </div>
@@ -251,12 +280,14 @@
                     @php
                         $residence = DB::table('business_projects')
                             ->where('project_visibility', 'Published')
-                            ->where('project_status', 'Running')
+                            ->where('project_type', 'Interior')
+                            ->where('project_category', 'Residance')
+                            ->orderBy('project_order','ASC')
                             ->get();
                     @endphp     
                     @foreach($residence as $p)
                         <div class="col-12 col-sm-6 col-lg-4 col-xl-3 mb-4">
-                            <a href="#" class="pf-card">
+                            <a href="{{ url('/project-information/' . $p->id) }}" class="pf-card">
                                 <div class="pf-img">
                                     <img src="{{ url($p->project_photo) }}" alt="{{ $p->name }}">
                                 </div>
@@ -282,8 +313,8 @@
                     <p class="mb-0 text-muted">Tell us your requirements and we’ll propose the best solution.</p>
                 </div>
                 <div class="d-flex flex-column flex-sm-row gap-3">
-                    <a href="{{ url('/quotation') }}" class="btn btn-success rounded-pill mx-2">
-                        Get a Quote
+                    <a href="{{ url('/business-package') }}" class="btn btn-success rounded-pill mx-2">
+                        Get a Package
                     </a>
                     <a href="{{ url('/services') }}" class="btn btn-outline-dark rounded-pill ">
                         Explore Services

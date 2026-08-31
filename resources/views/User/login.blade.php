@@ -1,148 +1,100 @@
+<?php
+    $organization = DB::table('system_information')
+        ->where('information_key','Organization Name')
+        ->select('*')->first();
+    $orgName = $organization->information_value ?? 'Shosti Arc Studio';
+?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="utf-8">
-    <title>{{ $pageTitle ?? 'Sign In' }} | Shosti Arc Studio</title>
+    <title>Sign in — {{ $orgName }}</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <link href="{{ static_asset('/assets/images/favicon.png') }}" rel="icon">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link href="{{ static_asset('/assets/css/bootstrap.min.css') }}" rel="stylesheet">
-    <style>
-        :root {
-            --sas-navy: #1b3a4b;
-            --sas-teal: #2a7b9b;
-            --sas-gold: #c4a574;
-            --sas-sand: #f4f1ea;
-        }
-        body {
-            font-family: Inter, "Segoe UI", sans-serif;
-            margin: 0;
-            min-height: 100vh;
-            background: #122033;
-        }
-        .login-shell {
-            min-height: 100vh;
-            display: flex;
-            background:
-                linear-gradient(135deg, rgba(18,32,51,.82), rgba(27,58,75,.72)),
-                url('https://shostiarcstudio.com/public/website/assets/img/bg.jpg') center/cover no-repeat;
-        }
-        .login-brand {
-            flex: 1;
-            display: none;
-            color: #fff;
-            padding: 64px;
-            align-items: flex-end;
-        }
-        .login-brand h1 {
-            font-size: 2.4rem;
-            font-weight: 700;
-            margin-bottom: 10px;
-        }
-        .login-brand p {
-            max-width: 420px;
-            color: rgba(255,255,255,.72);
-            margin: 0;
-        }
-        .login-panel {
-            width: 100%;
-            max-width: 460px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 28px;
-        }
-        .login-card {
-            width: 100%;
-            background: #fff;
-            border-radius: 18px;
-            box-shadow: 0 18px 50px rgba(0,0,0,.22);
-            padding: 36px 32px;
-        }
-        .login-kicker {
-            color: var(--sas-gold);
-            font-size: .75rem;
-            letter-spacing: .12em;
-            text-transform: uppercase;
-            font-weight: 700;
-            margin-bottom: 8px;
-        }
-        .login-card h2 {
-            margin: 0 0 6px;
-            color: var(--sas-navy);
-            font-weight: 700;
-        }
-        .login-card .sub {
-            color: #6b7a8d;
-            margin-bottom: 22px;
-            font-size: .92rem;
-        }
-        .form-control {
-            min-height: 48px;
-            border-radius: 12px;
-            border-color: #d9e0e6;
-        }
-        .form-control:focus {
-            border-color: var(--sas-teal);
-            box-shadow: 0 0 0 .2rem rgba(42,123,155,.16);
-        }
-        .btn-login {
-            background: var(--sas-navy);
-            border: 0;
-            border-radius: 12px;
-            min-height: 48px;
-            font-weight: 600;
-        }
-        .btn-login:hover { background: var(--sas-teal); color: #fff; }
-        @media (min-width: 992px) {
-            .login-brand { display: flex; }
-        }
-    </style>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="{{ static_asset('/assets/css/custom-style.css') }}" rel="stylesheet">
 </head>
 
-<body>
-@php
-    $organization = DB::table('system_information')
-        ->where('information_key', 'Organization Name')
-        ->select('*')
-        ->first();
-    $orgName = $organization->information_value ?? 'Shosti Arc Studio';
-@endphp
+<body class="admin-login">
+<div class="login-stage">
+    <div class="login-stage-bg"></div>
+    <div class="login-stage-shade"></div>
 
-<div class="login-shell">
-    <div class="login-brand">
-        <div>
-            <div class="login-kicker">Interior · Architecture · Studio</div>
-            <h1>{{ $orgName }}</h1>
-            <p>Sign in to manage projects, website content, visitor messages, and consultation queries.</p>
-        </div>
-    </div>
-    <div class="login-panel">
-        <div class="login-card">
-            <div class="login-kicker">Admin access</div>
+    <header class="login-topbar">
+        <a class="login-brand" href="{{ url('/') }}">
+            <img src="{{ static_asset('/assets/images/logo.svg') }}" alt="{{ $orgName }}">
+            <span>{{ $orgName }}</span>
+        </a>
+        <a class="login-site-link" href="{{ url('/') }}">Visit website</a>
+    </header>
+
+    <main class="login-main">
+        <section class="login-intro">
+            <p class="login-eyebrow">Staff access</p>
+            <h1>Architecture, interior &amp; studio control.</h1>
+            <p class="login-lead">Sign in to manage projects, services, gallery, and client enquiries.</p>
+            <ul class="login-points">
+                <li>Project pipeline</li>
+                <li>Website CMS</li>
+                <li>Consultation CRM</li>
+            </ul>
+        </section>
+
+        <section class="login-card">
             <h2>Sign in</h2>
-            <p class="sub">Use your studio credentials to continue.</p>
+            <p class="login-sub">Use your studio email and password.</p>
 
-            @if(isset($message))
-                <div class="alert alert-danger" role="alert">{{ $message }}</div>
+            @if(session('message'))
+                <div class="login-alert login-alert-ok">{{ session('message') }}</div>
+            @endif
+            @if(session('login_error'))
+                <div class="login-alert">{{ session('login_error') }}</div>
+            @endif
+            @if($errors->any())
+                <div class="login-alert">{{ $errors->first() }}</div>
             @endif
 
-            <form id="loginform" action="{{ url('/login-post') }}" method="post">
+            <form id="loginform" action="{{ url('/login-post') }}" method="post" autocomplete="on">
                 @csrf
-                <div class="mb-3">
-                    <label class="form-label" for="email">Email address</label>
-                    <input type="email" class="form-control" required name="email" id="email" placeholder="you@studio.com">
+                <div class="login-field">
+                    <label for="email">Email address</label>
+                    <div class="login-input">
+                        <i class="fas fa-envelope"></i>
+                        <input type="email" class="form-control" required name="email" id="email" value="{{ old('email') }}" placeholder="name@studio.com" autocomplete="username">
+                    </div>
                 </div>
-                <div class="mb-4">
-                    <label class="form-label" for="password">Password</label>
-                    <input type="password" class="form-control" name="password" required id="password" placeholder="Password">
+                <div class="login-field">
+                    <label for="password">Password</label>
+                    <div class="login-input">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" class="form-control" name="password" required id="password" placeholder="Enter password" autocomplete="current-password">
+                        <button type="button" class="login-eye" id="togglePassword" aria-label="Show password">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                    </div>
                 </div>
-                <button type="submit" class="btn btn-primary btn-login w-100">Sign In</button>
+                <button type="submit" class="btn btn-login">Continue to dashboard</button>
             </form>
-        </div>
-    </div>
+        </section>
+    </main>
+
+    <footer class="login-foot">© {{ date('Y') }} {{ $orgName }}. Authorized staff only.</footer>
 </div>
+
+<script>
+    document.getElementById('togglePassword').addEventListener('click', function () {
+        var field = document.getElementById('password');
+        var icon = this.querySelector('i');
+        var hidden = field.type === 'password';
+        field.type = hidden ? 'text' : 'password';
+        icon.classList.toggle('fa-eye', !hidden);
+        icon.classList.toggle('fa-eye-slash', hidden);
+    });
+</script>
 </body>
 </html>

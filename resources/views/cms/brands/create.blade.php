@@ -35,7 +35,7 @@
                                         <div class="row">
                                             <div class="form-group col-md-12">
                                                 <label for="content">Adress</label>
-                                                <div id="quill-editor" class="mb-3" style="height: 300px;"></div>
+                                                <div id="quill-editor" class="mb-3" style="height: 200px;"></div>
                                                 <textarea rows="3" class="mb-3 d-none" name="address"  id="quill-editor-area"></textarea>
                                             </div>
                                         </div>

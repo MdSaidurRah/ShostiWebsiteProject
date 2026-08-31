@@ -59,7 +59,6 @@
                                             <select class="form-control" name="video_source">
                                                 <option value="{{$promotional_video->video_source}}" > {{$promotional_video->video_source}}</option>
                                                 <option value="ACTIVE">Active</option>
-                                                <option value="Published">Published</option>
                                                 <option value="INACTIVE">Inactive</option>
                                             </select>
                                         </div>

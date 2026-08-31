@@ -102,12 +102,17 @@ class BusinessProjectController extends Controller
 
     public function editProjectPhoto($id)
     {
+
+        
         $keyId = Crypt::decryptString($id);
         $photos = ProjectPhoto::where('id', $keyId)->first();
         $project  = BusinessProject::where('id', $photos->project_id)->first();
         
         return view('cms.projects.project-photo-edit', compact('project','photos'));
     }
+    
+    
+    
 
     public function updateProjectPhoto(Request $request)
     {
@@ -150,16 +155,32 @@ class BusinessProjectController extends Controller
         }
     }
 
-
+    public function editProjectDelete($id)
+    {
+        $userId = Session::get('userId');
+        $keyId = Crypt::decryptString($id);
+        $photos = ProjectPhoto::where('id', $keyId)->first();
+        if (!$photos) {
+            flash()->addError('Photo not found.');
+            return Redirect::back();
+        }
+        $deleted = $photos->delete();
+        if ($deleted) {
+            $this->accessLogger->logEntry($userId, 'Project photo deleted permanently.', 'Project photo', '', '');
+            flash()->addSuccess('Project photo delete operation has been successful.');
+        } else {
+            flash()->addError('Sorry, Project photo delete operation has been failed.');
+        }
+        
+        return Redirect::back();
+    }
     
     
    
     public function store(Request $request)
     {
 
-
         $userId = Session::get('userId');
-
         $request->validate([
             'name'       => 'required|string|max:255',
             'project_photo'         => 'nullable|file|mimes:jpg,jpeg,png|max:2048'
@@ -199,6 +220,7 @@ class BusinessProjectController extends Controller
             'project_category'    => $request->project_category,
             'project_visibility' => $request->project_visibility,
             'project_status'              => $request->project_status,
+            'project_order'              => $request->project_order,
             'project_photo'         => $photoPath,
             'created_by'          => $userId,
         ]);
@@ -221,28 +243,18 @@ class BusinessProjectController extends Controller
 
         $keyId = Crypt::decryptString($id);
         $project  = BusinessProject::findOrFail($keyId);
-        $blog_categories = DB::table('blog_categories')
-                    ->select('*')
-                    ->orderBy('id','DESC')
-                    ->get();
-
-        return view('cms.projects.edit', compact('project','blog_categories'));
+     
+        return view('cms.projects.edit', compact('project'));
     }
 
 
     public function show($id)
     {
-
         $keyId = Crypt::decryptString($id);
         $project  = BusinessProject::findOrFail($keyId);
-        $blog_categories = DB::table('blog_categories')
-                    ->select('*')
-                    ->orderBy('id','DESC')
-                    ->get();
 
-        return view('cms.projects.show', compact('project','blog_categories'));
+        return view('cms.projects.show', compact('project'));
     }
-
 
 
     public function update(Request $request)
@@ -287,6 +299,7 @@ class BusinessProjectController extends Controller
             'project_category'    => $request->project_category,
             'project_visibility' => $request->project_visibility,
             'project_status'              => $request->project_status,
+            'project_order'              => $request->project_order,
             'project_photo'         => $photoPath,
             'created_by'          => $userId,
         ]);
@@ -297,6 +310,73 @@ class BusinessProjectController extends Controller
             return redirect()->route('project.index');
         } else {
             flash()->addError('Sorry, Business Project update operation has been failed.');
+            return Redirect::back();
+        }
+    }
+    
+    public function clone($id)
+    {
+
+        $keyId = Crypt::decryptString($id);
+        $project  = BusinessProject::findOrFail($keyId);
+     
+        return view('cms.projects.clone', compact('project'));
+    }
+
+    public function cloneSave(Request $request)
+    {
+
+       $userId = Session::get('userId');
+
+        $project = BusinessProject::findOrFail($request->id);
+        
+        $newName = $request->name ?? ($project->name . ' (Copy)');
+        
+        if (BusinessProject::where('name', $newName)->exists()) {
+            $newName = $newName . ' - ' . time();
+        }
+        
+        // Handle photo (clone old OR upload new)
+        $photoPath = $project->project_photo;
+        
+        if ($request->project_photo) {
+            $uploadedPath = 'uploads/project-cover/';
+            $storagePath  = 'uploads/project-cover/';
+            $parent       = "project-cover";
+        
+            $photoUrl  = $this->imageObject->photoUpload( 
+                $request,
+                'project_photo',
+                $uploadedPath,
+                $storagePath,
+                $parent,
+                $userId
+            );
+        
+            $photoPath = $photoUrl;
+        }
+        
+        // Create NEW project (clone)
+        $newProject = BusinessProject::create([
+            'name'                  => $newName,
+            'slug'                  => generateSlug($newName),
+            'project_description'  => $request->project_description ?? $project->project_description,
+            'project_type'         => $request->project_type ?? $project->project_type,
+            'project_category'     => $request->project_category ?? $project->project_category,
+            'project_visibility'   => $request->project_visibility ?? $project->project_visibility,
+            'project_status'       => $request->project_status ?? $project->project_status,
+            'project_order'        => $request->project_order ??  $project->project_order,
+            'project_photo'        => $photoPath,
+            'created_by'           => $userId,
+        ]);
+        
+        // Response
+        if ($newProject) {
+            $this->accessLogger->logEntry($userId, 'Business Project Cloned.', 'Business Project', '', '');
+            flash()->addSuccess('Business Project cloned successfully.');
+            return redirect()->route('project.index');
+        } else {
+            flash()->addError('Sorry, Project clone operation failed.');
             return Redirect::back();
         }
     }
@@ -317,8 +397,9 @@ class BusinessProjectController extends Controller
             })
             ->addColumn('action', function ($business_projects) {
                 $btn1 = '<a href="' . '/project/edit/' . Crypt::encryptString($business_projects->id) . '" class="btn btn-primary btn-sm"><i class="fa fa-edit"></i> Edit</a> ';
-                $btn2 = '<a href="' . '/project/show/' . Crypt::encryptString($business_projects->id) . '" class="btn btn-success btn-sm"><i class="fa fa-eye"></i> Show</a> ';
-                return $btn1 . $btn2;
+                $btn2 = '<a href="' . '/project/show/' . Crypt::encryptString($business_projects->id) . '" class="btn btn-warning btn-sm"><i class="fa fa-eye"></i> Show</a> ';
+                $btn3 = '<a href="' . '/project/clone/' . Crypt::encryptString($business_projects->id) . '" class="btn btn-success btn-sm"><i class="fa fa-eye"></i> Clone</a> ';
+                return $btn1 . $btn2 .$btn3;
             })
             ->rawColumns(['action','project_photo'])
             ->make(true);

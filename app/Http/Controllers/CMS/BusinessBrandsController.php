@@ -98,7 +98,7 @@ class BusinessBrandsController extends Controller
         if ($client) {
             $this->accessLogger->logEntry($userId, 'Business Brands Submit.', 'Business Brands', '', '');
             flash()->addSuccess('Business Brands save operation has been successful.');
-            return Redirect::back();
+            return redirect()->route('brands.index');
         } else {
             flash()->addError('Sorry, Business Brands save operation has been failed.');
             return Redirect::back();
@@ -132,13 +132,6 @@ class BusinessBrandsController extends Controller
 
         $client = BusinessBrands::findOrFail($request->id);
 
-        // Check for duplicate (exclude current client)
-        if (BusinessBrands::where('name', $request->name)
-                ->where('id', '!=', $request->id)
-                ->exists()) {
-            flash()->addError('Sorry, Duplicate Found, Business Brands update operation has been failed.');
-            return Redirect::back();
-        }
 
         // Handle logo upload (keep old if not replaced)
         $logoPath = $client->company_logo;
@@ -172,7 +165,7 @@ class BusinessBrandsController extends Controller
         if ($updated) {
             $this->accessLogger->logEntry($userId, 'Business Brands Update.', 'Business Brands', '', '');
             flash()->addSuccess('Business Brands update operation has been successful.');
-            return Redirect::back();
+            return redirect()->route('brands.index');
         } else {
             flash()->addError('Sorry, Business Brands update operation has been failed.');
             return Redirect::back();

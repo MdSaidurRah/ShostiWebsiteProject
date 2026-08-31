@@ -18,7 +18,7 @@ class ExteriorProjectController extends Controller
             ->where('project_type','Exterior')
             ->where('project_visibility','Published')
             ->select('*')
-            ->orderBy('id','DESC')
+            ->orderBy('project_order','ASC')
             ->get();
 
         return view('website.projects.exterior')

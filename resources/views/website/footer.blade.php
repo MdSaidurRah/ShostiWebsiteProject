@@ -2,11 +2,15 @@
     <div class="container py-5">
 
         <div class="row gy-5">
+            
+            <?php 
+                $siteFooterLogo =  DB::table('gallery')->where('item_type','Site Footer Logo')->where('status','Published')->orderBy('id','DESC')->select('gallery_image')->limit(1)->first();
+            ?>
 
             <!-- Logo & Contact -->
             <div class="col-lg-3 col-md-6">
                 <a href="{{ url('/') }}" class="footer-logo d-inline-block mb-3">
-                    <img src="{{ static_asset('website/assets/img/logo/logo2_footer.png') }}"
+                    <img src="{{ url($siteFooterLogo->gallery_image) ?? 'website/assets/img/logo/logo2_footer.png' }}"
                          alt="Shosti Arc Studio" class="img-fluid" >
                 </a>
 
@@ -170,7 +174,7 @@
 }
 
 .footer-menu a:hover{
-    color:#c4a574;
+    color:#1f8a5b;  /* stronger green */
 }
 
 /* Links */
@@ -181,7 +185,7 @@
 }
 
 .footer-link:hover{
-    color:#c4a574;
+    color:#1f8a5b;
 }
 
 /* Divider */

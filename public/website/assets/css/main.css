@@ -15,7 +15,7 @@
     }
 
     .zoom-card .card-body {
-        background: #fff;
+        background: #1a8168;
         position: relative;
         z-index: 2;
     }
@@ -23,5 +23,5 @@
 
     .project-image-title
     {
-        color:var(--deep-pine-green) !important;
+        color:#ffffff !important;
     }

@@ -4,6 +4,7 @@
 <head>
    
     <title>Shosti Arc Studio | Your Vision- Our Expertise. </title>
+    <link rel="icon" type="image/png" href="{{static_asset('/website/assets/img/logo/fav-logo.png')}}">
 
     <meta name="description" content="Shosti Arc Studio is a leading home interior design and development company in Dhaka, Bangladesh. We provide modern, luxury, and customized interior solutions for apartments, houses, and commercial spaces.">
     <meta name="keywords" content="home interior design in Dhaka, interior design company in Bangladesh, apartment interior design Dhaka, luxury home interior Bangladesh, residential interior design Dhaka, interior development services Bangladesh, Shosti Arc Studio">
@@ -33,12 +34,11 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Gabarito:wght@400..900&family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="{{static_asset('website/assets/css/studio-theme.css')}}">
+    <link href="https://fonts.googleapis.com/css2?family=Gabarito:wght@400..900&display=swap" rel="stylesheet">
 
 </head>
 
-<body class="body-bg studio-site">
+<body class="body-bg">
 
     <main>
 
@@ -46,7 +46,12 @@
 
         @include('website.layouts.header')
         <!-- slider Area Start-->
-        <div class="slider-area2">
+        
+        <?php 
+            $siteBanner =  DB::table('site_banners')->where('banner_category','INNER COVER')->where('status','Published')->orderBy('id','DESC')->select('banner_image')->limit(1)->first();
+        ?>
+
+        <div class="slider-area2" style="background-image: url('{{ url($siteBanner->banner_image) }}')">
                 <div class="slider-height2 d-flex align-items-center">
                     <div class="container">
                         <div class="row">

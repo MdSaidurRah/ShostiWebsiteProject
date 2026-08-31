@@ -55,7 +55,6 @@ class BusinessClientController extends Controller
     public function store(Request $request)
     {
 
-
         $userId = Session::get('userId');
 
         $request->validate([
@@ -100,7 +99,7 @@ class BusinessClientController extends Controller
         if ($client) {
             $this->accessLogger->logEntry($userId, 'Business Client Submit.', 'Business Client', '', '');
             flash()->addSuccess('Business Client save operation has been successful.');
-            return Redirect::back();
+            return redirect()->route('client.index');
         } else {
             flash()->addError('Sorry, Business Client save operation has been failed.');
             return Redirect::back();
@@ -128,19 +127,14 @@ class BusinessClientController extends Controller
 
     public function update(Request $request)
     {
+       
 
         $userId = Session::get('userId');
 
 
         $client = BusinessClient::findOrFail($request->id);
 
-        // Check for duplicate (exclude current client)
-        if (BusinessClient::where('client_name', $request->client_name)
-                ->where('id', '!=', $request->id)
-                ->exists()) {
-            flash()->addError('Sorry, Duplicate Found, Business Client update operation has been failed.');
-            return Redirect::back();
-        }
+     
 
         // Handle logo upload (keep old if not replaced)
         $logoPath = $client->company_logo;
@@ -174,7 +168,7 @@ class BusinessClientController extends Controller
         if ($updated) {
             $this->accessLogger->logEntry($userId, 'Business Client Update.', 'Business Client', '', '');
             flash()->addSuccess('Business Client update operation has been successful.');
-            return Redirect::back();
+            return redirect()->route('client.index');
         } else {
             flash()->addError('Sorry, Business Client update operation has been failed.');
             return Redirect::back();

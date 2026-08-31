@@ -60,7 +60,7 @@
                                                 <label for="status">Project Category</label>
                                                 <select class="form-control" name="project_category">
                                                     <option value="">-- Select Category --</option>
-                                                    <option value="Residence" {{ old('project_category', $project->project_category) == 'Residence' ? 'selected' : '' }}>Residence</option>
+                                                    <option value="Residance" {{ old('project_category', $project->project_category) == 'Residance' ? 'selected' : '' }}>Residance</option>
                                                     <option value="Office" {{ old('project_category', $project->project_category) == 'Office' ? 'selected' : '' }}>Office</option>
                                                     <option value="Kitchen" {{ old('project_category', $project->project_category) == 'Kitchen' ? 'selected' : '' }}>Kitchen</option>
                                                 </select>
@@ -80,12 +80,17 @@
                                                 <select class="form-control" name="project_status">
                                                     <option value="">-- Select Status --</option>
                                                     <option value="Completed" {{ old('project_status', $project->project_status) == 'Completed' ? 'selected' : '' }}>Completed</option>
-                                                    <option value="Running" {{ old('project_status', $project->project_status) == 'Running' ? 'selected' : '' }}>Running</option>
-                                                    <option value="Upcoming" {{ old('project_status', $project->project_status) == 'Upcoming' ? 'selected' : '' }}>Upcoming</option>
+                                                    <option value="On Going" {{ old('project_status', $project->project_status) == 'On Going' ? 'selected' : '' }}>On Going</option>
+                                                    <option value="Handover" {{ old('project_status', $project->project_status) == 'Handover' ? 'selected' : '' }}>Handover</option>
                                                 </select>
                                             </div>
+                                            
+                                            <div class="form-group col-md-4">
+                                                <label for="employee-photo">Project Order</label>
+                                                <input type="number" name="project_order"  value="{{ old('project_order', $project->project_order) }}"  id="project_order" class="form-control">
+                                            </div>
 
-                                            <div class="form-group col-md-8">
+                                            <div class="form-group col-md-4">
                                                 <label for="employee-photo">Photo</label>
                                                 <input type="file" name="project_photo" id="project_photo" 
                                                        accept="image/*" class="form-control">

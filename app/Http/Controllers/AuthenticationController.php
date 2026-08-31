@@ -7,13 +7,7 @@ use App\Http\Controllers\Controller;
 use App\LibraryFunctions\accesslogger;
 use App\LibraryFunctions\emailsender;
 use App\Models\Account;
-use App\Models\BusinessClient;
-use App\Models\BusinessProject;
-use App\Models\BusinessService;
-use App\Models\ConsultationForm;
-use App\Models\Gallery;
 use App\Models\User;
-use App\Models\VisitorContactUsMessage;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Redirect;
@@ -34,43 +28,111 @@ class AuthenticationController extends Controller
 
     public function admin()
     {
-        $stats = [
-            'projects' => BusinessProject::count(),
-            'services' => BusinessService::count(),
-            'clients' => BusinessClient::count(),
-            'gallery' => Gallery::count(),
-            'messages' => VisitorContactUsMessage::count(),
-            'consultations' => ConsultationForm::count(),
-            'users' => User::count(),
-            'pending_replies' => VisitorContactUsMessage::where(function ($query) {
-                $query->whereNull('reply_status')
-                    ->orWhere('reply_status', '')
-                    ->orWhereRaw('LOWER(reply_status) = ?', ['pending'])
-                    ->orWhereRaw('LOWER(reply_status) = ?', ['new']);
-            })->count(),
+        $projects = DB::table('business_projects')
+            ->select(
+                'project_type',
+                'project_category',
+                'project_status',
+                DB::raw('COUNT(*) as total')
+            )
+            ->groupBy('project_type', 'project_category', 'project_status')
+            ->get();
+
+        $totalProjects = DB::table('business_projects')->count();
+        $completedProjects = DB::table('business_projects')->where('project_status', 'Completed')->count();
+        $ongoingProjects = DB::table('business_projects')->where('project_status', 'On Going')->count();
+        $activeProjects = DB::table('business_projects')->where('project_status', 'Active')->count();
+        $publishedProjects = DB::table('business_projects')->where('project_visibility', 'Published')->count();
+        $hiddenProjects = DB::table('business_projects')->where('project_visibility', 'Hidden')->count();
+
+        $interiorProjects = DB::table('business_projects')->where('project_type', 'Interior')->count();
+        $exteriorProjects = DB::table('business_projects')->where('project_type', 'Exterior')->count();
+        $consultancyProjects = DB::table('business_projects')->where('project_type', 'Consultancy')->count();
+
+        $residanceInteriorProjects = DB::table('business_projects')
+            ->where('project_type', 'Interior')->where('project_category', 'Residance')->count();
+        $officeInteriorProjects = DB::table('business_projects')
+            ->where('project_type', 'Interior')->where('project_category', 'Office')->count();
+        $kitchenInteriorProjects = DB::table('business_projects')
+            ->where('project_type', 'Interior')->where('project_category', 'Kitchen')->count();
+
+        $service = DB::table('business_services')->where('status', 'ACTIVE')->count();
+        $package = DB::table('business_packages')->where('status', 'Published')->count();
+        $clients = DB::table('business_clients')->count();
+        $brands = DB::table('partnership_brands')->count();
+        $galleryItems = DB::table('gallery')->count();
+        $banners = DB::table('site_banners')->count();
+        $videos = DB::table('promotional_videos')->count();
+        $ads = DB::table('business_advertisements')->count();
+        $users = DB::table('users')->count();
+        $visitorMessages = DB::table('visitor_contactus_message')->count();
+        $unreadMessages = DB::table('visitor_contactus_message')
+            ->where(function ($q) {
+                $q->whereNull('reply_status')->orWhere('reply_status', '!=', 'Replied');
+            })->count();
+        $consultationQueries = DB::table('consultation_form')->count();
+
+        $completionRate = $totalProjects ? round(($completedProjects / $totalProjects) * 100) : 0;
+        $publishRate = $totalProjects ? round(($publishedProjects / $totalProjects) * 100) : 0;
+
+        $recentProjects = DB::table('business_projects')
+            ->select('id', 'name', 'project_type', 'project_category', 'project_status', 'project_visibility', 'project_photo')
+            ->orderByDesc('id')
+            ->limit(6)
+            ->get();
+
+        $recentQueries = DB::table('consultation_form')
+            ->orderByDesc('id')
+            ->limit(6)
+            ->get();
+
+        $recentMessages = DB::table('visitor_contactus_message')
+            ->orderByDesc('id')
+            ->limit(5)
+            ->get();
+
+        $typeChart = [
+            'labels' => ['Interior', 'Exterior', 'Consultancy'],
+            'data' => [$interiorProjects, $exteriorProjects, $consultancyProjects],
+        ];
+        $statusChart = [
+            'labels' => ['Completed', 'On Going', 'Active'],
+            'data' => [$completedProjects, $ongoingProjects, $activeProjects],
         ];
 
-        $projectsByCategory = BusinessProject::select('project_category', DB::raw('COUNT(*) as total'))
-            ->groupBy('project_category')
-            ->orderByDesc('total')
-            ->get();
-
-        $projectsByType = BusinessProject::select('project_type', DB::raw('COUNT(*) as total'))
-            ->groupBy('project_type')
-            ->orderByDesc('total')
-            ->get();
-
-        $recentMessages = VisitorContactUsMessage::orderByDesc('id')->limit(6)->get();
-        $recentConsultations = ConsultationForm::orderByDesc('id')->limit(5)->get();
-        $recentProjects = BusinessProject::orderByDesc('id')->limit(5)->get();
-
         return view('dashboard', compact(
-            'stats',
-            'projectsByCategory',
-            'projectsByType',
+            'projects',
+            'totalProjects',
+            'completedProjects',
+            'ongoingProjects',
+            'activeProjects',
+            'publishedProjects',
+            'hiddenProjects',
+            'interiorProjects',
+            'exteriorProjects',
+            'consultancyProjects',
+            'residanceInteriorProjects',
+            'officeInteriorProjects',
+            'kitchenInteriorProjects',
+            'package',
+            'service',
+            'clients',
+            'brands',
+            'galleryItems',
+            'banners',
+            'videos',
+            'ads',
+            'users',
+            'visitorMessages',
+            'unreadMessages',
+            'consultationQueries',
+            'completionRate',
+            'publishRate',
+            'recentProjects',
+            'recentQueries',
             'recentMessages',
-            'recentConsultations',
-            'recentProjects'
+            'typeChart',
+            'statusChart'
         ));
     }
 
@@ -92,11 +154,6 @@ class AuthenticationController extends Controller
             'password' => 'required',
         ]);
 
-
-
-
-
-
         // Check if user exists by email
         $user = User::where('email', $request->email)->first();
 
@@ -113,9 +170,10 @@ class AuthenticationController extends Controller
             Session::put('loginStatus', 'ACTIVE');
             return Redirect::route('dashboard');
         } else {
-            $message = "User email or password not matched";
             flash()->addError('Login Fail. Please try again with valid credential');
-            return redirect()->back();
+            return redirect()->back()
+                ->withInput($request->only('email'))
+                ->with('login_error', 'Email or password did not match. Please try again.');
         }
 
     }

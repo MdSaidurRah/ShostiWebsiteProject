@@ -54,7 +54,6 @@
                                                 <label for="status">Video Source</label>
                                                 <select class="form-control" name="video_source">
                                                     <option value="ACTIVE" >Active</option>
-                                                    <option value="Published">Published</option>
                                                     <option value="INACTIVE" >Inactive</option>
                                                 </select>
                                             </div>

@@ -33,7 +33,7 @@ class ConsultationFormController extends Controller
         $this->crudObject   = new crudlib();
         $this->imageObject  = new imagelib();
         $this->userId       = Session::get('userId');
-        // $this->middleware('checkPermission');
+        //$this->middleware('checkPermission');
     }
 
 

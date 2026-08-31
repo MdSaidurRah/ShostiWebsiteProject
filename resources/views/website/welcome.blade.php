@@ -3,23 +3,39 @@
     <!--? slider Area Start-->
 
  <main>
+     
+        <?php 
+            $siteBanner =  DB::table('site_banners')->where('banner_category','SITE BANNER')->where('status','Published')->orderBy('id','DESC')->select('banner_image')->limit(1)->first();
+        ?>
+        
+        
+
         <!--? slider Area Start-->
-        <div class="slider-area">
+        <div class="slider-area" style="background-image: url('{{ url($siteBanner->banner_image) }}')">
+      
             <div class="slider-active dot-style">
+                <!-- Single Slider -->
                 <div class="single-slider slider-height hero-overly d-flex align-items-center">
                     <div class="container">
                         <div class="row">
-                            <div class="col-xl-7 col-lg-8">
+                            <div class="col-xl-6 col-lg-6">
                                 <div class="hero__caption">
-                                    <span data-animation="fadeInLeft" data-delay=".2s">Interior · Architecture · Dhaka</span>
-                                    <h1 data-animation="fadeInLeft" data-delay=".4s">Your vision.<br>Our expertise.</h1>
-                                    <p data-animation="fadeInLeft" data-delay=".55s" style="color:rgba(255,255,255,.78);max-width:520px;font-size:1.05rem;">
-                                        Modern interiors and architectural consultancy, designed for homes, offices, and hospitality spaces.
-                                    </p>
-                                    <div class="hero-actions" data-animation="fadeInLeft" data-delay=".7s">
-                                        <a href="{{ url('/portfolio') }}" class="btn btn-hero">View Portfolio</a>
-                                        <a href="{{ url('/contact-us') }}" class="btn btn-hero-outline">Book Consultation</a>
-                                    </div>
+                                    
+                                    <span data-animation="fadeInLeft" data-delay=".4s"> Welcome to Shosti Arc Studio</span>
+                                    <h1 data-animation="fadeInLeft" data-delay=".6s">Your Vision- Our Expertise.</h1>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Single Slider -->
+                <div class="single-slider slider-height hero-overly d-flex align-items-center">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-xl-6 col-lg-6">
+                                <div class="hero__caption">
+                                    <span data-animation="fadeInLeft" data-delay=".4s">Welcome to Shosti Arc Studio</span>
+                                    <h1 data-animation="fadeInLeft" data-delay=".6s">Your Vision- Our Expertise.</h1>
                                 </div>
                             </div>
                         </div>

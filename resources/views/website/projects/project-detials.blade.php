@@ -26,7 +26,7 @@
                             <div class="card zoom-card h-100 shadow-sm">
                                 <img src="{{ url($project->project_photo) }}"
                                     class="card-img-top"
-                                    alt="Interior Kitchen">
+                                    alt="{{$project->name}}">
                                 <div class="card-body text-center">
                                     <h5 class="project-image-title">{{$project->name}}</h5>
                                 </div>

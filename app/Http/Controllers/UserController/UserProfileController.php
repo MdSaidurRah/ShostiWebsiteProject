@@ -25,7 +25,7 @@ class UserProfileController extends Controller
         $this->emailObject = new emailsender();
         $this->accessLogger = new accesslogger();
         $this->imageObject = new imagelib();
-        $this->middleware('checkPermission');
+        //$this->middleware('checkPermission');
     }
 
     public function editProfile()
@@ -86,14 +86,15 @@ class UserProfileController extends Controller
 
     public function profilePhotoUpdate(Request $request)
     {
+
        $userId = Session::get('userId');
 
-        if($request->profileImage)
+        if($request->userPhoto)
         {
             $uploadedPath = 'uploads/images/user-profile/';
             $stroagePath = 'uploads/images/user-profile/';
             $parent = "user-pro-photo";
-            $photoUrl = $this->imageObject->photoUpload($request,'profileImage',$uploadedPath,$stroagePath,$parent,$userId);
+            $photoUrl = $this->imageObject->photoUpload($request,'userPhoto',$uploadedPath,$stroagePath,$parent,$userId);
             $request->request->add(['photograph' =>$photoUrl]);
         }
 

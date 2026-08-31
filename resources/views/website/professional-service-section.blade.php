@@ -24,9 +24,13 @@
                     </p>
 
                     <div class="mt-4 d-flex flex-wrap gap-2">
-                        <a href="{{ url('/services') }}" class="btn btn-primary rounded-pill px-4 mr-2">
+                        <a href="{{ url('/business-package') }}" class="btn btn-primary rounded-pill px-4 mr-2">
+                            View Business Package
+                        </a>
+                        <a href="{{ url('/services') }}" class="btn btn-outline-primary rounded-pill px-4 mr-2">
                             View Services
                         </a>
+                    
                         <a href="{{ url('/contact-us') }}" class="btn btn-outline-primary rounded-pill px-4">
                             Contact Us
                         </a>

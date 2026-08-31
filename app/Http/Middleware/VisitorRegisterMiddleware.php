@@ -19,9 +19,9 @@ class VisitorRegisterMiddleware
 {
     public function handle(Request $request, Closure $next)
     {
-        $visitor = new VisitorLogRegisterFunction();
-        $visitor->registerVisitoreAccess($request);
-        $message = "user register success";
+        // $visitor = new VisitorLogRegisterFunction();
+        // $visitor->registerVisitoreAccess($request);
+        // $message = "user register success";
         return $next($request);
     }
 }

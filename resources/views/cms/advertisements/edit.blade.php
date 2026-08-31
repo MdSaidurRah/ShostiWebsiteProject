@@ -37,8 +37,8 @@
                                             <div class="form-group col-md-4">
                                                 <label for="content">Category</label>
                                                 <select class="form-control" name="ad_category">
-                                                    <option value="Banner" {{ old('status', $advertisement->status) == 'Banner' ? 'selected' : '' }}>Banner</option>
-                                                    <option value="Poster" {{ old('status', $advertisement->status) == 'Poster' ? 'selected' : '' }}>Poster</option>
+                                                    <option value="Banner" {{ old('status', $advertisement->ad_category) == 'Banner' ? 'selected' : '' }}>Banner</option>
+                                                    <option value="Poster" {{ old('status', $advertisement->ad_category) == 'Poster' ? 'selected' : '' }}>Poster</option>
                                                 </select>
                                               
                                             </div>

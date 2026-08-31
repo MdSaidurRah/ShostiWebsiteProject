@@ -6,6 +6,7 @@
                     <?php
                         $firstGalleryItems = DB::table('gallery')
                                 ->where('status', 'Published')
+                                ->where('item_type','Gallery Element')
                                 ->where('item_category', 'first')
                                 ->orderBy('id', 'desc')
                                 ->limit(1)
@@ -20,7 +21,7 @@
                                     <div class="thumb-content-box">
                                         <div class="thumb-content">
                                             <h3><span>{{$firstItem->title}}</span></h3>
-                                            <a href="{{url('/portfolio')}}"><i class="fas fa-angle-right"></i></a>
+                                            <a href="{{$firstItem->reference_link}}"><i class="fas fa-angle-right"></i></a>
                                         </div>
                                     </div>
                                 </div>
@@ -33,7 +34,7 @@
                                 <div class="thumb-content-box">
                                     <div class="thumb-content">
                                         <h3><span>Kitchen</span>Interior</h3>
-                                        <a href="{{url('/item_title')}}"><i class="fas fa-angle-right"></i></a>
+                                        <a href="{{$firstItem->reference_link}}"><i class="fas fa-angle-right"></i></a>
                                     </div>
                                 </div>
                             </div>
@@ -44,6 +45,7 @@
                     <?php
                         $secondGalleryItems = DB::table('gallery')
                                 ->where('status', 'Published')
+                                ->where('item_type','Gallery Element')
                                 ->where('item_category', 'second')
                                 ->orderBy('id', 'desc')
                                 ->limit(1)
@@ -58,7 +60,7 @@
                                     <div class="thumb-content-box">
                                         <div class="thumb-content">
                                             <h3><span>{{$secondItem->title}}</span></h3>
-                                            <a href="{{url('/portfolio')}}"><i class="fas fa-angle-right"></i></a>
+                                            <a href="{{$firstItem->reference_link}}"><i class="fas fa-angle-right"></i></a>
                                         </div>
                                     </div>
                                 </div>
@@ -82,6 +84,7 @@
                     <?php
                         $thirdGalleryItems = DB::table('gallery')
                                 ->where('status', 'Published')
+                                ->where('item_type','Gallery Element')
                                 ->where('item_category', 'third')
                                 ->orderBy('id', 'desc')
                                 ->limit(1)
@@ -96,7 +99,7 @@
                                     <div class="thumb-content-box">
                                         <div class="thumb-content">
                                             <h3><span>{{$thirdItem->title}}</span></h3>
-                                            <a href="{{url('/portfolio')}}"><i class="fas fa-angle-right"></i></a>
+                                            <a href="{{$firstItem->reference_link}}"><i class="fas fa-angle-right"></i></a>
                                         </div>
                                     </div>
                                 </div>  
@@ -119,6 +122,7 @@
                     <?php
                         $fourthGalleryItems = DB::table('gallery')
                                 ->where('status', 'Published')
+                                ->where('item_type','Gallery Element')
                                 ->where('item_category', 'fourth')
                                 ->orderBy('id', 'desc')
                                 ->limit(1)
@@ -133,7 +137,7 @@
                                     <div class="thumb-content-box">
                                         <div class="thumb-content">
                                             <h3><span>{{$fourthItem->title}}</span></h3>
-                                            <a href="{{url('/portfolio')}}"><i class="fas fa-angle-right"></i></a>
+                                            <a href="{{$firstItem->reference_link}}"><i class="fas fa-angle-right"></i></a>
                                         </div>
                                     </div>
                                 </div>  
@@ -157,6 +161,7 @@
                     <?php
                         $fifthGalleryItems = DB::table('gallery')
                                 ->where('status', 'Published')
+                                ->where('item_type','Gallery Element')
                                 ->where('item_category', 'fifth')
                                 ->orderBy('id', 'desc')
                                 ->limit(1)
@@ -171,7 +176,7 @@
                                     <div class="thumb-content-box">
                                         <div class="thumb-content">
                                             <h3><span>Duplex</span>Interior</h3>
-                                            <a href="{{url('/portfolio')}}"><i class="fas fa-angle-right"></i></a>
+                                            <a href="{{$firstItem->reference_link}}"><i class="fas fa-angle-right"></i></a>
                                         </div>
                                     </div>
                                 </div>  
@@ -194,6 +199,7 @@
                     <?php
                         $sixthGalleryItems = DB::table('gallery')
                                 ->where('status', 'Published')
+                                ->where('item_type','Gallery Element')
                                 ->where('item_category', 'sixth')
                                 ->orderBy('id', 'desc')
                                 ->limit(1)
@@ -208,7 +214,7 @@
                                     <div class="thumb-content-box">
                                         <div class="thumb-content">
                                             <h3><span>Duplex</span>Interior</h3>
-                                            <a href="{{url('/portfolio')}}"><i class="fas fa-angle-right"></i></a>
+                                            <a href="{{$firstItem->reference_link}}"><i class="fas fa-angle-right"></i></a>
                                         </div>
                                     </div>
                                 </div>  
